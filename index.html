@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PowerFuel | Suplementos Deportivos</title>
+  <meta name="description" content="Suplementos deportivos premium: proteína, creatina, pre-entreno y más. Rinde más, recupera mejor y alcanza tus objetivos con PowerFuel." />
+  <meta name="theme-color" content="#111827" />
+  <style>
+    :root {
+      --bg: #0b0f1a;
+      --card: #111827;
+      --muted: #9aa4b2;
+      --text: #e5e7eb;
+      --white: #ffffff;
+      --primary: #22c55e;
+      --primary-600: #16a34a;
+      --accent: #38bdf8;
+      --danger: #ef4444;
+      --ring: 0 0 0 3px rgba(34,197,94,.25);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(1100px, 92%); margin: 0 auto; }
+
+    /* Nav */
+    .nav {
+      position: sticky; top: 0; z-index: 30; backdrop-filter: saturate(160%) blur(8px);
+      background: linear-gradient(to bottom, rgba(11,15,26,.9), rgba(11,15,26,.65));
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .nav-inner { display:flex; align-items:center; justify-content:space-between; padding: .9rem 0; }
+    .logo { display:flex; align-items:center; gap:.6rem; font-weight: 700; letter-spacing:.3px; }
+    .logo-badge { width: 28px; height: 28px; border-radius:8px; background: linear-gradient(135deg,#22c55e,#38bdf8); display:grid; place-items:center; font-weight:800; color:#081212; }
+    .nav-links { display:flex; align-items:center; gap:1rem; }
+    .nav-links a { color: var(--muted); font-weight: 500; }
+    .nav-actions { display:flex; align-items:center; gap:.6rem; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:.5rem; padding:.7rem 1rem; border-radius:.7rem; border:1px solid rgba(255,255,255,.08); background:#0f1626; color:var(--text); font-weight:600; cursor:pointer; transition:.2s ease; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--primary); color:#06210f; border-color: transparent; }
+    .btn-primary:hover { background: var(--primary-600); box-shadow: var(--ring); }
+    .badge { font-size:.78rem; color:#0a1a12; background: linear-gradient(135deg,#a7f3d0,#86efac); padding:.25rem .55rem; border-radius:.5rem; font-weight:700; }
+    .cart { position:relative; }
+    .cart-count { position:absolute; top:-6px; right:-6px; background: var(--danger); color:var(--white); font-size:.7rem; width:18px; height:18px; display:grid; place-items:center; border-radius:999px; font-weight:700; }
+    .nav-toggle { display:none; background:transparent; border:1px solid rgba(255,255,255,.08); padding:.5rem .7rem; border-radius:.6rem; color:var(--text); }
+
+    /* Hero */
+    .hero { position:relative; overflow:hidden; }
+    .hero-gradient { position:absolute; inset:0; background: radial-gradient(1200px 600px at 80% -10%, rgba(34,197,94,.15), transparent 60%), radial-gradient(900px 500px at -10% 20%, rgba(56,189,248,.15), transparent 60%); pointer-events:none; }
+    .hero-inner { display:grid; grid-template-columns: 1.2fr 1fr; gap: 2rem; padding: 3.5rem 0 2.5rem; align-items:center; }
+    .kicker { display:flex; gap:.6rem; align-items:center; color:#bbf7d0; }
+    .kicker .dot { width:8px; height:8px; background: var(--primary); border-radius:999px; }
+    .title { font-size: clamp(2rem, 3.8vw, 3.2rem); line-height:1.1; margin:.6rem 0 1rem; letter-spacing:.2px; }
+    .subtitle { color: var(--muted); font-size: clamp(1rem, 2vw, 1.12rem); }
+    .cta-row { margin-top:1.3rem; display:flex; gap:.8rem; flex-wrap:wrap; }
+    .stats { display:flex; gap:1.2rem; margin-top:1.4rem; color:#cbd5e1; font-weight:600; flex-wrap:wrap; }
+    .stat { background: #0f172a; border:1px solid rgba(255,255,255,.08); padding:.6rem .8rem; border-radius:.6rem; }
+    .hero-card { background: linear-gradient(180deg, rgba(17,24,39,.9), rgba(17,24,39,.7)); border:1px solid rgba(255,255,255,.08); border-radius:1rem; padding:1.2rem; box-shadow: inset 0 1px 0 rgba(255,255,255,.06); }
+    .product-mock { aspect-ratio: 4/3; border-radius:.8rem; background: linear-gradient(135deg,#0ea5e9 0%, #22c55e 100%); display:grid; place-items:center; font-size:1.2rem; font-weight:800; color:#06210f; }
+    .trust-row { display:flex; gap:1rem; margin-top:1rem; flex-wrap:wrap; color:#a8b3c7; font-size:.95rem; }
+
+    /* Products */
+    .section { padding: 2.4rem 0; }
+    .section h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin:0 0 .8rem; }
+    .section p.lead { color: var(--muted); margin:0 0 1.2rem; }
+    .grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:1rem; }
+    .card { background: var(--card); border:1px solid rgba(255,255,255,.08); border-radius:1rem; overflow:hidden; display:flex; flex-direction:column; }
+    .card-media { background: linear-gradient(135deg, #0ea5e9 0%, #22c55e 100%); aspect-ratio: 4/3; display:grid; place-items:center; color:#06210f; font-weight:800; }
+    .card-body { padding:1rem; display:flex; flex-direction:column; gap:.6rem; }
+    .price { font-weight:800; font-size:1.1rem; }
+    .chip { font-size:.78rem; color:#86efac; }
+    .actions { margin-top:.4rem; display:flex; gap:.6rem; }
+
+    /* Benefits */
+    .benefits { display:grid; grid-template-columns: repeat(4,1fr); gap:1rem; }
+    .benefit { background: #0f1626; border:1px solid rgba(255,255,255,.08); border-radius:.9rem; padding:1rem; }
+    .benefit h4 { margin:.4rem 0 .2rem; }
+    .icon { width:36px; height:36px; border-radius:.5rem; display:grid; place-items:center; background: linear-gradient(135deg,#a7f3d0,#86efac); color:#052e16; font-weight:800; }
+
+    /* Testimonials */
+    .testimonials { display:grid; grid-template-columns: repeat(3,1fr); gap:1rem; }
+    .quote { background:#0f1626; border:1px solid rgba(255,255,255,.08); border-radius:1rem; padding:1rem; color:#c9d3e0; }
+
+    /* FAQ */
+    .faq { display:grid; gap:.7rem; }
+    .faq-item { background:#0f1626; border:1px solid rgba(255,255,255,.08); border-radius:.8rem; overflow:hidden; }
+    .faq-q { width:100%; text-align:left; background:transparent; color:var(--text); padding:1rem; font-weight:700; border:0; display:flex; justify-content:space-between; align-items:center; cursor:pointer; }
+    .faq-a { max-height:0; overflow:hidden; transition:max-height .25s ease; color: var(--muted); padding: 0 1rem; }
+    .faq-item.open .faq-a { max-height: 300px; padding: 0 1rem 1rem; }
+
+    /* CTA strip */
+    .cta-strip { background: linear-gradient(90deg, rgba(34,197,94,.15), rgba(56,189,248,.15)); border:1px solid rgba(255,255,255,.08); padding:1.2rem; border-radius:1rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+
+    /* Footer */
+    footer { border-top:1px solid rgba(255,255,255,.08); color:#a8b3c7; padding:1.6rem 0; }
+    .footer-grid { display:grid; grid-template-columns: 1.2fr .8fr .8fr; gap:1rem; }
+    .foot small { color:#6b7280; }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .hero-inner { grid-template-columns: 1fr; padding-top: 2.2rem; }
+      .grid { grid-template-columns: repeat(2,1fr); }
+      .benefits { grid-template-columns: repeat(2,1fr); }
+      .testimonials { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 680px) {
+      .nav-links { display:none; }
+      .nav-toggle { display:inline-flex; }
+      .grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .cta-strip { align-items:stretch; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#" class="logo" aria-label="PowerFuel inicio">
+        <span class="logo-badge">PF</span>
+        <span>PowerFuel</span>
+      </a>
+      <div class="nav-links" role="navigation" aria-label="Secciones">
+        <a href="#productos">Productos</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="nav-actions">
+        <span class="badge">Envío gratis desde $50</span>
+        <button class="btn" id="openCatalog">Catálogo</button>
+        <button class="btn btn-primary" onclick="document.getElementById('productos').scrollIntoView({behavior:'smooth'})">Comprar ahora</button>
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
+        <a class="btn cart" href="#" aria-label="Carrito">
+          🛒
+          <span class="cart-count" id="cartCount">0</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-gradient" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <div>
+        <div class="kicker"><span class="dot"></span> Suplementos de alto rendimiento</div>
+        <h1 class="title">Rinde más. Recupera mejor. Llega más lejos.</h1>
+        <p class="subtitle">Línea completa de suplementos deportivos con ingredientes validados científicamente. Resultados reales para fuerza, energía y recuperación.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#productos">Comprar suplementos</a>
+          <a class="btn" href="#combos">Ver combos</a>
+        </div>
+        <div class="stats">
+          <span class="stat">+25k atletas</span>
+          <span class="stat">Calidad certificada</span>
+          <span class="stat">Pago 3 cuotas</span>
+        </div>
+        <div class="trust-row">
+          <span>• Ingredientes certificados</span>
+          <span>• Sin azúcares añadidos</span>
+          <span>• Apto vegetarianos</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="product-mock">POWERFUEL</div>
+        <p style="color:#a8b3c7; margin:.8rem 0 0">Pack Inicio: Proteína + Creatina + Shaker</p>
+        <div class="cta-row">
+          <button class="btn" data-add-to-cart="Combo Inicio">Agregar al carrito</button>
+          <button class="btn btn-primary" onclick="document.getElementById('productos').scrollIntoView({behavior:'smooth'})">Ver catálogo</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Productos -->
+  <section id="productos" class="section">
+    <div class="container">
+      <h2>Productos destacados</h2>
+      <p class="lead">Fórmulas limpias, transparentes y efectivas para cada objetivo.</p>
+      <div class="grid">
+        <!-- 1 -->
+        <article class="card">
+          <div class="card-media" aria-hidden="true">WHEY</div>
+          <div class="card-body">
+            <div>
+              <strong>Proteína Whey 900g</strong>
+              <div class="chip">24g proteína • 5.5g BCAA</div>
+            </div>
+            <div class="price">$29.990</div>
+            <div class="actions">
+              <button class="btn" data-add-to-cart="Proteína Whey">Agregar</button>
+              <button class="btn btn-primary">Comprar</button>
+            </div>
+          </div>
+        </article>
+        <!-- 2 -->
+        <article class="card">
+          <div class="card-media" aria-hidden="true">CREA</div>
+          <div class="card-body">
+            <div>
+              <strong>Creatina Monohidratada 300g</strong>
+              <div class="chip">Creapure® • Micronizada</div>
+            </div>
+            <div class="price">$19.990</div>
+            <div class="actions">
+              <button class="btn" data-add-to-cart="Creatina">Agregar</button>
+              <button class="btn btn-primary">Comprar</button>
+            </div>
+          </div>
+        </article>
+        <!-- 3 -->
+        <article class="card">
+          <div class="card-media" aria-hidden="true">PRE</div>
+          <div class="card-body">
+            <div>
+              <strong>Pre-Entreno Nitro 300g</strong>
+              <div class="chip">Cafeína • Beta-Alanina</div>
+            </div>
+            <div class="price">$22.990</div>
+            <div class="actions">
+              <button class="btn" data-add-to-cart="Pre-Entreno Nitro">Agregar</button>
+              <button class="btn btn-primary">Comprar</button>
+            </div>
+          </div>
+        </article>
+        <!-- 4 -->
+        <article class="card">
+          <div class="card-media" aria-hidden="true">BCAA</div>
+          <div class="card-body">
+            <div>
+              <strong>BCAA 2:1:1 300g</strong>
+              <div class="chip">Leucina • Isoleucina • Valina</div>
+            </div>
+            <div class="price">$17.990</div>
+            <div class="actions">
+              <button class="btn" data-add-to-cart="BCAA">Agregar</button>
+              <button class="btn btn-primary">Comprar</button>
+            </div>
+          </div>
+        </article>
+        <!-- 5 -->
+        <article class="card">
+          <div class="card-media" aria-hidden="true">VIT</div>
+          <div class="card-body">
+            <div>
+              <strong>Multivitamínico 60 caps</strong>
+              <div class="chip">Vitaminas + Minerales</div>
+            </div>
+            <div class="price">$14.990</div>
+            <div class="actions">
+              <button class="btn" data-add-to-cart="Multivitamínico">Agregar</button>
+              <button class="btn btn-primary">Comprar</button>
+            </div>
+          </div>
+        </article>
+        <!-- 6 -->
+        <article class="card">
+          <div class="card-media" aria-hidden="true">BAR</div>
+          <div class="card-body">
+            <div>
+              <strong>Barras Energéticas (x12)</strong>
+              <div class="chip">Sin azúcar añadida</div>
+            </div>
+            <div class="price">$16.990</div>
+            <div class="actions">
+              <button class="btn" data-add-to-cart="Barras Energéticas">Agregar</button>
+              <button class="btn btn-primary">Comprar</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beneficios -->
+  <section id="beneficios" class="section">
+    <div class="container">
+      <h2>Beneficios que se sienten</h2>
+      <p class="lead">Diseñados para maximizar fuerza, energía y recuperación sin atajos.</p>
+      <div class="benefits">
+        <div class="benefit">
+          <div class="icon">⚡</div>
+          <h4>Energía sostenida</h4>
+          <p class="subtitle">Mejor enfoque y rendimiento sin picos ni caídas.</p>
+        </div>
+        <div class="benefit">
+          <div class="icon">💪</div>
+          <h4>Fuerza y volumen</h4>
+          <p class="subtitle">Ingredientes con respaldo científico para progresar.</p>
+        </div>
+        <div class="benefit">
+          <div class="icon">⏱️</div>
+          <h4>Recuperación rápida</h4>
+          <p class="subtitle">Menor fatiga y mejor rendimiento al día siguiente.</p>
+        </div>
+        <div class="benefit">
+          <div class="icon">🧪</div>
+          <h4>Calidad verificada</h4>
+          <p class="subtitle">Buenas prácticas, lote analizado y etiquetado claro.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section id="testimonios" class="section">
+    <div class="container">
+      <h2>Lo que dicen nuestros clientes</h2>
+      <div class="testimonials">
+        <blockquote class="quote">“La creatina es top. Noté fuerza extra a las 2 semanas.” — Lucas P.</blockquote>
+        <blockquote class="quote">“Sabor de la whey muy natural y se disuelve perfecto.” — Camila D.</blockquote>
+        <blockquote class="quote">“El pre-entreno da energía sin taquicardia. Excelente.” — Martín R.</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section">
+    <div class="container">
+      <h2>Preguntas frecuentes</h2>
+      <div class="faq">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">¿Hacen envíos a todo el país? <span>+</span></button>
+          <div class="faq-a">Sí, enviamos a todo el país. Envío gratis en compras superiores a $50.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">¿Cómo se toma la creatina? <span>+</span></button>
+          <div class="faq-a">Recomendamos 3-5g diarios, cualquier horario, todos los días.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">¿Las proteínas tienen azúcar? <span>+</span></button>
+          <div class="faq-a">No, endulzamos con estevia/sucralosa y usamos sabores naturales.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-strip">
+        <div>
+          <strong style="display:block; font-size:1.1rem">Listo para subir tu nivel?</strong>
+          <span style="color:#a8b3c7">Empieza hoy con envío gratis desde $50.</span>
+        </div>
+        <div class="cta-row" style="margin:0">
+          <a class="btn btn-primary" href="#productos">Comprar ahora</a>
+          <a class="btn" href="#faq">Dudas frecuentes</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="foot">
+        <div class="logo" style="margin-bottom:.6rem">
+          <span class="logo-badge">PF</span>
+          <span>PowerFuel</span>
+        </div>
+        <small>© <span id="year"></span> PowerFuel. Todos los derechos reservados.</small>
+      </div>
+      <div>
+        <strong>Compañía</strong>
+        <div style="margin-top:.6rem; display:grid; gap:.4rem; color:#a8b3c7">
+          <a href="#">Nosotros</a>
+          <a href="#">Términos</a>
+          <a href="#">Privacidad</a>
+        </div>
+      </div>
+      <div>
+        <strong>Ayuda</strong>
+        <div style="margin-top:.6rem; display:grid; gap:.4rem; color:#a8b3c7">
+          <a href="#faq">FAQ</a>
+          <a href="#">Pagos</a>
+          <a href="#">Envíos</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Año actual
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Menu móvil simple: muestra enlaces en alert si está oculto (placeholder)
+    const navToggle = document.getElementById('navToggle');
+    const links = document.querySelector('.nav-links');
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        const showing = getComputedStyle(links).display !== 'none';
+        links.style.display = showing ? 'none' : 'flex';
+      });
+    }
+
+    // Carrito simulado
+    let cart = 0;
+    const cartCount = document.getElementById('cartCount');
+    document.querySelectorAll('[data-add-to-cart]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        cart += 1; cartCount.textContent = String(cart);
+        toast(`Añadido: ${btn.getAttribute('data-add-to-cart')}`);
+      });
+    });
+
+    // FAQ acordeón
+    document.querySelectorAll('.faq-item').forEach(item => {
+      const q = item.querySelector('.faq-q');
+      q.addEventListener('click', () => {
+        const open = item.classList.toggle('open');
+        q.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    });
+
+    // Toast minimalista
+    function toast(text) {
+      const el = document.createElement('div');
+      el.textContent = text;
+      el.style.cssText = 'position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:#111827;color:#e5e7eb;padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.08);box-shadow:0 10px 20px rgba(0,0,0,.25);z-index:50';
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 1800);
+    }
+  </script>
+</body>
+</html>
