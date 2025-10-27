@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lebron Suplementos</title>
-  <meta name="description" content="Suplementos deportivos premium: proteína, creatina, pre-entreno y más. Rinde más, recupera mejor y alcanza tus objetivos con PowerFuel." />
+  <meta name="description" content="Suplementos deportivos premium: proteína, creatina, pre‑entreno y más. Rinde más, recupera mejor y alcanza tus objetivos con PowerFuel." />
   <meta name="theme-color" content="#111827" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
@@ -15,11 +15,11 @@
         <img class="logo-img" src="img/lebronLogo.png" alt="Logo del sitio" />
       </a>
       <ul class="nav-links">
-        <li><a href="#categorias">Suplementos</a></li>
+        <li><a href="#suplementos">Suplementos</a></li>
         <li><a href="#beneficios">Alimentos</a></li>
-        <li><a href="#categorias">Accesorios</a></li>
+        <li><a href="#testimonios">Accesorios</a></li>
         <li><a href="#faq">Marcas</a></li>
-        <li><a href="#categorias">Combos</a></li>
+        <li><a href="#faq">Combos</a></li>
       </ul>
       <section class="nav-actions" aria-label="Acciones">
         <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">&#9776;</button>
@@ -40,7 +40,7 @@
         <p class="subtitle">Línea completa de suplementos deportivos con ingredientes validados científicamente. Resultados reales para fuerza, energía y recuperación.</p>
         <section class="cta-row" aria-label="Llamadas a la acción">
           <a class="btn btn-primary" href="#categorias">Comprar suplementos</a>
-          <a class="btn" href="#categorias">Ver combos</a>
+          <a class="btn" href="#combos">Ver combos</a>
         </section>
         <p class="trust-row">
           <span>&#10003; Ingredientes certificados</span>
@@ -48,7 +48,7 @@
           <span>&#10003; Apto vegetarianos</span>
         </p>
       </section>
-      <section class="hero-card">
+      <section class="hero-card" aria-labelledby="pack-inicio">
         <section class="product-mock" aria-hidden="true">
           <video src="videos/videoInicio.mp4" autoplay muted loop playsinline></video>
         </section>
@@ -57,47 +57,53 @@
   </header>
 
   <main>
+    <!-- Categorías destacadas -->
     <section id="categorias" class="section">
       <section class="container">
         <h2>Categorías destacadas</h2>
         <p class="lead">Explora nuestras líneas más buscadas.</p>
         <section class="grid categories" aria-label="Listado de categorías">
           <a class="category-card" href="categorias/proteinas.html">
-            <figure class="category-thumb" aria-hidden="true"><img src="img/protein (1).png" alt="Proteínas" loading="lazy" /></figure>
+            <figure class="category-thumb" aria-hidden="true"> <img src="img/protein (1).png" alt=""></figure>
             <h3 class="category-name">Proteínas</h3>
           </a>
-          <a class="category-card" href="categorias/barras.html">
-            <figure class="category-thumb" aria-hidden="true"><img src="img/alimentos (2).png" alt="Alimentos saludables" loading="lazy" /></figure>
-            <h3 class="category-name">Alimentos saludables</h3>
+          <a class="category-card" href="categorias/vitaminas.html">
+            <figure class="category-thumb" aria-hidden="true"><span>VIT</span></figure>
+            <h3 class="category-name">Vitaminas</h3>
           </a>
           <a class="category-card" href="categorias/creatinas.html">
-            <figure class="category-thumb" aria-hidden="true"><img src="img/creatina (1).png" alt="Creatinas" loading="lazy" /></figure>
+            <figure class="category-thumb" aria-hidden="true"><span>CREA</span></figure>
             <h3 class="category-name">Creatinas</h3>
           </a>
           <a class="category-card" href="categorias/pre-entrenos.html">
-            <figure class="category-thumb" aria-hidden="true"><img src="img/preenterno2 (1).png" alt="Pre entrenos" loading="lazy" /></figure>
+            <figure class="category-thumb" aria-hidden="true"><span>PRE</span></figure>
             <h3 class="category-name">Pre Entrenos</h3>
           </a>
           <a class="category-card" href="categorias/aminoacidos.html">
-            <figure class="category-thumb" aria-hidden="true"><img src="img/amino (1).png" alt="Aminoácidos" loading="lazy" /></figure>
+            <figure class="category-thumb" aria-hidden="true"><span>AMINO</span></figure>
             <h3 class="category-name">Aminoácidos</h3>
           </a>
-          <a class="category-card" href="categorias/vitaminas.html">
-            <figure class="category-thumb" aria-hidden="true"><img src="img/vitaminas (1).png" alt="Vitaminas" loading="lazy" /></figure>
-            <h3 class="category-name">Vitaminas</h3>
+          <a class="category-card" href="categorias/barras.html">
+            <figure class="category-thumb" aria-hidden="true"><span>BAR</span></figure>
+            <h3 class="category-name">Barras</h3>
           </a>
           <a class="category-card" href="categorias/accesorios.html">
-            <figure class="category-thumb" aria-hidden="true"><img src="img/accesorios (1).png" alt="Indumentaria y Accesorios" loading="lazy" /></figure>
-            <h3 class="category-name">Indumentaria y Accesorios</h3>
+            <figure class="category-thumb" aria-hidden="true"><span>ACC</span></figure>
+            <h3 class="category-name">Accesorios</h3>
           </a>
           <a class="category-card" href="categorias/shakers.html">
-            <figure class="category-thumb" aria-hidden="true"><img src="img/quemadorr (1).png" alt="Quemadores" loading="lazy" /></figure>
-            <h3 class="category-name">Quemadores</h3>
+            <figure class="category-thumb" aria-hidden="true"><span>SHAKE</span></figure>
+            <h3 class="category-name">Shakers</h3>
+          </a>
+          <a class="category-card" href="categorias/shakers.html">
+            <figure class="category-thumb" aria-hidden="true"><span>SHAKE</span></figure>
+            <h3 class="category-name">Shakers</h3>
           </a>
         </section>
       </section>
     </section>
 
+    <!-- Beneficios -->
     <section id="beneficios" class="section">
       <section class="container">
         <h2>Beneficios que se sienten</h2>
@@ -126,17 +132,19 @@
       </section>
     </section>
 
+    <!-- Testimonios -->
     <section id="testimonios" class="section">
       <section class="container">
         <h2>Lo que dicen nuestros clientes</h2>
         <section class="testimonials" aria-label="Testimonios">
-          <blockquote class="quote">"La atención fue impecable, resolvieron mis dudas enseguida y con buena onda." — Sofía M.</blockquote>
-          <blockquote class="quote">"Los precios son súper competitivos y la calidad del producto excelente." — Diego L.</blockquote>
-          <blockquote class="quote">"Mi pedido llegó rapidísimo, todo bien embalado y con un detalle extra." — Valentina R.</blockquote>
+          <blockquote class="quote">"La creatina es top. Notó fuerza extra a las 2 semanas." – Lucas P.</blockquote>
+          <blockquote class="quote">"Sabor de la whey muy natural y se disuelve perfecto." – Camila D.</blockquote>
+          <blockquote class="quote">"El pre‑entreno da energía sin taquicardia. Excelente." – Martín R.</blockquote>
         </section>
       </section>
     </section>
 
+    <!-- FAQ -->
     <section id="faq" class="section">
       <section class="container">
         <h2>Preguntas frecuentes</h2>
@@ -157,6 +165,7 @@
       </section>
     </section>
 
+    <!-- CTA final -->
     <section class="section">
       <section class="container">
         <section class="cta-strip">
@@ -171,13 +180,15 @@
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
     <section class="container footer-grid">
       <section class="foot">
         <a class="logo" href="#" aria-label="Inicio">
-          <img class="logo-img" src="img/lebronLogo.png" alt="Logo del sitio" />
+          <img class="logo-img" src="img/fondo (1).png" alt="Logo del sitio" />
+          <span>PowerFuel</span>
         </a>
-        <small>&copy; <span id="year"></span> Lebron Suplementos. Todos los derechos reservados.</small>
+        <small>© <span id="year"></span> PowerFuel. Todos los derechos reservados.</small>
       </section>
       <nav aria-label="Compañía">
         <strong>Compañía</strong>
