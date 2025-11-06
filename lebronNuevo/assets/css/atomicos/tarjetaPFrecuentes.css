@@ -1,0 +1,113 @@
+/* Tarjeta Preguntas Frecuentes (flip) */
+.tarjeta-pf {
+  --pf-bg: #0b0b0f;
+  --pf-fg: #e5e7eb;
+  --pf-accent: #a78bfa;
+  --pf-radius: 14px;
+  --pf-shadow: 0 10px 25px rgba(0,0,0,.35);
+  --pf-shadow-hover: 0 10px 20px rgba(128, 68, 68, 0.295);
+  --pf-h: 180px;
+
+  position: relative;
+  width: 100%; /* ocupar todo el ancho de la celda para evitar hueco a la derecha */
+  height: var(--pf-h);
+  perspective: 1000px;
+}
+
+.tarjeta-pf-inner {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transition: transform 2s cubic-bezier(.2,.8,.2,1);
+}
+
+/* Flip solo por estado (click/teclado) */
+.tarjeta-pf.is-flipped .tarjeta-pf-inner {
+  transform: rotateY(180deg);
+}
+
+.tarjeta-pf-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.25rem;
+  border-radius: var(--pf-radius);
+  box-shadow: var(--pf-shadow);
+  backface-visibility: hidden;
+  transition: box-shadow .25s ease;
+  cursor: pointer;
+}
+
+.tarjeta-pf-front {
+  background:
+    radial-gradient(100% 120% at 80% 10%, rgba(255, 0, 0, 0.616), transparent 60%),
+    radial-gradient(120% 100% at 0% 100%, rgba(0,0,0,.35), transparent 60%),
+    linear-gradient(var(--card-back-angle), var(--card-back-a), var(--card-back-b));
+    /*background: linear-gradient(145deg, rgb(182, 1, 1), rgba(167, 139, 250, 0.993) 45%, rgba(255, 123, 123, 0.233));*/
+  color: var(--pf-fg);
+  border: 2px solid rgba(175, 0, 0, 0.25);
+}
+
+.tarjeta-pf-q {
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.tarjeta-pf-hint {
+  position: absolute;
+  bottom: .6rem;
+  right: .8rem;
+  font-size: .75rem;
+  opacity: .6;
+}
+
+/* Botón CTA opcional (solo si se pasa por props) */
+.tarjeta-pf-cta {
+  position: absolute;
+  left: .8rem;
+  bottom: .6rem;
+  display: inline-block;
+  padding: .3rem .55rem;
+  font-size: .8rem;
+  color: #e5e7eb;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: .5rem;
+  background: rgba(255,255,255,.08);
+  transition: background .2s ease, border-color .2s ease, transform .15s ease;
+}
+.tarjeta-pf-cta:hover, .tarjeta-pf-cta:focus-visible {
+  background: rgba(255,255,255,.15);
+  border-color: rgba(255,255,255,.55);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.tarjeta-pf-back {
+  background: linear-gradient(145deg, rgb(0, 0, 0), rgba(90, 90, 90, 0.089) 45%, rgb(0, 0, 0));
+  color: var(--pf-fg);
+  transform: rotateY(180deg);
+  border: 1px solid rgba(255, 0, 0, 0.25);
+}
+
+.tarjeta-pf-a {
+  font-size: .95rem;
+  line-height: 1.5;
+  margin: 0;
+  text-align: center;
+}
+
+/* Hover: solo aumenta la sombra (sin flip) */
+.tarjeta-pf:hover .tarjeta-pf-face {
+  box-shadow: var(--pf-shadow-hover);
+}
+
+/* Responsive height tweak */
+@media (min-width: 768px) {
+  .tarjeta-pf { --pf-h: 200px; }
+}

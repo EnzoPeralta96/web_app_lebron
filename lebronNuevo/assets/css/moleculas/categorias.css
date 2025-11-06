@@ -1,0 +1,100 @@
+/* Grid para sección de categorías (usa tarjetas flip) */
+
+:root {
+  --categories-gap: clamp(0.75rem, 2vw, 0.5rem);
+  --categories-max: 70rem;
+  --categories-min: 25rem;
+}
+
+.categories-wrap {
+  /* Limita el contenedor para que entren exactamente 3 tarjetas por fila en desktop */
+  max-width: calc(var(--card-w) * 3 + var(--categories-gap) * 2);
+  margin-inline: auto;
+}
+
+.categories-grid {
+  /* Flex en lugar de Grid, misma estética */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+}
+
+/* Cada tarjeta ocupa al menos el mínimo y no excede su ancho máximo */
+.categories-grid>.lb-card {
+  /* Cada ítem ocupa exactamente el ancho de la tarjeta */
+  flex: 0 0 var(--card-w);
+  margin: 0;
+  /* evita sumar margen y que no entren 3 */
+}
+
+/* 2 por fila en pantallas medianas */
+@media (max-width: 64rem) {
+  .categories-wrap {
+    max-width: calc(var(--card-w) * 2 + var(--categories-gap));
+  }
+}
+
+/* 1 por fila en pantallas pequeñas */
+@media (max-width: 40rem) {
+  .categories-wrap {
+    max-width: 100%;
+  }
+
+  .categories-grid>.lb-card {
+    flex-basis: 100%;
+  }
+}
+
+/* Espaciado y divisores (arriba/abajo) */
+#categorias.section {
+  position: relative;
+  padding-block: clamp(2rem, 6vw, 3.5rem);
+  border-top: 1px solid var(--divider-strong);
+  border-bottom: 1px solid var(--divider-strong);
+}
+
+/* Título y subtítulo */
+#categorias .categories-wrap > h2 {
+  margin: 0 0 .35rem;
+  font-weight: 700;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  letter-spacing: .2px;
+  color: #e8eaee;
+  text-shadow: 0 1px 0 rgba(0,0,0,.35);
+  position: relative;
+  text-align: center; /* centrar el título */
+}
+
+/* pequeña barra decorativa debajo del título, centrada */
+#categorias .categories-wrap > h2::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: clamp(48px, 10vw, 96px);
+  margin: .25rem auto 0; /* centrar la barra */
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--divider-soft), var(--divider-strong));
+}
+
+#categorias .categories-wrap > .lead {
+  margin: 0 0 1rem;
+  color: #cbd5e1;
+  font-size: clamp(.95rem, 1.6vw, 1.1rem);
+  text-align: center; /* centrar el subtítulo */
+  max-width: min(68ch, 720px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Glow suave solo vertical para separar visualmente */
+#categorias.section::before,
+#categorias.section::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: clamp(12px, 2.5vw, 24px);
+  pointer-events: none;
+}
+#categorias.section::before { top: -1px; background: linear-gradient(to bottom, var(--divider-glow1), rgba(0,0,0,0) 70%); }
+#categorias.section::after  { bottom: -1px; background: linear-gradient(to top,    var(--divider-glow2), rgba(0,0,0,0) 70%); }

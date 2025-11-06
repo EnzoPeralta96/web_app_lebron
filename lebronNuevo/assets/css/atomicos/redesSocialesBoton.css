@@ -1,0 +1,81 @@
+/* Botón/Lista de redes sociales (Lebron) */
+.lb-social {
+  --size: 3.25rem;
+  --border: rgba(229, 231, 235, .55); /* base #e5e7eb */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(10px, 2vw, 16px);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lb-social li {
+  position: relative;
+  flex: 0 0 var(--size);
+}
+
+/* Tooltip */
+.lb-social li::after {
+  position: absolute;
+  content: attr(data-tooltip);
+  inset: -42% auto auto 50%;
+  translate: -50% 0;
+  z-index: 2;
+  padding: .25rem .6rem;
+  font-size: .8rem;
+  color: #fff;
+  background: var(--bg, #070707);
+  border-radius: .35rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: inset .35s cubic-bezier(.47,2,.41,1.5),
+              visibility .25s ease, opacity .2s ease;
+}
+
+.lb-social li:has(a:hover, a:focus-visible)::after {
+  opacity: 1;
+  visibility: visible;
+  inset-block-start: -64%;
+}
+
+.lb-social a {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: var(--size);
+  aspect-ratio: 1;
+  color: #e5e7eb;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  text-decoration: none;
+  overflow: hidden;
+  outline: none;
+  transition: color .25s ease;
+}
+
+.lb-social a > svg { position: relative; z-index: 1; width: 58%; height: 58%; }
+
+/* Fill background that slides in */
+.lb-social a::after {
+  content: "";
+  position: absolute;
+  inset: 100% 0 0;
+  background: var(--bg, #070707);
+  transition: inset .28s ease-in-out;
+}
+
+
+.lb-social a:hover,
+.lb-social a:focus-visible { color: #fff; }
+
+.lb-social a:hover::after,
+.lb-social a:focus-visible::after { inset-block-start: 0; }
+
+/* Size tweaks for larger screens */
+@media (min-width: 768px) {
+  .lb-social { --size: 3.5rem; }
+}

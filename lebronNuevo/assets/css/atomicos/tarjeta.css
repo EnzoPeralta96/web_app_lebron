@@ -1,0 +1,177 @@
+/* Tarjeta (flip) estilo LeBron — con efecto 3D fuerte */
+
+:root {
+  --card-w: clamp(20rem, 30vw, 35rem);
+  --card-r: 1rem;
+  --card-minh: clamp(14rem, 26vw, 18rem);
+  --card-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, .28);
+  --card-accent: var(--primary, #dc143c);
+  --card-accent-2: color-mix(in srgb, var(--card-accent) 70%, #000 30%);
+  --card-overlay: rgba(41, 29, 29, 0.4);
+  --text-depth: 6rem;
+  /* 60px, profundidad del texto 3D */
+  /* Gradiente del dorso (personalizable) */
+  --card-back-a: color-mix(in srgb, var(--card-accent) 25%, #000 75%);
+  --card-back-b: color-mix(in srgb, var(--card-accent-2) 60%, #000 40%);
+  --card-back-angle: 135deg;
+}
+
+.lb-card {
+  width: var(--card-w);
+  margin: 1rem;
+  
+}
+
+.lb-card-link {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  
+
+}
+
+.lb-card-rotator {
+  position: relative;
+  min-height: var(--card-minh);
+  transform-style: preserve-3d;
+  transition: transform .7s cubic-bezier(.4, .2, .2, 1);
+}
+
+.lb-card-face {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--card-r);
+  box-shadow: var(--card-shadow);
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: box-shadow .3s ease;
+  overflow: visible;
+  border: 2px solid rgba(255, 255, 255, 0.486);
+}
+
+/* Fondo y mascara con borde redondeado que mantienen el clipping */
+.lb-card-media {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  overflow: hidden;
+  background-image: var(--bg-url);
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.lb-card-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--card-overlay);
+}
+
+.lb-card-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+/* Overlay se aplica solo en .lb-card-media::after para evitar duplicados */
+
+/* 🏆 EFECTO 3D FUERTE EN CAPTION (CONTENIDO) 🏆 */
+.lb-card-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* 1. Mantenemos el centrado 2D */
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  gap: .5rem;
+  padding: 1.2rem;
+  text-align: center;
+  width: calc(100% - 2.4rem);
+  pointer-events: none;
+  will-change: transform;
+  /* 2. Aplicamos la profundidad Z fuerte en un selector anidado */
+  z-index: 2;
+}
+
+/* Selector para aplicar el translateZ alto y el scale al contenido de la cara frontal */
+.lb-card-front .lb-card-caption {
+  transform: translate(-50%, -50%) translateZ(var(--text-depth)) scale(0.94);
+}
+
+.lb-card-title {
+  font-size: clamp(1.1rem, 2.4vw, 1.4rem);
+  font-weight: 700;
+}
+
+.lb-card-title::after {
+  content: "";
+  width: 6rem;
+  height: .125rem;
+  background: var(--card-accent);
+  display: block;
+  margin: .5rem auto 0;
+  border-radius: 999rem;
+}
+
+.lb-card-sub {
+  color: rgba(255, 255, 255, .85);
+  font-size: 1rem;
+}
+
+.lb-card-desc {
+  font-size: clamp(1.2rem, 2vw, 1.2rem);
+  line-height: 1;
+  color: #ffffff;
+}
+
+.lb-card-back {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--card-r);
+  background:
+    radial-gradient(100% 120% at 80% 10%, rgba(255, 0, 0, 0.616), transparent 60%),
+    radial-gradient(120% 100% at 0% 100%, rgba(0,0,0,.35), transparent 60%),
+    linear-gradient(var(--card-back-angle), var(--card-back-a), var(--card-back-b));
+  transform: rotateY(180deg);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  color: #fff;
+}
+
+.lb-card-back::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+/* Aplicamos el translateZ alto y el scale al contenido de la cara trasera */
+.lb-card-back .lb-card-caption {
+  transform: translate(-50%, -50%) translateZ(var(--text-depth)) scale(0.94);
+}
+
+/* Flip interaction */
+.lb-card-link:hover .lb-card-rotator,
+.lb-card-link:focus-visible .lb-card-rotator {
+  transform: rotateY(180deg);
+}
+
+.lb-card-link:focus-visible {
+  outline: .15rem solid var(--card-accent);
+  outline-offset: .15rem;
+  border-radius: var(--card-r);
+}
+
+/* Responsive stack width */
+@media (max-width: 48rem) {
+  .lb-card {
+    width: 100%;
+    margin: 0 0 1.5rem 0;
+  }
+}

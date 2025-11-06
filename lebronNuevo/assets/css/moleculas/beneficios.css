@@ -1,0 +1,75 @@
+#beneficios{
+  background: rgb(0, 0, 0);
+ 
+}
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(.75rem, 2vw, 1.25rem);
+  
+}
+
+.benefit-card {
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: .9rem;
+  padding: 1rem;
+  text-align: left;
+  position: relative;
+}
+
+.benefit-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--primary) 40%, transparent), transparent);
+  opacity: .18;
+}
+
+.benefit-icon {
+  font-size: 1.6rem;
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: .6rem;
+  background: rgba(255, 255, 255, .06);
+  margin-bottom: .4rem;
+}
+
+.benefit-title {
+  margin: .2rem 0;
+  font-weight: 700;
+}
+
+.benefit-desc {
+  margin: 0;
+  color: #cbd5e1;
+}
+
+@media (max-width: 64rem) {
+  .benefits-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 40rem) {
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.beneficios-band,
+#beneficios{
+  /* Full-bleed intentado anteriormente con 100vw provocaba overflow en algunos dispositivos.
+     Usamos width:100% y mantenemos background; si necesitás un efecto visual que se salga del contenedor
+     lo manejamos con pseudo-elementos absolutos más adelante. */
+  width: 100%;
+  background: #000; /* negro sólido */
+  position: relative;
+  z-index: 1; /* por encima de pseudo-overlays globales */
+}
+
+/* Espaciado cómodo del bloque */
+#beneficios.section{ padding-block: clamp(2rem, 6vw, 3.5rem); }

@@ -1,0 +1,98 @@
+/* Sección Gancho: imagen + frase + acciones */
+#gancho.section {
+  position: relative;
+  margin-block: clamp(24px, 6vw, 72px);
+  padding-block: clamp(20px, 5vw, 48px);
+  border-top: 1px solid var(--divider-strong);
+  border-bottom: 1px solid var(--divider-strong);
+  /* background: image from inline CSS var + subtle overlay */
+  background:
+    linear-gradient(rgba(0, 0, 0, .45), rgba(0, 0, 0, .45)),
+    var(--gancho-bg, none);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#gancho .container {
+  width: min(100%, 1200px);
+  margin-inline: auto;
+  padding-inline: clamp(12px, 3vw, 24px);
+}
+
+.gancho-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(14px, 2.8vw, 28px);
+}
+
+@media (min-width: 900px) {
+  .gancho-inner {
+    flex-direction: row;
+    align-items: stretch;
+  }
+}
+
+.gancho-media {
+  margin: 0;
+}
+
+.gancho-media img {
+  display: block;
+  width: 100%;
+  height: 90%;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, .35);
+}
+
+.gancho-content {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 2vw, 16px);
+}
+
+.gancho-quote {
+  margin: 0;
+  padding: clamp(8px, 2vw, 14px) clamp(12px, 2.5vw, 18px);
+  border-left: 3px solid rgba(220, 38, 38, .6);
+  background: rgba(0, 0, 0, 0.562);
+  border-radius: 10px;
+}
+
+.gancho-quote p {
+  margin: 0;
+  font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+  line-height: 1.55;
+}
+
+.gancho-quote footer {
+  margin-top: .35rem;
+  color: #cbd5e1;
+  font-size: clamp(.8rem, 1vw, .9rem);
+}
+
+/* Texto libre dentro de la sección (copys debajo de la cita) */
+.gancho-content>p {
+  margin: 0;
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  line-height: 1.65;
+  color: #e5e7eb;
+  background: rgba(0, 0, 0, .28);
+  padding: .85rem 1rem;
+  border-radius: 12px;
+}
+
+.gancho-actions {
+  display: flex;
+  gap: clamp(8px, 2vw, 16px);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gancho-search {
+  width: min(100%, 720px);
+  margin-inline: auto;
+}
+
+/* no grid tweaks needed for 720px breakpoint after switching to flex */

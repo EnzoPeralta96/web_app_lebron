@@ -1,0 +1,244 @@
+/* Estilos del componente de navegacion (Lebron) */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  overflow: visible;
+  backdrop-filter: saturate(10%) blur(0.5rem);
+  border-bottom: 0;
+  transition: transform 2s ease, opacity 1s ease;
+}
+
+/* Linea luminosa bajo el nav */
+.nav::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--divider-soft, rgba(220, 38, 38, 0.5)) 15%,
+    var(--divider-strong, rgb(114, 3, 3)) 50%,
+    var(--divider-soft, rgba(220, 38, 38, 0.5)) 85%,
+    transparent 100%
+  );
+  box-shadow: 0 0 8px var(--divider-glow1, rgba(220, 38, 38, 0.6)),
+    0 0 20px var(--divider-glow2, rgba(239, 68, 68, 0.35));
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Haz animado que recorre el borde inferior */
+.nav::after {
+  content: "";
+  position: absolute;
+  width: 20%;
+  height: 3px;
+  left: -10%;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, #9c0000, #ffffff, transparent);
+  animation: beam-scan 10s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes beam-scan {
+  0% {
+    left: -10%;
+    bottom: 0;
+    top: auto;
+  }
+
+  25% {
+    left: 100%;
+    bottom: 0;
+    top: auto;
+  }
+
+  50% {
+    left: 100%;
+    top: 0;
+    bottom: auto;
+  }
+
+  75% {
+    left: -10%;
+    top: 0;
+    bottom: auto;
+  }
+
+  100% {
+    left: -100%;
+    bottom: 0;
+    top: auto;
+  }
+}
+
+.nav.is-hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+/* Compensar la altura del nav fijo */
+body.has-fixed-nav {
+  padding-top: var(--nav-h, 4.5rem);
+}
+
+/* Nivel superior */
+.nav-top {
+  display: grid;
+  grid-template-columns: 1fr minmax(240px, 640px) 1fr;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.65rem 1rem;
+  background: rgba(10, 10, 10, 0.44);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: clamp(3.2rem, 6vw, 4rem);
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Acciones del extremo derecho */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  justify-self: end;
+}
+
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.5rem 0.7rem;
+  border-radius: 0.6rem;
+  color: inherit;
+}
+
+@media (min-width: 62rem) {
+  /* hide sheet on large screens */
+  .nav-sheet { display: none; }
+  .nav-toggle { display: none; }
+}
+
+@media (max-width: 62rem) {
+  /* show toggle on smaller screens */
+  .nav-toggle { display: inline-flex; }
+  /* hide full nav-links on small screens if present (Links component) */
+  .nav-bottom { display: none; }
+}
+
+/* Estilo avanzado del boton de carrito */
+.cart {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.cart-btn {
+  position: relative;
+  padding-right: 2.8rem;
+}
+
+.cart-btn .text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cart-icon {
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.cart-label {
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+}
+
+.cart-btn.lb-57::after {
+  background: color-mix(in srgb, var(--primary, #e11919) 92%, #000 8%);
+}
+
+.cart-count {
+  position: absolute;
+  top: -0.45rem;
+  right: -0.45rem;
+  transform: scale(1);
+  min-width: 1.4rem;
+  height: 1.4rem;
+  display: grid;
+  place-items: center;
+  border-radius: 999rem;
+  background: var(--danger, #ef4444);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.45);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  pointer-events: none;
+}
+
+.cart:hover .cart-count,
+.cart:focus-within .cart-count {
+  transform: scale(1.12);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary, #e11919) 30%, rgba(0, 0, 0, 0.65));
+}
+
+/* Nivel inferior */
+.nav-bottom {
+  background: rgba(10, 10, 10, 0.44);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.4rem 0;
+}
+
+@media (max-width: 54em) {
+  .nav-top {
+    grid-template-columns: auto minmax(200px, 1fr) auto;
+    gap: 0.65rem;
+  }
+
+  .cart-btn {
+    padding-right: 2.2rem;
+  }
+
+  .cart-btn .text {
+    gap: 0.35rem;
+  }
+
+  .cart-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+  }
+
+  .cart-icon {
+    font-size: 1.15rem;
+  }
+
+  .cart-count {
+    right: -0.35rem;
+    top: -0.35rem;
+    min-width: 1.2rem;
+    height: 1.2rem;
+    font-size: 0.68rem;
+  }
+}
+
+@media (max-width: 42.5em) {
+  .nav {
+    display: none;
+  }
+}

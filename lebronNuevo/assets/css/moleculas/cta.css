@@ -1,0 +1,36 @@
+.cta-band {
+  width: 100vw; /* fallback */
+  width: 100svw; /* evita incluir barra de scroll */
+  margin-left: calc(50% - 50svw);
+  margin-right: calc(50% - 50svw);
+  padding: 2.5rem 1rem;
+  /* Espacio hacia el footer para que no se superponga la banda de burbujas */
+  margin-bottom: 10rem;
+  background:
+    radial-gradient(120% 100% at 100% 0%, rgb(255, 255, 255) 0%, transparent 60%),
+    radial-gradient(120% 100% at 0% 100%, rgba(21, 153, 39, 0.35) 0%, transparent 60%),
+    linear-gradient(135deg, color-mix(in srgb, var(--primary) 60%, #000 40%), #0b0b0f);
+}
+
+.cta-inner {
+  max-width: 64rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cta-title {
+  margin: 0 0 .25rem;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+.cta-sub {
+  margin: 0 0 1rem;
+  color: #cbd5e1;
+}
+
+.cta-actions {
+  display: flex;
+  gap: .75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,105 @@
+/* Sección Comprador: bloque autónomo con título + buscador */
+.lb-comprador {
+  padding: 1.25rem 1rem 2rem;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  height: 50vh;
+  /* Bordes superior e inferior de la sección */
+  border-top: 1px solid var(--divider-strong, rgb(114, 3, 3));
+  border-bottom: 1px solid var(--divider-strong, rgb(114, 3, 3));
+}
+
+/* Fondo con imagen (starr) */
+.lb-comprador::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  /* VELO: primera capa = velo oscuro semitransparente; segunda capa = imagen de fondo */
+  background-image: linear-gradient(0deg, rgba(0,0,0,.45), rgba(0,0,0,.45)), url("../../img/starr%20(1).png");
+  background-position: center, bottom;
+  background-size: auto, cover;
+  background-repeat: no-repeat, no-repeat;
+}
+
+.lb-comprador::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(2px 2px at 1px 1px, rgba(255, 255, 255, .06) 1px, transparent 1px);
+  background-size: 10px 10px;
+  opacity: .28;
+  animation: lb-comprador-drift 18s linear infinite;
+}
+
+@keyframes lb-comprador-drift {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-6%); }
+}
+
+/* Variante con imagen de fondo */
+/* Variante alternativa: si querés usar otra imagen, aplica .lb-comprador--image y sobreescribe en App con la clase */
+.lb-comprador.lb-comprador--image::before { opacity: .45; }
+.lb-comprador.lb-comprador--image::after { opacity: .18; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lb-comprador::before,
+  .lb-comprador::after { animation: none; }
+}
+
+.lb-comprador-inner {
+  max-width: 42rem;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: .9rem;
+  padding: 1rem;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.986), rgba(255,255,255,.02));
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 1rem;
+  box-shadow:
+    0 8px 24px rgba(0,0,0,.25),
+    inset 0 1px 0 rgba(255,255,255,.08);
+  position: relative;
+  z-index: 1;
+}
+
+.lb-comprador-title {
+  margin: 0;
+  text-align: center;
+  /* Nueva fuente del título */
+  font-family: 'Montserrat', "BBH Sans Bartle", system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, sans-serif !important;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  font-size: clamp(1rem, 3.6vw, 1.5rem);
+  line-height: 1.2;
+  color: #fff;
+  text-shadow:
+    0 0 18px rgba(220, 20, 20, .35),
+    0 1px 0 rgba(0,0,0,.35);
+}
+
+/* Asegura que el Buscador no exceda un ancho cómodo */
+.lb-comprador .lb-search {
+  width: 100%;
+  max-width: 22rem;
+}
+
+/* Ocultar la sección en desktop */
+@media (min-width: 1024px) {
+  .lb-comprador { display: none; }
+}
+
+@media (min-width: 768px) {
+  .lb-comprador { padding: 2rem 1rem 2.25rem; }
+  .lb-comprador-inner { gap: 1rem; }
+  .lb-comprador-title { font-size: clamp(1.1rem, 2.2vw, 1.6rem); }
+}

@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap');
+:root{
+    /* Línea divisoria del nav */
+    --divider-soft: rgba(212, 0, 0, 0.6);
+    --divider-strong: rgb(114, 3, 3);
+    --divider-glow1: rgba(220, 38, 38, .6);
+    --divider-glow2: rgba(239, 68, 68, .35);
+
+    /* Fondo global (ajustable) */
+    --bg-base: #0a0a0f;              /* color base */
+    --bg-accent: #dc143c;            /* acento crimson */
+    --bg-accent-soft: rgba(220,20,60,.18);
+    --bg-light: rgba(255,255,255,.06);
+    --bg-stripe: rgba(255,255,255,.03);
+}
+
+/* Reset mínimo para evitar overflow por padding/border */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { min-height: 100%; width: 100%; overflow-x: clip; }
+
+body{
+  --base:#120b0b;
+  background:
+    radial-gradient(120% 100% at 50% 0%, rgba(255,255,255,.05), transparent 60%),
+    var(--base);
+  color:#e5e7eb;
+  position:relative;
+  margin: 0; /* elimina el gap inferior/superior del body */
+}
+
+/* Titulares: BBH Sans Bartle (solo h2) */
+h2 {
+  font-family: "BBH Sans Bartle", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+body::before{
+  content:"";
+  position:fixed; inset:0; pointer-events:none;
+  background:
+    radial-gradient(2px 2px at 1px 1px, rgba(255, 0, 0, 0.699) 1px, transparent 1px);
+  background-size: 6px 6px;
+  opacity:.35;
+  z-index: 0; /* sit behind positioned content like footer/header */
+}
+

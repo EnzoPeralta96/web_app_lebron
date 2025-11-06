@@ -1,0 +1,55 @@
+/* Tarjetas de sucursales (átomo) */
+
+nav[aria-label="Sucursales"] > strong {
+  display: block;
+  margin-bottom: .5rem;
+}
+
+.tf-grid {
+  list-style: none;
+  margin: .35rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.tf-card {
+  position: relative;
+  padding: .9rem 1rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto 1fr;
+  gap: .4rem .75rem;
+  align-items: start;
+  background: rgba(255, 255, 255, 0.13);
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: 12px;
+  min-height: 120px;
+}
+
+/* Bloque de texto: separa título y dirección */
+.tf-text { display: grid; gap: .45rem; align-content: start; }
+
+.tf-title {
+  color: #e5e7eb;
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+.tf-title::after { content: ":"; margin-left: .25rem; opacity: .95; }
+
+.tf-addr {
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  justify-self: start;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Acción (botón) en esquina inferior derecha */
+.tf-actions { grid-column: 2; grid-row: 2; align-self: end; justify-self: end; }
+
+/* Tamaño mini del botón con el mismo efecto de lb-social */
+.tf-actions .lb-social { --size: 2.6rem; gap: 0; }
+.tf-actions .lb-social a { border-color: rgba(255,255,255,.22); }

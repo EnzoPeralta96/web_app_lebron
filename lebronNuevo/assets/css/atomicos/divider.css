@@ -1,0 +1,29 @@
+/* Reusable glowing divider utility */
+
+.has-divider { position: relative; }
+
+.divider-top::before,
+.divider-bottom::after {
+  content: "";
+  position: absolute;
+  left: var(--divider-left, 0);
+  right: var(--divider-right, 0);
+  height: var(--divider-h, 3px);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--divider-soft, rgba(212,0,0,0.6)) 15%,
+    var(--divider-strong, #720303) 50%,
+    var(--divider-soft, rgba(212,0,0,0.6)) 85%,
+    transparent 100%
+  );
+  box-shadow:
+    0 0 16px var(--divider-glow1, rgba(214, 4, 4, 0.795)),
+    0 0 40px var(--divider-glow2, rgba(218, 123, 123, 0.671));
+  z-index: 2;
+  pointer-events: none;
+}
+
+.divider-top::before { top: var(--divider-offset, -1px); }
+.divider-bottom::after { bottom: var(--divider-offset, -1px); }
+

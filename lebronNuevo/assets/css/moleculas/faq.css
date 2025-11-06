@@ -1,0 +1,41 @@
+﻿/* FAQ layout — FLEX + WRAP, sin grid ni selectores complejos */
+
+.faq-grid {
+  --faq-gap: clamp(12px, 2.5vw, 24px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--faq-gap);
+  justify-content: center;   /* centra cada fila */
+  align-content: flex-start;
+  list-style: none;
+  padding: 0;
+  width: min(100%, 1200px);
+  margin-inline: auto;
+  padding-inline: clamp(12px, 3vw, 24px);
+  box-sizing: border-box;
+}
+
+.faq-grid-item {
+  box-sizing: border-box;
+  flex: 0 1 calc((100% - (2 * var(--faq-gap))) / 3); /* 3 por fila */
+  max-width: calc((100% - (2 * var(--faq-gap))) / 3);
+}
+
+/* 2 por fila (tablets) */
+@media (max-width: 60rem) {
+  .faq-grid-item {
+    flex-basis: calc((100% - var(--faq-gap)) / 2);
+    max-width: calc((100% - var(--faq-gap)) / 2);
+  }
+}
+
+/* 1 por fila (móviles) */
+@media (max-width: 40rem) {
+  .faq-grid-item {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Asegurar que la tarjeta interna se estire al ancho del item */
+.faq-grid .tarjeta-pf { width: 100%; }

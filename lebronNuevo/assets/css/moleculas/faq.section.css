@@ -1,0 +1,55 @@
+/* Sección FAQ: contenedor, título y espaciado general */
+#faq.section {
+    /*background:
+    radial-gradient(100% 120% at 80% 10%, rgba(7, 0, 0, 0.774), transparent 60%),
+    radial-gradient(120% 100% at 0% 100%, rgba(51, 0, 0, 0.35), transparent 60%),
+    linear-gradient(var(--card-back-angle), var(--card-back-a), var(--card-back-b));
+*/
+background-color: rgba(0, 0, 0, 0.521);
+  position: relative;
+  /* más espacio con slider (arriba) y footer (abajo) */
+  margin-block: clamp(32px, 8vw, 96px);
+  padding-block: clamp(24px, 5vw, 56px);
+
+  /* divisores superior e inferior usando los tokens definidos */
+  border-top: 1px solid var(--divider-strong);
+  border-bottom: 1px solid var(--divider-strong);
+  /* solo top/bottom: línea + glow, sin laterales */
+  box-shadow:
+    0 -1px 0 var(--divider-soft) inset,
+    0  1px 0 var(--divider-soft) inset,
+    0 -18px 26px var(--divider-glow1) inset,
+    0  18px 26px var(--divider-glow2) inset;
+  z-index: 1;
+}
+
+#faq .container {
+  width: min(100%, 1200px);
+  margin-inline: auto;
+  padding-inline: clamp(12px, 3vw, 24px);
+}
+
+#faq-title {
+  margin: 0 0 clamp(12px, 2.2vw, 20px);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  letter-spacing: .2px;
+  color: #e8eaee;
+  text-shadow: 0 1px 0 rgba(0,0,0,.35);
+}
+
+/* separación visual entre el título y las tarjetas */
+#faq .faq-grid { margin-top: clamp(8px, 1.5vw, 16px); }
+
+/* Override: solo glow arriba/abajo, sin sombras laterales */
+#faq.section { box-shadow: none; }
+#faq.section::before,
+#faq.section::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: clamp(14px, 3vw, 28px);
+  pointer-events: none;
+}
+#faq.section::before { top: -1px; background: linear-gradient(to bottom, var(--divider-glow1), rgba(0,0,0,0) 70%); }
+#faq.section::after  { bottom: -1px; background: linear-gradient(to top,    var(--divider-glow2), rgba(0,0,0,0) 70%); }
