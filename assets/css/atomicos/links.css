@@ -97,6 +97,7 @@
     align-items: center;
     justify-content: center;
     color: #fff;
+    font-family: "Orbitron", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
     font-size: 1.05em;
     letter-spacing: .1em;
     text-transform: uppercase;
@@ -109,7 +110,7 @@
 
 /* Hover: expand, show gradient, swap icon for text */
 .nav-links .nav-item:hover {
-    width: 11.25rem; /* 180px */
+    width: 12.25rem; /* 180px */
     box-shadow: 0 1px 5px rgba(255, 255, 255, 0.575);
 }
 

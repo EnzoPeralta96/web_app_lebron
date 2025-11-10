@@ -26,7 +26,6 @@ export default function Categorias() {
     <section id="categorias" className="section">
       <section className="container categories-wrap">
         <h2>Categorias destacadas</h2>
-        <p className="lead">Explora nuestras lineas mas buscadas.</p>
         <section className="categories-grid" aria-label="Listado de categorias">
           {categorias.map((cat) => (
             <Tarjeta

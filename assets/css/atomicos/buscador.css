@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Inconsolata:700');
+/* Eliminado: import de Inconsolata */
 
 /* Variables base (colores y medidas personalizables) */
 :root {
-    --search-font: 'Inconsolata', monospace;
+  --search-font: "Orbitron", system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
     --primary: #b41616;
     --primary-dark: #151515;
     --primary-light: #ff6a6a;
@@ -247,6 +247,12 @@
     transform-origin: 10% 0;
     animation: suggest-pop .14s ease-out;
     border: 0.0625rem solid var(--dd-border);
+}
+
+/* Usar fuente futurista en el desplegable */
+.lb-suggest,
+.lb-suggest li button {
+    font-family: var(--search-font);
 }
 
 .lb-suggest li {

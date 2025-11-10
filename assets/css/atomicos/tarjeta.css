@@ -19,6 +19,7 @@
 .lb-card {
   width: var(--card-w);
   margin: 1rem;
+  perspective: 1000px;
   
 }
 
@@ -35,7 +36,7 @@
   position: relative;
   min-height: var(--card-minh);
   transform-style: preserve-3d;
-  transition: transform .7s cubic-bezier(.4, .2, .2, 1);
+  transition: transform 1s cubic-bezier(.4, .2, .2, 1);
 }
 
 .lb-card-face {
@@ -157,9 +158,15 @@
 }
 
 /* Flip interaction */
-.lb-card-link:hover .lb-card-rotator,
-.lb-card-link:focus-visible .lb-card-rotator {
-  transform: rotateY(180deg);
+/* 1) Estado controlado por clase para touch/JS */
+.lb-card.is-flipped .lb-card-rotator { transform: rotateY(180deg); }
+
+/* 2) Solo en dispositivos con hover real aplicamos el flip por hover/focus */
+@media (hover: hover) {
+  .lb-card-link:hover .lb-card-rotator,
+  .lb-card-link:focus-visible .lb-card-rotator {
+    transform: rotateY(180deg);
+  }
 }
 
 .lb-card-link:focus-visible {

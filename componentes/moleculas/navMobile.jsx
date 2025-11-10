@@ -152,7 +152,6 @@ function NavMobile() {
                   onClick={() => closeMenu(true)}
                 >
                   <span className="fan-nav__link-label">{link.label}</span>
-                  <span className="fan-nav__link-hint">{link.hint}</span>
                 </a>
               </li>
             ))}

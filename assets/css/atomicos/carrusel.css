@@ -8,7 +8,7 @@
     --carrusel-shadow-accent: 0 0 1.5rem var(--carrusel-color-accent);
 
     /* Tipografía */
-    --carrusel-font-main: "Londrina Solid", cursive;
+  --carrusel-font-main: "Orbitron", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 
     /* Tamaños relativos */
     --carrusel-height: calc(70vh + var(--thumb-bar-pad));

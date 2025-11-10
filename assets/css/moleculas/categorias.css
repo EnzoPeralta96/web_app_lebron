@@ -32,6 +32,8 @@
 @media (max-width: 64rem) {
   .categories-wrap {
     max-width: calc(var(--card-w) * 2 + var(--categories-gap));
+    /* agrega padding lateral solo en responsive medio */
+    padding-inline: clamp(12px, 3vw, 24px);
   }
 }
 
@@ -39,6 +41,8 @@
 @media (max-width: 40rem) {
   .categories-wrap {
     max-width: 100%;
+    /* padding lateral en mobile para que no pegue al borde */
+    padding-inline: clamp(12px, 4vw, 24px);
   }
 
   .categories-grid>.lb-card {
@@ -49,20 +53,26 @@
 /* Espaciado y divisores (arriba/abajo) */
 #categorias.section {
   position: relative;
-  padding-block: clamp(2rem, 6vw, 3.5rem);
+  /* Menos espacio arriba del título */
+  padding-top: clamp(0.8rem, 3.5vw, 2.2rem);
+  padding-bottom: clamp(2.2rem, 6.5vw, 3.8rem);
   border-top: 1px solid var(--divider-strong);
   border-bottom: 1px solid var(--divider-strong);
 }
 
 /* Título y subtítulo */
 #categorias .categories-wrap > h2 {
-  margin: 0 0 .35rem;
+  margin: 1 0 .35rem;
   font-weight: 700;
-  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-size: clamp(3rem, 3vw, 3rem);
   letter-spacing: .2px;
   color: #e8eaee;
   text-shadow: 0 1px 0 rgba(0,0,0,.35);
   position: relative;
+  /* Aumenta la altura visual del titulo sin cambiar el ancho */
+  line-height: 1.12;
+  transform: scaleY(1.2);
+  transform-origin: center;
   text-align: center; /* centrar el título */
 }
 

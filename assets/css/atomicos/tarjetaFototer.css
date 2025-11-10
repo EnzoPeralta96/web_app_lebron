@@ -3,6 +3,7 @@
 nav[aria-label="Sucursales"] > strong {
   display: block;
   margin-bottom: .5rem;
+  font-family: "Orbitron", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 }
 
 .tf-grid {
@@ -35,6 +36,7 @@ nav[aria-label="Sucursales"] > strong {
   color: #e5e7eb;
   font-weight: 600;
   letter-spacing: .02em;
+  font-family: "Orbitron", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 }
 .tf-title::after { content: ":"; margin-left: .25rem; opacity: .95; }
 
@@ -45,6 +47,7 @@ nav[aria-label="Sucursales"] > strong {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-family: "Orbitron", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 }
 
 /* Acción (botón) en esquina inferior derecha */

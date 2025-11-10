@@ -20,6 +20,7 @@
 
 .cta-title {
   margin: 0 0 .25rem;
+  font-family: "Orbitron", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   font-size: clamp(1.4rem, 3vw, 2rem);
 }
 
