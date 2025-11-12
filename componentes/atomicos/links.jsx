@@ -1,4 +1,5 @@
 import "../../assets/css/atomicos/links.css";
+import { Link } from "react-router-dom";
 
 // Iconos SVG inline (visibles por defecto, se ocultan al hover cuando aparece el texto)
 const IconDumbbell = () => (
@@ -35,16 +36,16 @@ const IconPuzzle = () => (
 );
 
 function Links({
-    open = false,
-    items = [
-        { href: "#categorias", label: "Suplementos", icon: <IconDumbbell />, gradA: "#b80000ff", gradB: "#dc2626" },
-        { href: "#beneficios", label: "Alimentos",  icon: <IconApple />,    gradA: "#e20000ff", gradB: "#770707ff" },
-        { href: "#categorias", label: "Accesorios",  icon: <IconBag />,      gradA: "#65008dff", gradB: "#5093ffff" },
-        { href: "#faq",        label: "Marcas",      icon: <IconTag />,      gradA: "#a78bfa", gradB: "#4c00ffff" },
-        { href: "#categorias", label: "Combos",      icon: <IconPuzzle />,   gradA: "#f59e0b", gradB: "#ff6a00ff" },
-    ],
-    onItemClick,
-    activeIndex = -1,
+  open = false,
+  items = [
+    { href: "#categorias",           label: "Suplementos", icon: <IconDumbbell />, gradA: "#b80000ff", gradB: "#dc2626" },
+    { href: "/categoria/alimentos", label: "Alimentos",  icon: <IconApple />,    gradA: "#e20000ff", gradB: "#770707ff" },
+    { href: "/categoria/accesorios",label: "Accesorios", icon: <IconBag />,      gradA: "#65008dff", gradB: "#5093ffff" },
+    { href: "/marcas",              label: "Marcas",      icon: <IconTag />,      gradA: "#a78bfa", gradB: "#4c00ffff" },
+    { href: "#categorias",           label: "Combos",      icon: <IconPuzzle />,   gradA: "#f59e0b", gradB: "#ff6a00ff" },
+  ],
+  onItemClick,
+  activeIndex = -1,
 }) {
     const palette = [
         ["#910000ff", "#dc2626"],
@@ -54,32 +55,61 @@ function Links({
         ["#f59e0b", "#f97316"],
     ];
 
-    const finalItems = items.map((it, idx) => ({
-        ...it,
-        gradA: it.gradA || palette[idx % palette.length][0],
-        gradB: it.gradB || palette[idx % palette.length][1],
-    }));
+  const finalItems = items.map((it, idx) => ({
+    ...it,
+    gradA: it.gradA || palette[idx % palette.length][0],
+    gradB: it.gradB || palette[idx % palette.length][1],
+  }));
 
-    return (
-        <ul className={`nav-links container ${open ? "is-open" : ""}`}>
-            {finalItems.map((it, idx) => (
-                <li
-                  key={it.href + it.label}
-                  className={`nav-item ${idx === activeIndex ? "is-active" : ""}`}
-                  style={{"--grad-a": it.gradA, "--grad-b": it.gradB}}
-                >
-                    <a className="link-pill" href={it.href} onClick={onItemClick} aria-label={it.label}>
-                        {/* El link-icon es ahora un elemento de posición absoluta */}
-                        <span className="link-icon" aria-hidden={true}>{it.icon}</span>
-                        {/* El link-title es ahora un elemento de posición absoluta */}
-                        <span className="link-title">{it.label}</span>
-                    </a>
-                </li>
-            ))}
-        </ul>
-    );
+  return (
+    <ul className={`nav-links container ${open ? "is-open" : ""}`}>
+      {finalItems.map((it, idx) => (
+        <li
+          key={it.href + it.label}
+          className={`nav-item ${idx === activeIndex ? "is-active" : ""}`}
+          style={{ "--grad-a": it.gradA, "--grad-b": it.gradB }}
+        >
+          {String(it.href || "").startsWith("/") ? (
+            <Link
+              className="link-pill"
+              to={it.href}
+              onMouseDown={(e) => e.preventDefault()}
+              onClick={(e) => {
+                if (onItemClick) onItemClick(e);
+                try { e.currentTarget.blur(); } catch {}
+              }}
+              aria-label={it.label}
+            >
+              <span className="link-icon" aria-hidden={true}>{it.icon}</span>
+              <span className="link-title">{it.label}</span>
+            </Link>
+          ) : (
+            <a
+              className="link-pill"
+              href={it.href}
+              onMouseDown={(e) => e.preventDefault()}
+              onClick={(e) => {
+                if (onItemClick) onItemClick(e);
+                try { e.currentTarget.blur(); } catch {}
+              }}
+              aria-label={it.label}
+            >
+              <span className="link-icon" aria-hidden={true}>{it.icon}</span>
+              <span className="link-title">{it.label}</span>
+            </a>
+          )}
+        </li>
+      ))}
+    </ul>
+  );
 }
 
 export default Links;
 export { Links };
+
+
+
+
+
+
 

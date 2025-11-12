@@ -1,0 +1,170 @@
+import { useMemo, useState } from "react";
+import { useCart } from "../context/CartContext.jsx";
+// Import absoluto desde la raíz del proyecto para evitar problemas de HMR/base
+import "/componentes/pages/carrito.css";
+import Boton from "../../componentes/atomicos/boton.jsx";
+import demoImg from "../../assets/img/starr (1).png";
+import proteina2 from "../../assets/img/proteina2 (1).png";
+import productos from "../data/productos.json";
+
+function Carrito() {
+  const { items, updateQty, removeItem, total, clear } = useCart();
+  const [cupon, setCupon] = useState("");
+
+  const descuento = useMemo(() => {
+    // Placeholder: 10% si el cupon es LEBRON10
+    if (cupon.trim().toUpperCase() === "LEBRON10") {
+      return total * 0.1;
+    }
+    return 0;
+  }, [cupon, total]);
+
+  const totalConDescuento = Math.max(0, total - descuento);
+  const stockMap = useMemo(() => {
+    const map = new Map();
+    try {
+      productos.forEach((p) => map.set(p.id, p.stock ?? Number.MAX_SAFE_INTEGER));
+    } catch {}
+    return map;
+  }, []);
+
+  return (
+    <main className="section cart-page">
+      <section className="container carrito-grid">
+        <section className="cart-left" aria-label="Productos en el carrito">
+          <header className="cart-left-head">
+            <h2>Detalle</h2>
+            </header>
+
+          {!items.length && (
+            <p className="cart-empty">Tu carrito está vacío.</p>
+          )}
+
+          <ul className="cart-list" role="list">
+            {items.map((it) => {
+              const line = (it.precio || 0) * (it.qty || 1);
+              const price = (it.precio || 0).toLocaleString("es-AR");
+              const linePrice = line.toLocaleString("es-AR");
+              const imgSrc = proteina2;
+              const maxStock = stockMap.get(String(it.id)) ?? it.stock ?? Number.MAX_SAFE_INTEGER;
+              const canDec = (it.qty || 1) > 1;
+              const canInc = (it.qty || 1) < maxStock;
+              return (
+                <li key={it.id} className="cart-item">
+                  <article className="ci-main">
+                    <figure className="ci-figure">
+                      <img
+                        src={imgSrc}
+                        alt={it.nombre}
+                        loading="lazy"
+                        onError={(e) => {
+                          if (e.currentTarget.src !== demoImg) e.currentTarget.src = demoImg;
+                        }}
+                      />
+                    </figure>
+                    <section className="ci-info">
+                      <h3 className="ci-title">{it.nombre}</h3>
+                      <p className="ci-price">$ {price}</p>
+                      <div className="ci-qty-row">
+                        <fieldset className="ci-qty">
+                          <legend style={{position:"absolute",width:1,height:1,overflow:"hidden",clip:"rect(0 0 0 0)",whiteSpace:"nowrap"}}>Cantidad</legend>
+                          <Boton
+                            variant="ghost"
+                            effect={false}
+                            className="ci-btn"
+                          ariaLabel={`Restar 1 a ${it.nombre}`}
+                          disabled={!canDec}
+                          onClick={() => canDec && updateQty(it.id, (it.qty || 1) - 1)}
+                          >
+                            -
+                          </Boton>
+                          <span className="ci-count" aria-live="polite">{it.qty || 1}</span>
+                          <Boton
+                            variant="ghost"
+                            effect={false}
+                            className="ci-btn"
+                          ariaLabel={`Sumar 1 a ${it.nombre}`}
+                          disabled={!canInc}
+                          onClick={() => canInc && updateQty(it.id, (it.qty || 1) + 1)}
+                          >
+                            +
+                          </Boton>
+                        </fieldset>
+                        <span className="ci-total">$ {linePrice}</span>
+                      </div>
+                      {!canInc && (
+                        <small className="ci-stock-msg" aria-live="polite">Stock máximo: {maxStock}</small>
+                      )}
+                      <Boton
+                        variant="ghost"
+                        className="ci-remove"
+                        altText="Eliminar"
+                        onClick={() => removeItem(it.id)}
+                        ariaLabel={`Eliminar ${it.nombre} del carrito`}
+                      >
+                        Eliminar artículo
+                      </Boton>
+                    </section>
+                  </article>
+                </li>
+              );
+            })}
+          </ul>
+
+          {items.length > 0 && (
+            <Boton
+              variant="primary"
+              altText="vamos de nuevo"
+              className="cart-clear-btn"
+              onClick={clear}
+            >
+              Vaciar carrito
+            </Boton>
+          )}
+        </section>
+
+        <aside className="cart-right" aria-label="Resumen de compra">
+          <h2 className="cr-title">Total del carrito</h2>
+          <form className="cr-cupon" onSubmit={(e)=>e.preventDefault()}>
+            <label htmlFor="cupon">Agregá un cupón</label>
+            <section className="cr-cupon-row">
+              <input
+                id="cupon"
+                type="text"
+                placeholder="Ej: LEBRON10"
+                value={cupon}
+                onChange={(e) => setCupon(e.target.value)}
+              />
+            </section>
+          </form>
+          <dl>
+            <div className="cr-row">
+              <dt>Total</dt>
+              <dd><strong>$ {totalConDescuento.toLocaleString("es-AR")}</strong></dd>
+            </div>
+            {descuento > 0 && (
+              <div className="cr-row cr-discount" aria-live="polite">
+                <dt>Descuento</dt>
+                <dd>- $ {descuento.toLocaleString("es-AR")}</dd>
+              </div>
+            )}
+          </dl>
+          <footer className="cr-actions">
+            <Boton
+              className="cr-pay"
+              variant="primary"
+              altText="¡Potenciá tu rendimiento!"
+              onClick={() => alert("Flujo de pago pendiente de integración")}
+              ariaLabel="Ir a pagar"
+            >
+              Ir a pagar
+            </Boton>
+          </footer>
+        </aside>
+      </section>
+    </main>
+  );
+}
+
+export default Carrito;
+

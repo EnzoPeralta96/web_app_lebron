@@ -2,7 +2,8 @@
 
 /* Variables base (colores y medidas personalizables) */
 :root {
-  --search-font: "Orbitron", system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+  /* Texto del input y sugerencias: fuente legible de sistema */
+  --search-font: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
     --primary: #b41616;
     --primary-dark: #151515;
     --primary-light: #ff6a6a;
@@ -40,6 +41,7 @@
     width: var(--container-w);
     height: var(--container-h);
     margin: 0 auto;
+    overflow: visible; /* permitir que el dropdown se vea fuera del contenedor */
 }
 
 /* Botón/icono de búsqueda centrado (círculo) */
@@ -125,6 +127,12 @@
     -webkit-appearance: none;
     appearance: none;
     cursor: pointer;
+}
+
+/* Placeholder con fuente futurista para conservar identidad */
+.lb-search-input::placeholder {
+    font-family: "Orbitron", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    letter-spacing: .08em;
 }
 
 .lb-search-input::placeholder {
@@ -241,7 +249,7 @@
     color: var(--dd-text);
     border-radius: var(--dd-radius);
     box-shadow: var(--dd-shadow);
-    z-index: 6;
+    z-index: 2000; /* elevar por encima de overlays del header/nav */
     min-width: 12.5rem;
     overflow: hidden;
     transform-origin: 10% 0;
@@ -249,11 +257,37 @@
     border: 0.0625rem solid var(--dd-border);
 }
 
-/* Usar fuente futurista en el desplegable */
+/* Fuente y espaciados del desplegable */
 .lb-suggest,
 .lb-suggest li button {
     font-family: var(--search-font);
 }
+
+/* Mejorar legibilidad: separar nombre y categoría/marca */
+.lb-suggest li button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .5rem;
+}
+
+/* Estilo para enlace de sugerencia cuando usamos <Link> */
+.lb-suggest .lb-suggest-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .5rem;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    padding: 0.5625rem 0.75rem;
+    border-radius: 0.5rem;
+}
+.lb-suggest .lb-suggest-link:hover { background: var(--dd-hover); }
+
+.lb-suggest .suggestion-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lb-suggest .suggestion-category,
+.lb-suggest .suggestion-brand { margin-left: .5rem; opacity: .85; }
 
 .lb-suggest li {
     margin: 0;

@@ -1,0 +1,29 @@
+/* Fondo con diagonales animadas para páginas internas */
+:root {
+  --diag-a: rgba(0, 0, 0, 0.363); /* crimson translúcido */
+  --diag-b: rgba(0, 0, 0, 0.13);  /* base oscura */
+}
+
+.bg {
+  position: fixed;
+  inset: 0;
+  left: -50%;
+  right: -50%;
+  background-image: linear-gradient(-60deg, var(--diag-a) 50%, var(--diag-b) 50%);
+  animation: bg-slide 6s ease-in-out infinite alternate;
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: -1; /* detrás del contenido, sobre el fondo del body */
+}
+
+.bg2 { animation-direction: alternate-reverse; animation-duration: 7s; }
+.bg3 { animation-duration: 8s; }
+
+@keyframes bg-slide {
+  0%   { transform: translateX(-25%); }
+  100% { transform: translateX(25%); }
+}
+
+/* Solo mostrar cuando el body tiene la clase de páginas internas */
+body:not(.is-inner) .bg { display: none; }
+

@@ -31,6 +31,18 @@ body{
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, sans-serif;
 }
 
+/* Fondo alternativo para páginas internas (no index) */
+body.is-inner{
+  --base:#0a0a0f;
+  background:
+    radial-gradient(130% 120% at 50% -10%, rgba(220,20,60,.18), transparent 60%),
+    linear-gradient(180deg, rgba(0,0,0,.5), rgba(12,0,0,.85)),
+    var(--bg-base, #0a0a0f);
+}
+
+/* Dots overlay solo en páginas internas */
+/* Opacidad integrada en el bloque de abajo */
+
 /* Titulares y elementos destacados con fuente futurista */
 h1,
 h2,
@@ -55,7 +67,7 @@ button,
 a {
   font-family: "Orbitron", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 }
-body::before{
+body:not(.is-inner)::before{
   content:"";
   position:fixed; inset:0; pointer-events:none;
   background:

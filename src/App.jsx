@@ -10,6 +10,12 @@ import Footer from "../componentes/moleculas/footer.jsx";
 import Carrusel from "../componentes/atomicos/carrusel.jsx";
 import Buscador from "../componentes/atomicos/buscador.jsx";
 import Comprador from "../componentes/moleculas/Comprador.jsx";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import "../assets/css/atomicos/diagonales.css";
+import Generica from "./pages/Generica.jsx";
+import Marcas from "./pages/Marcas.jsx";
+import Carrito from "./pages/Carrito.jsx";
+import { CartProvider } from "./context/CartContext.jsx";
 
 // Imagenes del carrusel (primeras 10)
 import c1 from "../assets/img/carrusel/1.png";
@@ -58,10 +64,8 @@ function App() {
         "Desde el gimnasio hasta el ciclismo y otros deportes: acompanamos tu disciplina con nutricion, energia y pasion por el rendimiento.",
     },
   ];
-  return (
+  const Home = () => (
     <>
-      <Nav />
-      <NavMobile />
       <Header />
       <main>
         <Comprador />
@@ -70,10 +74,50 @@ function App() {
         <FAQ />
         <Gancho />
       </main>
-      <Footer />
     </>
+  );
+
+  // Usar basename para que funcione si la app vive bajo /web_app_lebron/
+  // Vite expone import.meta.env.BASE_URL según la configuración de base.
+  const base = (import.meta?.env?.BASE_URL ?? "/");
+
+  const RouterWithBodyClass = () => {
+    const location = useLocation();
+    const isHome = location.pathname === "/";
+    if (typeof document !== "undefined") {
+      document.body.classList.toggle("is-inner", !isHome);
+    }
+    return (
+      <>
+        {/* Diagonales animadas (solo internas) */}
+        {!isHome && (
+          <>
+            <div className="bg" aria-hidden="true" />
+            <div className="bg bg2" aria-hidden="true" />
+            <div className="bg bg3" aria-hidden="true" />
+          </>
+        )}
+        <Nav />
+        <NavMobile />
+        <Routes>
+          <Route path="/" element={<Home />} />
+        <Route path="/categoria/:nombre" element={<Generica />} />
+        <Route path="/marcas" element={<Marcas />} />
+        <Route path="/carrito" element={<Carrito />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
+        <Footer />
+      </>
+    );
+  };
+
+  return (
+    <BrowserRouter basename={base}>
+      <CartProvider>
+        <RouterWithBodyClass />
+      </CartProvider>
+    </BrowserRouter>
   );
 }
 
 export default App;
-

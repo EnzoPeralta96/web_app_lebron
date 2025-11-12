@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useMemo } from "react";
+import { Link } from "react-router-dom";
 import "../../assets/css/atomicos/boton.css"; // separamos los estilos para mantener limpio el código
 
 export default function Boton({
@@ -31,18 +32,33 @@ export default function Boton({
     .filter(Boolean)
     .join(" ");
 
+  const isRouterLink = useMemo(() => typeof href === "string" && href.startsWith("/"), [href]);
+
   if (href) {
     return (
-      <a
-        href={href}
-        className={classes}
-        aria-label={ariaLabel}
-        onClick={onClick}
-        role="button"
-        {...rest}
-      >
-        {content}
-      </a>
+      isRouterLink ? (
+        <Link
+          to={href}
+          className={classes}
+          aria-label={ariaLabel}
+          onClick={onClick}
+          role="button"
+          {...rest}
+        >
+          {content}
+        </Link>
+      ) : (
+        <a
+          href={href}
+          className={classes}
+          aria-label={ariaLabel}
+          onClick={onClick}
+          role="button"
+          {...rest}
+        >
+          {content}
+        </a>
+      )
     );
   }
 

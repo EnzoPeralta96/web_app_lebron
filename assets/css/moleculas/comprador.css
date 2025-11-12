@@ -3,7 +3,8 @@
   padding: 1.25rem 1rem 2rem;
   display: block;
   position: relative;
-  overflow: hidden;
+  /* Necesario para que el dropdown del buscador no se recorte en desktop */
+  overflow: visible;
   isolation: isolate;
   height: 50vh;
   /* Bordes superior e inferior de la sección */

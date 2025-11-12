@@ -1,4 +1,5 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useMemo } from "react";
+import { Link } from "react-router-dom";
 import "../../assets/css/atomicos/tarjeta.css";
 
 export default function Tarjeta({
@@ -23,16 +24,22 @@ export default function Tarjeta({
     }
   }, []);
 
+  const isRouterLink = useMemo(() => typeof href === "string" && href.startsWith("/"), [href]);
+  const interactiveClick = onClick ?? (isRouterLink ? undefined : toggle);
+  const interactiveKey = isRouterLink ? undefined : handleKey;
+
+  const Anchor = isRouterLink ? Link : "a";
+
   return (
     <article
       className={`lb-card ${flipped ? "is-flipped" : ""}`}
       aria-label={`${titulo} ${subtitulo}`}
     >
-      <a
+      <Anchor
         className="lb-card-link"
-        href={href}
-        onClick={onClick ?? toggle}
-        onKeyDown={handleKey}
+        {...(isRouterLink ? { to: href } : { href })}
+        onClick={interactiveClick}
+        onKeyDown={interactiveKey}
       >
         <section className="lb-card-rotator">
           {/* Cara frontal */}
@@ -52,7 +59,7 @@ export default function Tarjeta({
             </section>
           </aside>
         </section>
-      </a>
+      </Anchor>
     </article>
   );
 }

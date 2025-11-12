@@ -1,203 +1,195 @@
 import React, { useMemo, useRef, useState, useEffect } from "react";
-import "../../assets/css/atomicos/buscador.css";
+import "../../assets/css/atomicos/buscador.css"; // Asegúrate que esta ruta sea correcta
 
-// Buscador: control interno y control por props compatibles.
-// El input ocupa el 100% del contenedor cuando no está en fase "done".
+import { useNavigate, Link } from "react-router-dom";
+import products from "../../src/data/productos.json";
 
 export default function Buscador({
-    placeholder = "Buscar...",
-    value,
-    onChange,
-    onSubmit,
-    className = "",
-    ariaLabel = "Buscar",
-    suggestions = ["proteinas", "creatinas", "aminoacidos", "vitaminas"], // Sugerencias de ejemplo
+  placeholder = "Buscar...",
+  value,
+  onChange,
+  onSubmit,
+  className = "",
+  ariaLabel = "Buscar",
+  allItems = products, // Por defecto usa el JSON real
 }) {
-    const [internal, setInternal] = useState("");
-    const [focused, setFocused] = useState(false);
-    // Fases: "prepare" | "submit" | "animate" | "done" | "reset" | ""
-    const [phase, setPhase] = useState("");
+  const navigate = useNavigate();
+  const [internal, setInternal] = useState("");
+  const [focused, setFocused] = useState(false);
+  const containerRef = useRef(null);
+  const inputRef = useRef(null);
+  const norm = (s) => (s || "").toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const pretty = (s) => (s || "").replace(/[-_]/g, " ").replace(/\b\w/g, (m) => m.toUpperCase());
 
-    const containerRef = useRef(null);
-    const inputRef = useRef(null);
-    const timersRef = useRef([]);
+  // Determina si el componente es controlado o no
+  const val = value !== undefined ? value : internal;
+  const hasText = val && val.trim().length > 0;
 
-    // Sugerencias saneadas (evita caracteres rotos)
-    const defaultSugs = ["Proteínas", "Proteinas", "Whey Protein", "Creatinas", "Aminoácidos", "Vitaminas"];
-    const isBroken = (arr) => !Array.isArray(arr) || arr.length === 0 || arr.join("").includes("\uFFFD");
-    const sugList = isBroken(suggestions) ? defaultSugs : suggestions;
+  // Sugerencias por categoría, nombre o marca (dinámicas, sin tildes)
+  const filteredSuggestions = useMemo(() => {
+    if (!hasText || val.trim().length < 1) return [];
+    const q = norm(val);
 
-    const val = value !== undefined ? value : internal;
-    const hasText = val && val.trim().length > 0;
-    // Coincidencias: sin tildes y case-insensitive
-    const normalize = (s) => (s || "").toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-    const q = normalize((val || "").trim());
-    const matches = q.length > 0 ? sugList.filter((s) => normalize(s).includes(q)) : [];
-    // Solo mostrar cuando hay foco, texto y coincidencias
-    const showList = focused && hasText && matches.length > 0;
+    // Categorías únicas del dataset
+    const cats = Array.from(new Set((allItems || []).map(i => norm(i.categoria))));
+    const catSugs = cats
+      .filter(c => c.includes(q))
+      .map(c => ({ id: `cat-${c}`, nombre: pretty(c), categoria: 'Categoría', kind: 'cat', slug: c }));
 
-    // Lógica de la secuencia de animación (Submit y Reset)
-    useEffect(() => {
-        timersRef.current.forEach(clearTimeout);
-        timersRef.current = [];
+    // Marcas: usar campo marca si existe o heurística en el nombre
+    const brandKeys = ["optimum nutrition","optimum","universal","gat","redcon1","scivation","dymatize","gnc","starlabs","animal","on"];
+    const brandSet = new Set();
+    for (const it of (allItems || [])) {
+      const n = norm(it.nombre);
+      if (it.marca) brandSet.add(norm(it.marca));
+      for (const b of brandKeys) if (n.includes(b)) brandSet.add(b);
+    }
+    const brandSugs = Array.from(brandSet)
+      .filter(b => b.includes(q))
+      .map(b => ({ id: `brand-${b}`, nombre: pretty(b), categoria: 'Marca', kind: 'brand', slug: b }));
 
-        if (phase === "prepare") {
-            // Inicia la secuencia de búsqueda
-            timersRef.current.push(setTimeout(() => setPhase("submit"), 10));
-            timersRef.current.push(setTimeout(() => setPhase("prepare"), 200));
-            timersRef.current.push(setTimeout(() => setPhase("animate"), 1250));
-            // Final de la animación, muestra la lista
-            timersRef.current.push(setTimeout(() => setPhase("done"), 2050));
+    // Combinar (solo categorías y marcas) y limitar
+    const combined = [...catSugs, ...brandSugs];
+    const seen = new Set();
+    const uniq = [];
+    for (const s of combined) { const key = `${s.id}-${s.nombre}`; if (!seen.has(key)) { seen.add(key); uniq.push(s); } }
+    return uniq.slice(0, 5);
+  }, [val, allItems, hasText]);
 
-        } else if (phase === "reset") {
-            // Animación de retroceso CSS dura ~1.5s. Luego limpiamos el estado.
-            timersRef.current.push(setTimeout(() => {
-                setPhase("");
-            }, 1600)); // Esperamos a que la animación CSS termine.
-        }
+  // Mostrar lista apenas hay texto + resultados (desktop y mobile)
+  const showList = hasText && filteredSuggestions.length > 0;
 
-        return () => timersRef.current.forEach(clearTimeout);
-    }, [phase]);
+  // --- Manejadores de Eventos ---
 
-    const handleChange = (e) => {
-        if (onChange) onChange(e);
-        else setInternal(e.target.value);
-    };
+  const handleChange = (e) => {
+    if (onChange) onChange(e); // controlado
+    else setInternal(e.target.value); // no controlado
+    setFocused(true);
+  };
 
-    // Helper para establecer el valor respetando el control por props
-    const setValue = (newVal) => {
-        if (onChange) onChange({ target: { value: newVal } });
-        else setInternal(newVal);
-    };
+  const setValue = (newVal) => {
+    if (onChange) {
+      // Simular un evento para que el padre lo reciba de forma consistente
+      onChange({ target: { value: newVal } });
+    } else {
+      setInternal(newVal);
+    }
+  };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (onSubmit) onSubmit(val);
-        setFocused(false);
-        setPhase("");
-        inputRef.current?.blur();
-    };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (onSubmit) onSubmit(val);
+    const q = norm(val);
+    const cats = Array.from(new Set((allItems || []).map(i => norm(i.categoria))));
+    const firstCat = cats.find(c => c.includes(q) || c === q);
+    if (q) navigate(`/categoria/${firstCat || q}`);
+    setFocused(false);
+    inputRef.current?.blur();
+  };
 
-    const handleIconClick = (e) => {
-        e.preventDefault();
-        // Evita que el botón gane foco (para que :focus-within no se mantenga)
-        e.currentTarget.blur();
-        if (hasText) {
-            // Limpiar y cerrar
-            setValue("");
-            setFocused(false);
-            setPhase("");
-            inputRef.current?.blur();
-            if (containerRef.current && document.activeElement && containerRef.current.contains(document.activeElement)) {
-                try { document.activeElement.blur(); } catch {}
-            }
-        } else if (focused) {
-            // Ya está abierto pero vacío: cerrar/colapsar
-            setFocused(false);
-            setPhase("");
-            // Asegura que se quite el foco del input
-            setTimeout(() => {
-                inputRef.current?.blur();
-                if (containerRef.current && document.activeElement && containerRef.current.contains(document.activeElement)) {
-                    try { document.activeElement.blur(); } catch {}
-                }
-            }, 0);
-        } else {
-            // Abrir y enfocar
-            inputRef.current?.focus();
-            setFocused(true);
-        }
-    };
+  const handleSuggestionClick = (sug) => {
+    setValue(sug.nombre);
+    if (onSubmit) onSubmit(sug);
+    if (sug.kind === 'cat') navigate(`/categoria/${sug.slug}`);
+    else navigate(`/categoria/${norm(sug.slug || sug.nombre)}`);
+    setFocused(false);
+    inputRef.current?.blur();
+  };
+  
+  const handleClear = () => {
+    setValue("");
+    setFocused(false);
+    inputRef.current?.blur();
+  };
 
-    const handleClear = () => {
-        setValue("");
-        setFocused(false);
-        setPhase("");
-        inputRef.current?.blur();
-    };
+  // --- Clases CSS Dinámicas ---
+  
+  const classes = useMemo(() => {
+    return ["lb-search", focused ? "is-focus" : "", className]
+      .filter(Boolean)
+      .join(" ");
+  }, [focused, className]);
 
-    const classes = useMemo(() => {
-        return [
-            "lb-search",
-            focused && phase === "" ? "is-focus" : "", // Focus solo cuando no hay animación
-            phase && `is-${phase}`,
-            className,
-        ]
-            .filter(Boolean)
-            .join(" ");
-    }, [focused, phase, className]);
+  // --- Renderizado ---
 
-    return (
-        <form
-            ref={containerRef}
-            className={classes}
-            role="search"
-            aria-label={ariaLabel}
-            onSubmit={handleSubmit}
-            onFocus={() => setFocused(true)}
-            onBlur={(e) => {
-                if (!e.currentTarget.contains(e.relatedTarget)) {
-                    setFocused(false);
-                    // Responsive: al hacer click afuera en mobile, limpiar y cerrar
-                    try {
-                        if (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) {
-                            setValue("");
-                            setPhase("");
-                        }
-                    } catch {}
-                }
-            }}
+  return (
+    <form
+      ref={containerRef}
+      className={classes}
+      role="search"
+      aria-label={ariaLabel}
+      onSubmit={handleSubmit}
+      onFocus={() => setFocused(true)}
+      onBlur={(e) => {
+        // Delay para permitir click en sugerencias y luego cerrar limpiando
+        setTimeout(() => {
+          const stillInside = containerRef.current?.contains(document.activeElement);
+          if (!stillInside) {
+            // Cerrar y limpiar siempre que se pierda el foco
+            handleClear();
+          }
+        }, 150);
+      }}
+    >
+      {/* Icono de Lupa / Limpiar */}
+      <span className="lb-bar" aria-hidden={true}>
+        <button
+          type="button"
+          className="lb-icon-btn"
+          tabIndex={-1}
+          aria-label={hasText ? "Limpiar" : "Buscar"}
+          onMouseDown={(e) => e.preventDefault()}
+          onClick={(e) => {
+            e.preventDefault();
+            handleClear();
+          }}
         >
-            {/* Barra izquierda + icono */}
-            <span className="lb-bar" aria-hidden={true}>
-                <button type="button" className="lb-icon-btn" tabIndex={-1}
-                    aria-label={hasText ? "Limpiar" : "Buscar"}
-                    onMouseDown={(e) => e.preventDefault()} // evita que el botón obtenga foco
-                    onClick={handleIconClick}
+          <span className="lb-icon" />
+        </button>
+      </span>
+
+      {/* Input Principal */}
+      <input
+        className="lb-search-input"
+        type="text"
+        placeholder={placeholder}
+        value={val}
+        onChange={handleChange}
+        aria-label={ariaLabel}
+        role="searchbox"
+        inputMode="search"
+        ref={inputRef}
+        onKeyDown={(e) => {
+          if (e.key === "Escape") handleClear();
+        }}
+      />
+
+      {/* Lista de Sugerencias */}
+      {showList && (
+        <ul className="lb-suggest">
+          {filteredSuggestions.map((sug, index) => {
+            const path = sug.kind === 'cat' ? `/categoria/${sug.slug}` : `/categoria/${norm(sug.slug || sug.nombre)}`;
+            return (
+              <li key={`${sug.id}-${index}`}>
+                <Link
+                  className="lb-suggest-link"
+                  to={path}
+                  onClick={() => {
+                    // cerrar y limpiar al navegar
+                    setValue("");
+                    setFocused(false);
+                  }}
                 >
-                    <span className="lb-icon" />
-                </button>
-                {/* Muestra el texto cuando la animación de "done" está activa */}
-                {phase === "done" && hasText ? (
-                    <span className="lb-bar-text">{val}</span>
-                ) : null}
-            </span>
-
-            <input
-                className="lb-search-input"
-                type="text"
-                placeholder={placeholder}
-                value={val}
-                onChange={handleChange}
-                aria-label={ariaLabel}
-                role="searchbox"
-                inputMode="search"
-                ref={inputRef}
-                onKeyDown={(e) => { if (e.key === 'Escape') handleClear(); }}
-            />
-
-            {/* Eliminamos la X pequeña para evitar duplicados; el círculo actúa como limpiar */}
-
-            {showList && (
-                <ul className="lb-suggest">
-                    {matches.map((sug) => (
-                        <li key={sug}>
-                            <button
-                                type="button"
-                                onClick={() => {
-                                    setValue(sug);
-                                    if (onSubmit) onSubmit(sug);
-                                    setFocused(false);
-                                    setPhase("");
-                                    inputRef.current?.blur();
-                                }}
-                            >
-                                {sug}
-                            </button>
-                        </li>
-                    ))}
-                </ul>
-            )}
-        </form>
-    );
+                  <span className="suggestion-name">{sug.nombre}</span>
+                  {sug.categoria && (
+                    <span className="suggestion-category">{sug.categoria}</span>
+                  )}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </form>
+  );
 }
