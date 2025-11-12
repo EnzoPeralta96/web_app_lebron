@@ -5,4 +5,7 @@ import react from '@vitejs/plugin-react-swc'
 export default defineConfig({
   plugins: [react()],
   base: '/web_app_lebron/',
+  build: {
+    outDir: 'docs', // 👉 hace que el build se genere en la carpeta docs
+  },
 })
