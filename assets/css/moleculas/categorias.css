@@ -10,6 +10,7 @@
   /* Limita el contenedor para que entren exactamente 3 tarjetas por fila en desktop */
   max-width: calc(var(--card-w) * 3 + var(--categories-gap) * 2);
   margin-inline: auto;
+  
 }
 
 .categories-grid {
@@ -84,7 +85,7 @@
   width: clamp(48px, 10vw, 96px);
   margin: .25rem auto 0; /* centrar la barra */
   border-radius: 3px;
-  background: linear-gradient(90deg, var(--divider-soft), var(--divider-strong));
+  
 }
 
 #categorias .categories-wrap > .lead {

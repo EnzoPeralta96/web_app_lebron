@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { useCart } from "../context/CartContext.jsx";
 // Import absoluto desde la raíz del proyecto para evitar problemas de HMR/base
-import "/componentes/pages/carrito.css";
+import "../../assets/css/pages/carrito.css";
 import Boton from "../../componentes/atomicos/boton.jsx";
 import demoImg from "../../assets/img/starr (1).png";
 import proteina2 from "../../assets/img/proteina2 (1).png";
@@ -167,4 +167,3 @@ function Carrito() {
 }
 
 export default Carrito;
-

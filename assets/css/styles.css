@@ -7,7 +7,7 @@
     --divider-glow2: rgba(239, 68, 68, .35);
 
     /* Fondo global (ajustable) */
-    --bg-base: #0a0a0f;              /* color base */
+    --bg-base: #312e2e;              /* color base */
     --bg-accent: #dc143c;            /* acento crimson */
     --bg-accent-soft: rgba(220,20,60,.18);
     --bg-light: rgba(255,255,255,.06);
@@ -20,10 +20,8 @@
 html, body { min-height: 100%; width: 100%; overflow-x: clip; }
 
 body{
-  --base:#120b0b;
-  background:
-    radial-gradient(120% 100% at 50% 0%, rgba(255,255,255,.05), transparent 60%),
-    var(--base);
+
+  background: var(--bg-base);
   color:#e5e7eb;
   position:relative;
   margin: 0; /* elimina el gap inferior/superior del body */
@@ -32,18 +30,7 @@ body{
 }
 
 /* Fondo alternativo para páginas internas (no index) */
-body.is-inner{
-  --base:#0a0a0f;
-  background:
-    radial-gradient(130% 120% at 50% -10%, rgba(220,20,60,.18), transparent 60%),
-    linear-gradient(180deg, rgba(0,0,0,.5), rgba(12,0,0,.85)),
-    var(--bg-base, #0a0a0f);
-}
 
-/* Dots overlay solo en páginas internas */
-/* Opacidad integrada en el bloque de abajo */
-
-/* Titulares y elementos destacados con fuente futurista */
 h1,
 h2,
 h3,
@@ -66,13 +53,4 @@ button,
 .lb-btn,
 a {
   font-family: "Orbitron", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-}
-body:not(.is-inner)::before{
-  content:"";
-  position:fixed; inset:0; pointer-events:none;
-  background:
-    radial-gradient(2px 2px at 1px 1px, rgba(255, 0, 0, 0.699) 1px, transparent 1px);
-  background-size: 6px 6px;
-  opacity:.35;
-  z-index: 0; /* sit behind positioned content like footer/header */
 }

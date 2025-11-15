@@ -22,7 +22,7 @@ function Header() {
             <Boton variant="primary" href="#categorias" altText="Ir a comprar">
               Comprar ahora
             </Boton>
-            <Boton variant="primary" href="#categorias" altText="Explorar combos">
+            <Boton variant="primary" href="/categoria/combos" altText="Explorar combos">
               Ver combos
             </Boton>
           </section>

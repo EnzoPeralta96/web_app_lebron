@@ -9,6 +9,7 @@
     "sabores": ["Chocolate", "Vainilla", "Cookies & Cream"],
     "tamanos": ["1kg", "2kg"],
     "imagen": "/img/productos/whey-gold.jpg",
+    "destacado": true,
     "descripcion": "Proteína de suero de alta calidad con 24g de proteína por porción."
   },
   {
@@ -21,6 +22,7 @@
     "sabores": ["Chocolate", "Fresa"],
     "tamanos": ["1kg", "2.27kg"],
     "imagen": "/img/productos/pro-performance.jpg",
+    "destacado": true,
     "descripcion": "Fórmula concentrada de proteína para recuperación muscular."
   },
   {
@@ -33,6 +35,7 @@
     "sabores": ["Chocolate", "Banana", "Vainilla"],
     "tamanos": ["3kg", "5kg"],
     "imagen": "/img/productos/serious-mass.jpg",
+    "destacado": false,
     "descripcion": "Ganador de peso con alto contenido calórico y 50g de proteína por porción."
   },
   {
@@ -45,6 +48,7 @@
     "sabores": ["Chocolate", "Galleta", "Frutilla"],
     "tamanos": ["1.3kg", "2.3kg"],
     "imagen": "/img/productos/iso100.jpg",
+    "destacado": false,
     "descripcion": "Proteína hidrolizada de absorción rápida, ideal post entrenamiento."
   },
   {
@@ -57,6 +61,7 @@
     "sabores": ["Chocolate", "Cookies & Cream"],
     "tamanos": ["1kg", "2kg"],
     "imagen": "/img/productos/nitrotech.jpg",
+    "destacado": false,
     "descripcion": "Mezcla avanzada con creatina y proteína de suero aislada."
   },
   {
@@ -68,6 +73,7 @@
     "stock": 25,
     "tamanos": ["300g", "500g"],
     "imagen": "/img/productos/creatina-universal.jpg",
+    "destacado": false,
     "descripcion": "Creatina pura micronizada que mejora fuerza y rendimiento."
   },
   {
@@ -79,6 +85,7 @@
     "stock": 30,
     "tamanos": ["300g", "1kg"],
     "imagen": "/img/productos/creatina-on.jpg",
+    "destacado": false,
     "descripcion": "Creatina de alta pureza para energía explosiva y volumen muscular."
   },
   {
@@ -90,6 +97,7 @@
     "stock": 20,
     "tamanos": ["1kg"],
     "imagen": "/img/productos/celltech.jpg",
+    "destacado": false,
     "descripcion": "Fórmula con carbohidratos para mejor absorción y recuperación."
   },
   {
@@ -101,6 +109,7 @@
     "stock": 22,
     "tamanos": ["500g"],
     "imagen": "/img/productos/creatina-xtreme.jpg",
+    "destacado": false,
     "descripcion": "Creatina micronizada con rápida disolución y máxima potencia."
   },
   {
@@ -112,6 +121,7 @@
     "stock": 14,
     "tamanos": ["500g"],
     "imagen": "/img/productos/creatina-starlabs.jpg",
+    "destacado": true,
     "descripcion": "Creatina monohidratada con sello Creapure®, máxima pureza."
   },
   {
@@ -124,6 +134,7 @@
     "sabores": ["Fruit Punch", "Blue Razz", "Watermelon"],
     "tamanos": ["195g", "390g"],
     "imagen": "/img/productos/c4.jpg",
+    "destacado": false,
     "descripcion": "Pre entreno con cafeína y beta-alanina para energía explosiva."
   },
   {
@@ -136,6 +147,7 @@
     "sabores": ["Mango", "Piña Colada", "Limonada"],
     "tamanos": ["300g"],
     "imagen": "/img/productos/nitraflex.jpg",
+    "destacado": false,
     "descripcion": "Aumenta fuerza, energía y enfoque durante entrenamientos intensos."
   },
   {
@@ -148,6 +160,7 @@
     "sabores": ["Grape", "Peach Iced Tea"],
     "tamanos": ["315g"],
     "imagen": "/img/productos/totalwar.jpg",
+    "destacado": false,
     "descripcion": "Fórmula extrema de energía y concentración con 320mg de cafeína."
   },
   {
@@ -160,6 +173,7 @@
     "sabores": ["Manzana Verde", "Sandía"],
     "tamanos": ["225g"],
     "imagen": "/img/productos/psychotic.jpg",
+    "destacado": false,
     "descripcion": "Pre entreno ultra concentrado con estimulantes potentes."
   },
   {
@@ -172,6 +186,7 @@
     "sabores": ["Blue Razz", "Cherry Bomb"],
     "tamanos": ["230g"],
     "imagen": "/img/productos/hyde.jpg",
+    "destacado": false,
     "descripcion": "Pre entreno avanzado con beta-alanina, creatina y teanina."
   },
   {
@@ -184,6 +199,7 @@
     "sabores": ["Frutilla", "Naranja"],
     "tamanos": ["300g"],
     "imagen": "/img/productos/bcaa-on.jpg",
+    "destacado": false,
     "descripcion": "Aminoácidos esenciales con ratio 2:1:1 para recuperación y energía."
   },
   {
@@ -196,6 +212,7 @@
     "sabores": ["Lemon Lime", "Mango", "Grape"],
     "tamanos": ["420g"],
     "imagen": "/img/productos/xtend.jpg",
+    "destacado": false,
     "descripcion": "BCAA con electrolitos, sin azúcar, ideal durante el entrenamiento."
   },
   {
@@ -208,6 +225,7 @@
     "sabores": ["Fruit Fusion", "Green Apple"],
     "tamanos": ["270g"],
     "imagen": "/img/productos/aminoenergy.jpg",
+    "destacado": false,
     "descripcion": "Aminoácidos con cafeína natural para energía y recuperación."
   },
   {
@@ -220,6 +238,7 @@
     "sabores": ["Tropical", "Cereza"],
     "tamanos": ["500g"],
     "imagen": "/img/productos/bcaa-xplode.jpg",
+    "destacado": false,
     "descripcion": "Mezcla avanzada con BCAA y glutamina para mejor rendimiento."
   },
   {
@@ -232,6 +251,7 @@
     "sabores": ["Naranja", "Limonada"],
     "tamanos": ["300g"],
     "imagen": "/img/productos/amino-dymatize.jpg",
+    "destacado": false,
     "descripcion": "Aminoácidos esenciales con perfil completo y rápida absorción."
   },
   {
@@ -243,6 +263,7 @@
     "stock": 12,
     "tamanos": ["44 packs", "88 packs"],
     "imagen": "/img/productos/animalpak.jpg",
+    "destacado": false,
     "descripcion": "Complejo vitamínico y mineral completo para atletas de alto rendimiento."
   },
   {
@@ -254,6 +275,7 @@
     "stock": 18,
     "tamanos": ["100 tablets"],
     "imagen": "/img/productos/dailyformula.jpg",
+    "destacado": false,
     "descripcion": "Vitaminas esenciales y minerales para soporte diario."
   },
   {
@@ -265,6 +287,7 @@
     "stock": 15,
     "tamanos": ["90 tablets", "180 tablets"],
     "imagen": "/img/productos/optimen.jpg",
+    "destacado": false,
     "descripcion": "Fórmula avanzada con 75 ingredientes activos para hombres."
   },
   {
@@ -276,6 +299,7 @@
     "stock": 20,
     "tamanos": ["60 tablets", "120 tablets"],
     "imagen": "/img/productos/optiwomen.jpg",
+    "destacado": false,
     "descripcion": "Complejo vitamínico diseñado para mujeres activas."
   },
   {
@@ -287,6 +311,7 @@
     "stock": 25,
     "tamanos": ["S", "M", "L", "XL"],
     "imagen": "/img/productos/guantes.jpg",
+    "destacado": false,
     "descripcion": "Guantes acolchados para mejorar el agarre y proteger las manos."
   },
   {
@@ -298,6 +323,7 @@
     "stock": 10,
     "tamanos": ["M", "L", "XL"],
     "imagen": "/img/productos/cinturon.jpg",
+    "destacado": false,
     "descripcion": "Cinturón de cuero reforzado para mayor soporte lumbar."
   },
   {
@@ -309,6 +335,7 @@
     "stock": 40,
     "tamanos": ["600ml"],
     "imagen": "/img/productos/shaker.jpg",
+    "destacado": false,
     "descripcion": "Vaso mezclador con rejilla antigrumos, ideal para proteínas y BCAA."
   },
   {
@@ -321,6 +348,7 @@
     "sabores": ["Cookies & Cream", "Chocolate Chip", "Brownie"],
     "tamanos": ["60g"],
     "imagen": "/img/productos/proteinbar.jpg",
+    "destacado": false,
     "descripcion": "Barra proteica con bajo contenido de azúcar y alto en fibra."
   },
   {
@@ -332,10 +360,36 @@
     "stock": 35,
     "tamanos": ["500g", "1kg"],
     "imagen": "/img/productos/avena.jpg",
+    "destacado": true,
     "descripcion": "Avena integral instantánea, fuente natural de energía y fibra."
   },
   {
     "id": 30,
+    "nombre": "Platinum whey Isolate",
+    "categoria": "proteinas",
+    "marca": "Star Nutrition",
+    "precio": 50500,
+    "stock": 15,
+    "sabores": ["Chocolate", "Vainilla", "Cookies & Cream"],
+    "tamanos": ["1kg", "2kg"],
+    "imagen": "/img/productos/avena.jpg",
+    "destacado": true,
+    "descripcion": "Proteína de suero aislada con 27g de proteína por porción y baja en carbohidratos."
+  },
+  {
+    "id": 31,
+    "nombre": "quemador de grasa Lipo 6 Black",
+    "categoria": "Quemadores",
+    "marca": "zetex",
+    "precio": 3200,
+    "stock": 15,
+    "tamanos": ["60 capsulas"],
+    "imagen": "/img/productos/avena.jpg",
+    "destacado": true,
+    "descripcion": "Quemador de grasa avanzado para aumentar el metabolismo y energía."
+  },
+  {
+    "id": 32,
     "nombre": "Mantequilla de Maní Natural",
     "categoria": "alimentos",
     "marca": "Manitoba",
@@ -343,6 +397,86 @@
     "stock": 20,
     "tamanos": ["350g", "1kg"],
     "imagen": "/img/productos/mantequilla-mani.jpg",
+    "destacado": false,
     "descripcion": "Mantequilla de maní 100% natural, sin azúcar ni aditivos."
-  }
+  },
+  {
+    "id": 33,
+    "nombre": "Mantequilla de Maní Natural",
+    "categoria": "alimentos",
+    "marca": "boris",
+    "precio": 5600,
+    "stock": 20,
+    "tamanos": ["500g", "1kg"],
+    "imagen": "/img/productos/mantequilla-mani.jpg",
+    "destacado": true,
+    "descripcion": "Mantequilla de maní 100% natural, sin azúcar ni aditivos."
+  },
+  {
+  "id": 34,
+  "nombre": "Proteína 3kg + Creatina + Shaker de regalo",
+  "categoria": "combos",
+  "marca": "",
+  "precio": 76000,
+  "stock": 10,
+  "imagen": "/img/productos/combo1.jpg",
+  "destacado": true,
+  "descripcion": "Incluye proteína de 3kg, creatina monohidratada 300g y shaker de 600ml de regalo."
+},
+{
+  "id": 35,
+  "nombre": "Ganador de peso 5kg + Creatina 500g + Guantes",
+  "categoria": "combos",
+  "marca": "",
+  "precio": 85000,
+  "stock": 8,
+  "imagen": "/img/productos/combo2.jpg",
+  "destacado": false,
+  "descripcion": "Incluye ganador de peso de 5kg, creatina 500g y guantes acolchados para entrenamiento."
+},
+{
+  "id": 36,
+  "nombre": "Proteína 2kg + Pre-entreno + Shaker",
+  "categoria": "combos",
+  "marca": "",
+  "precio": 69000,
+  "stock": 12,
+  "imagen": "/img/productos/combo3.jpg",
+  "destacado": false,
+  "descripcion": "Incluye proteína aislada de 2kg, pre-entreno C4 y shaker de 600ml."
+},
+{
+  "id": 37,
+  "nombre": "Creatina 500g + BCAA 500g + Multivitamínico",
+  "categoria": "combos",
+  "marca": "",
+  "precio": 54000,
+  "stock": 14,
+  "imagen": "/img/productos/combo4.jpg",
+  "destacado": true,
+  "descripcion": "Incluye creatina 500g, BCAA 500g y multivitamínico completo para rendimiento diario."
+},
+{
+  "id": 38,
+  "nombre": "Proteína 1kg + Amino Energy + Avena",
+  "categoria": "combos",
+  "marca": "",
+  "precio": 48000,
+  "stock": 16,
+  "imagen": "/img/productos/combo5.jpg",
+  "destacado": false,
+  "descripcion": "Incluye proteína de 1kg, Amino Energy y avena integral instantánea 1kg."
+},
+{
+  "id": 38,
+  "nombre": "Proteína 1kg + Amino Energy + Avena",
+  "categoria": "alimentos",
+  "marca": "",
+  "precio": 48000,
+  "stock": 16,
+  "imagen": "/img/productos/combo5.jpg",
+  "destacado": false,
+  "descripcion": "Incluye proteína de 1kg, Amino Energy y avena integral instantánea 1kg."
+}
 ]
+

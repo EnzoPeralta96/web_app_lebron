@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import products from "../data/productos.json";
+import "../../assets/css/pages/Marcas.css";
 
 export default function Marcas() {
   const { brands } = useMemo(() => {
@@ -16,7 +17,9 @@ export default function Marcas() {
       entry.count += 1;
       map.set(key, entry);
     }
-    const list = Array.from(map.values()).sort((a, b) => a.name.localeCompare(b.name));
+    const list = Array.from(map.values()).sort((a, b) =>
+      a.name.localeCompare(b.name, "es", { sensitivity: "base" }),
+    );
     return { brands: list };
   }, []);
 
@@ -28,35 +31,16 @@ export default function Marcas() {
           <p style={{ margin: ".25rem 0 0", color: "#cbd5e1" }}>{brands.length} marcas encontradas</p>
         </header>
 
-        <ul style={{
-          listStyle: "none",
-          margin: 0,
-          padding: 0,
-          display: "grid",
-          gridTemplateColumns: "repeat(3, minmax(0,1fr))",
-          gap: ".75rem",
-        }}>
+        <ul className="marcas-grid">
           {brands.map((b) => (
-            <li key={b.key} style={{
-              border: "1px solid rgba(255,255,255,.12)",
-              background: "rgba(255,255,255,.06)",
-              borderRadius: 12,
-            }}>
+            <li key={b.key} className="marcas-card">
               <Link
+                className="marcas-card__link"
                 to={`/categoria/${b.key}`}
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  padding: ".9rem 1rem",
-                  gap: ".5rem",
-                  textDecoration: "none",
-                  color: "inherit",
-                }}
                 aria-label={`Ver productos de ${b.name}`}
               >
-                <span style={{ fontWeight: 700 }}>{b.name}</span>
-                <span style={{ opacity: 0.75 }}>{b.count}</span>
+                <span>{b.name}</span>
+                <span>{b.count}</span>
               </Link>
             </li>
           ))}
@@ -65,4 +49,3 @@ export default function Marcas() {
     </main>
   );
 }
-

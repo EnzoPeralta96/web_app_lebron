@@ -7,6 +7,7 @@ import amino from "../../assets/img/amino (1).png";
 import vitaminas from "../../assets/img/vitaminas (1).png";
 import accesorios from "../../assets/img/accesorios (1).png";
 import quemadores from "../../assets/img/quemadorr (1).png";
+import combosImg from "../../assets/img/platon.png";
 import Tarjeta from "../atomicos/tarjeta.jsx";
 import "../../assets/css/moleculas/categorias.css";
 import products from "../../src/data/productos.json";
@@ -21,6 +22,7 @@ export default function Categorias() {
     { nombre: "Pre-entrenos", imagen: preentreno, alt: "Pre-entrenos", slug: "preentrenos", descripcion: "Energizantes, bombas de oxido nitrico,focus" },
     { nombre: "Quemadores", imagen: quemadores, alt: "Quemadores", slug: "quemadores", descripcion: "L-carnitina, termogenicos, diureticos" },
     { nombre: "Accesorios", imagen: accesorios, alt: "Accesorios", slug: "accesorios", descripcion: "Shakers, cinturones, guantes, munhequeras" },
+    { nombre: "Combos", imagen: combosImg, alt: "Combos Lebron", slug: "combos", descripcion: "Paquetes con proteina, creatina y extras para tu entrenamiento" },
   ];
 
   // Mostrar solo categorías que existan en el JSON real

@@ -5,7 +5,11 @@ import hero from "../../assets/img/platon.png";
 
 function Gancho() {
   return (
-    <section id="gancho" className="section" style={{ "--gancho-bg": `url(${hero})` }}>
+    <section
+      id="gancho"
+      className="section"
+      style={{ "--gancho-bg": `url(${hero})` }}
+    >
       <section className="container gancho-inner">
         <figure className="gancho-media">
           <img src={hero} alt="Entrenamiento y energía" loading="lazy" />
@@ -29,7 +33,7 @@ function Gancho() {
 
           <nav className="gancho-actions" aria-label="Acciones principales">
             <Boton href="#categorias" altText="Vamos">Comprar</Boton>
-            <Boton href="#categorias" altText="Ver">Ir a combos</Boton>
+            <Boton href="/categoria/combos" altText="Ver">Ir a combos</Boton>
           </nav>
           
         </article>

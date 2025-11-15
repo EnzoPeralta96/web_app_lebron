@@ -86,7 +86,7 @@
 
 /* Compensar la altura del nav fijo */
 body.has-fixed-nav {
-  padding-top: var(--nav-h, 4.5rem);
+  padding-top: var(--nav-h, 4rem);
 }
 
 /* Nivel superior */
@@ -105,7 +105,7 @@ body.has-fixed-nav {
 }
 
 .logo-img {
-  height: clamp(6rem, 6vw, 4rem);
+  height: clamp(4rem, 6vw, 4rem);
   width: auto;
   display: block;
   object-fit: contain;
@@ -151,6 +151,19 @@ body.has-fixed-nav {
 .cart-btn {
   position: relative;
   padding-right: 2.8rem;
+}
+
+.cart-btn.lb-ghost {
+  border-color: rgb(104, 59, 59);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cart-btn.lb-ghost:hover,
+.cart-btn.lb-ghost:focus-visible {
+  background: linear-gradient(120deg, rgba(255, 0, 0, 0.9), rgb(180, 24, 24));
+  border-color: transparent;
+  box-shadow: 0 10px 30px rgba(255, 0, 0, 0.45);
+  color: #fff;
 }
 
 .cart-btn .text {

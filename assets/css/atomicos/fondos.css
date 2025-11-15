@@ -1,0 +1,231 @@
+:root {
+  --diag-a: rgba(58, 0, 0, 0.37);
+  --diag-b: rgba(0, 0, 0, 0.13);
+}
+
+.bg {
+  display: none;
+}
+
+body.has-diagonales .bg,
+body.has-diagonales .bg2,
+body.has-diagonales .bg3 {
+  position: fixed;
+  inset: 0;
+  left: -50%;
+  right: -50%;
+  background-image: linear-gradient(-60deg, var(--diag-a) 50%, var(--diag-b) 50%);
+  animation: bg-slide 6s ease-in-out infinite alternate;
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body.has-diagonales .bg2 {
+  animation-direction: alternate-reverse;
+  animation-duration: 7s;
+}
+
+body.has-diagonales .bg3 {
+  animation-duration: 8s;
+}
+
+.fondo-stars,
+.fondo-stars::after,
+.fondo-stars2,
+.fondo-stars2::after,
+.fondo-stars3,
+.fondo-stars3::after {
+  display: none;
+}
+
+body.has-fondo-estelar {
+  background:
+    radial-gradient(circle at 30% 30%, rgb(5, 1, 1), transparent 55%),
+    radial-gradient(circle at 70% 25%, rgba(0, 0, 0, 0.6), transparent 60%),
+    linear-gradient(180deg, #2e1313 0%, #050000 75%);
+  min-height: 100%;
+  overflow: hidden;
+}
+
+body.has-fondo-estelar .fondo-stars,
+body.has-fondo-estelar .fondo-stars::after,
+body.has-fondo-estelar .fondo-stars2,
+body.has-fondo-estelar .fondo-stars2::after,
+body.has-fondo-estelar .fondo-stars3,
+body.has-fondo-estelar .fondo-stars3::after {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body.has-fondo-estelar .fondo-stars {
+  box-shadow:
+    5vw 12vh #FFF,
+    8vw 30vh #FFF,
+    15vw 22vh #FFF,
+    21vw 58vh #FFF,
+    28vw 10vh #FFF,
+    34vw 46vh #FFF,
+    42vw 28vh #FFF,
+    48vw 58vh #FFF,
+    53vw 15vh #FFF,
+    62vw 50vh #FFF,
+    70vw 18vh #FFF,
+    75vw 48vh #FFF,
+    82vw 25vh #FFF,
+    88vw 62vh #FFF,
+    6vw 72vh #FFF,
+    19vw 80vh #FFF,
+    31vw 70vh #FFF,
+    43vw 80vh #FFF,
+    55vw 72vh #FFF,
+    67vw 82vh #FFF,
+    79vw 78vh #FFF,
+    91vw 75vh #FFF,
+    10vw 90vh #FFF,
+    30vw 95vh #FFF,
+    60vw 88vh #FFF,
+    80vw 91vh #FFF;
+  animation: animStar 60s linear infinite;
+}
+
+body.has-fondo-estelar .fondo-stars::after {
+  content: "";
+  top: 200vh;
+  box-shadow:
+    5vw 12vh #FFF,
+    8vw 30vh #FFF,
+    15vw 22vh #FFF,
+    21vw 58vh #FFF,
+    28vw 10vh #FFF,
+    34vw 46vh #FFF,
+    42vw 28vh #FFF,
+    48vw 58vh #FFF,
+    53vw 15vh #FFF,
+    62vw 50vh #FFF,
+    70vw 18vh #FFF,
+    75vw 48vh #FFF,
+    82vw 25vh #FFF,
+    88vw 62vh #FFF,
+    6vw 72vh #FFF,
+    19vw 80vh #FFF,
+    31vw 70vh #FFF,
+    43vw 80vh #FFF,
+    55vw 72vh #FFF,
+    67vw 82vh #FFF,
+    79vw 78vh #FFF,
+    91vw 75vh #FFF,
+    10vw 90vh #FFF,
+    30vw 95vh #FFF,
+    60vw 88vh #FFF,
+    80vw 91vh #FFF;
+}
+
+body.has-fondo-estelar .fondo-stars2 {
+  box-shadow:
+    4vw 18vh #FFF,
+    26vw 12vh #FFF,
+    32vw 35vh #FFF,
+    43vw 50vh #FFF,
+    56vw 22vh #FFF,
+    65vw 60vh #FFF,
+    72vw 10vh #FFF,
+    81vw 40vh #FFF,
+    12vw 68vh #FFF,
+    22vw 80vh #FFF,
+    35vw 77vh #FFF,
+    46vw 15vh #FFF,
+    59vw 32vh #FFF,
+    68vw 16vh #FFF,
+    77vw 57vh #FFF,
+    88vw 34vh #FFF,
+    17vw 90vh #FFF,
+    28vw 92vh #FFF,
+    39vw 42vh #FFF,
+    50vw 88vh #FFF;
+  animation: animStar 90s linear infinite;
+}
+
+body.has-fondo-estelar .fondo-stars2::after {
+  content: "";
+  top: 200vh;
+  box-shadow:
+    4vw 18vh #FFF,
+    26vw 12vh #FFF,
+    32vw 35vh #FFF,
+    43vw 50vh #FFF,
+    56vw 22vh #FFF,
+    65vw 60vh #FFF,
+    72vw 10vh #FFF,
+    81vw 40vh #FFF,
+    12vw 68vh #FFF,
+    22vw 80vh #FFF,
+    35vw 77vh #FFF,
+    46vw 15vh #FFF,
+    59vw 32vh #FFF,
+    68vw 16vh #FFF,
+    77vw 57vh #FFF,
+    88vw 34vh #FFF,
+    17vw 90vh #FFF,
+    28vw 92vh #FFF,
+    39vw 42vh #FFF,
+    50vw 88vh #FFF;
+}
+
+body.has-fondo-estelar .fondo-stars3 {
+  box-shadow:
+    8vw 25vh #FFF,
+    40vw 70vh #FFF,
+    52vw 14vh #FFF,
+    61vw 55vh #FFF,
+    75vw 30vh #FFF,
+    86vw 65vh #FFF,
+    13vw 52vh #FFF,
+    29vw 15vh #FFF,
+    33vw 85vh #FFF,
+    44vw 28vh #FFF;
+  animation: animStar 120s linear infinite;
+}
+
+body.has-fondo-estelar .fondo-stars3::after {
+  content: "";
+  top: 200vh;
+  box-shadow:
+    8vw 25vh #FFF,
+    40vw 70vh #FFF,
+    52vw 14vh #FFF,
+    61vw 55vh #FFF,
+    75vw 30vh #FFF,
+    86vw 65vh #FFF,
+    13vw 52vh #FFF,
+    29vw 15vh #FFF,
+    33vw 85vh #FFF,
+    44vw 28vh #FFF;
+}
+
+@keyframes bg-slide {
+  0% {
+    transform: translateX(-25%);
+  }
+
+  100% {
+    transform: translateX(25%);
+  }
+}
+
+@keyframes animStar {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-200vh);
+  }
+}

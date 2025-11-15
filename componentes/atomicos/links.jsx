@@ -38,11 +38,11 @@ const IconPuzzle = () => (
 function Links({
   open = false,
   items = [
-    { href: "#categorias",           label: "Suplementos", icon: <IconDumbbell />, gradA: "#b80000ff", gradB: "#dc2626" },
+    { href: "#categorias",           label: "Suplementos", icon: <IconDumbbell />, gradA: "#b80000ff", gradB: "#000000ff" },
     { href: "/categoria/alimentos", label: "Alimentos",  icon: <IconApple />,    gradA: "#e20000ff", gradB: "#770707ff" },
-    { href: "/categoria/accesorios",label: "Accesorios", icon: <IconBag />,      gradA: "#65008dff", gradB: "#5093ffff" },
-    { href: "/marcas",              label: "Marcas",      icon: <IconTag />,      gradA: "#a78bfa", gradB: "#4c00ffff" },
-    { href: "#categorias",           label: "Combos",      icon: <IconPuzzle />,   gradA: "#f59e0b", gradB: "#ff6a00ff" },
+    { href: "/categoria/accesorios",label: "Accesorios", icon: <IconBag />,      gradA: "#da5700ff", gradB: "#5c0050ff" },
+    { href: "/marcas",              label: "Marcas",      icon: <IconTag />,      gradA: "#f30000ff", gradB: "#4c00ffff" },
+    { href: "/categoria/combos",     label: "Combos",      icon: <IconPuzzle />,   gradA: "#f59e0b", gradB: "#ff6a00ff" },
   ],
   onItemClick,
   activeIndex = -1,
@@ -106,7 +106,6 @@ function Links({
 
 export default Links;
 export { Links };
-
 
 
 

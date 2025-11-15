@@ -38,13 +38,13 @@ function Footer() {
   <section className="content">
         <section className="container footer-grid">
           <section className="foot">
-            <a className="logo" href="#" aria-label="Inicio">
+            <a className="logo" href="/" aria-label="Inicio">
               <img className="logo-img" src={logo} alt="Lebron logo" />
             </a>
             <br />
             <br />
             <nav className="foot-social" aria-label="Instagram">
-              <RedesSocialesBoton instagramUrl="https://www.instagram.com/" include={["instagram"]} />
+              <RedesSocialesBoton instagramUrl="https://www.instagram.com/lebronsuplementos/" include={["instagram"]} />
             </nav>
           </section>
 
@@ -72,4 +72,3 @@ function Footer() {
 }
 
 export default Footer;
-

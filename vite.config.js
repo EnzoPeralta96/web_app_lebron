@@ -1,11 +1,13 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react-swc";
 
-// https://vite.dev/config/
+const mode = process.env.NODE_ENV;
+const prodBase = "/web_app_lebron/";
+
 export default defineConfig({
   plugins: [react()],
-  base: '/web_app_lebron/',
+  base: mode === "production" ? prodBase : "/",
   build: {
-    outDir: 'docs', // 👉 hace que el build se genere en la carpeta docs
+    outDir: "docs",
   },
-})
+});

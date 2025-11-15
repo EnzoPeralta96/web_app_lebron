@@ -5,7 +5,7 @@ import "../../assets/css/atomicos/buscador.css";
 
 const PRIMARY_LINKS = [
   { href: "#comprador", label: "Suplementos", hint: "Shop" },
-  { href: "#combos", label: "Combos", hint: "Combos" },
+  { href: "/categoria/combos", label: "Combos", hint: "Combos" },
   { href: "#gancho", label: "¿porque estoy aqui?", hint: "" },
 ];
 

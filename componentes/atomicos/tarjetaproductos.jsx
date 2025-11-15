@@ -4,6 +4,7 @@ import demoImg from "../../assets/img/starr (1).png";
 import proteina2 from "../../assets/img/proteina2 (1).png";
 
 import { useCart } from "../../src/context/CartContext.jsx";
+import { useNavigate } from "react-router-dom";
 
 export default function TarjetaProducto({ producto = {}, categoria }) {
   const { nombre, precio, marca, /*categoria: cat,*/ tamanos, sabores, imagen, stock, descripcion } = producto || {};
@@ -11,9 +12,24 @@ export default function TarjetaProducto({ producto = {}, categoria }) {
 
   // Imagen de prueba solicitada: usar import directo desde assets
   const cart = useCart();
+  const navigate = useNavigate();
+
+  const handleCardClick = (event) => {
+    if (event.target.closest("[data-add-to-cart]")) return;
+    navigate(`/producto/${producto.id}`);
+  };
 
   return (
-    <article className="tp3d-wrap" aria-label={`${nombre} ${categoria || cat || "producto"}`}>
+    <article
+      className="tp3d-wrap"
+      aria-label={`${nombre} ${categoria || "producto"}`}
+      onClick={handleCardClick}
+      tabIndex={0}
+      role="button"
+      onKeyDown={(event) => {
+        if (event.key === "Enter") handleCardClick(event);
+      }}
+    >
       <section className="tp3d-card" aria-live="polite">
         <header className="tp3d-front">
           <h3 className="tp3d-title">{nombre}</h3>
@@ -21,7 +37,7 @@ export default function TarjetaProducto({ producto = {}, categoria }) {
             {/* En desktop se anima con hover del contenedor */}
             <span className="tp3d-img" aria-hidden="true">
               <img
-                src={proteina2}
+                src={imagen || proteina2}
                 alt={nombre}
                 loading="lazy"
                 onError={(e) => {
@@ -44,7 +60,6 @@ export default function TarjetaProducto({ producto = {}, categoria }) {
             {Array.isArray(sabores) && sabores.length > 0 && (
               <li><strong>Sabores</strong> {sabores.join(", ")}</li>
             )}
-            {typeof stock === "number" && <li><strong>Stock</strong> {stock}</li>}
           </ul>
           <button
             className="tp3d-add"

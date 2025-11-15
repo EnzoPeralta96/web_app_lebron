@@ -3,11 +3,12 @@ import { useParams } from "react-router-dom";
 import products from "../data/productos.json";
 import TarjetaProducto from "../../componentes/atomicos/tarjetaproductos.jsx";
 import "../../assets/css/atomicos/tarjetaproducto.css";
+import "../../assets/css/pages/Generica.css";
 
 export default function Generica() {
   const { nombre } = useParams();
 
-  const { slug, title, items } = useMemo(() => {
+  const { slug, title, items, groupedByCategory, isCategorySlug } = useMemo(() => {
     const norm = (s) => (s || "").toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     const pretty = (s) => s.replace(/[-_]/g, " ").replace(/\b\w/g, (m) => m.toUpperCase());
     const slug = norm(nombre || "");
@@ -26,10 +27,13 @@ export default function Generica() {
 
     let items = [];
     let title = pretty(slug || "Resultados");
+    let groupedByCategory = null;
+    let isCategorySlug = false;
     if (categories.has(slug)) {
       // Filtro por categoría exacta
       items = (products || []).filter((p) => norm(p.categoria) === slug);
       title = pretty(slug);
+      isCategorySlug = true;
     } else {
       // Búsqueda por nombre o marca que contenga el término
       items = (products || []).filter(
@@ -39,9 +43,20 @@ export default function Generica() {
           getBrand(p.nombre).includes(slug)
       );
       title = `Resultados: ${pretty(slug)}`;
+      const categoriesMap = new Map();
+      for (const product of items) {
+        const rawCategory = (product.categoria || "Sin categoría").trim();
+        const key = norm(rawCategory);
+        const name = pretty(rawCategory || "Sin categoría") || "Sin categoría";
+        const entry = categoriesMap.get(key) || { key, name, items: [] };
+        entry.items.push(product);
+        categoriesMap.set(key, entry);
+      }
+      groupedByCategory = Array.from(categoriesMap.values()).filter((group) => group.items.length);
+      groupedByCategory.sort((a, b) => a.name.localeCompare(b.name, "es", { sensitivity: "base" }));
     }
 
-    return { slug, title, items };
+    return { slug, title, items, groupedByCategory, isCategorySlug };
   }, [nombre]);
 
   return (
@@ -53,13 +68,37 @@ export default function Generica() {
         </header>
 
         {items.length ? (
-          <ul className="gen-grid" role="list">
-            {items.map((p) => (
-              <li key={p.id} className="gen-grid-item">
-                <TarjetaProducto producto={p} categoria={slug} />
-              </li>
-            ))}
-          </ul>
+          isCategorySlug ? (
+            <ul className="gen-grid" role="list">
+              {items.map((p) => (
+                <li key={p.id} className="gen-grid-item">
+                  <TarjetaProducto producto={p} categoria={slug} />
+                </li>
+              ))}
+            </ul>
+          ) : (
+            groupedByCategory && groupedByCategory.length ? (
+              <div className="generica-categories">
+                {groupedByCategory.map((group) => (
+                  <article key={group.key || group.name} className="generica-category">
+                    <header className="generica-category__header">
+                      <h3>{group.name}</h3>
+                      <span className="generica-category__count">{group.items.length} producto{group.items.length === 1 ? "" : "s"}</span>
+                    </header>
+                    <ul className="gen-grid" role="list">
+                      {group.items.map((p) => (
+                        <li key={p.id} className="gen-grid-item">
+                          <TarjetaProducto producto={p} categoria={group.key} />
+                        </li>
+                      ))}
+                    </ul>
+                  </article>
+                ))}
+              </div>
+            ) : (
+              <p className="gen-empty">No hay productos para esta búsqueda.</p>
+            )
+          )
         ) : (
           <p className="gen-empty">No hay productos para esta categoría.</p>
         )}
