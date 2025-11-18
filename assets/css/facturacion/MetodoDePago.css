@@ -1,0 +1,24 @@
+@import "./facturacion-base.css";
+
+.payment-methods {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.8rem;
+}
+
+.payment-method {
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(247, 245, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 0.9rem 1.2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border 0.25s ease, box-shadow 0.25s ease;
+}
+
+.payment-method.is-active {
+  border-color: #eb1313;
+  box-shadow: 0 20px 30px rgba(168, 6, 6, 0.2);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(126, 7, 7, 0.05));
+}

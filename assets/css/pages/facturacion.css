@@ -1,0 +1,157 @@
+.facturacion-page {
+  padding: 2.5rem 1rem;
+  color: #f7f5ff;
+}
+
+.facturacion-hero {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.facturacion-hero h1 {
+  font-size: clamp(2rem, 3vw, 2.9rem);
+  margin: 0.35rem 0;
+  letter-spacing: 0.05em;
+}
+
+.facturacion-hero p {
+  max-width: 720px;
+  margin: 0 auto;
+  color: rgba(241, 240, 255, 0.8);
+}
+
+.facturacion-grid {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.facturacion-form {
+  background: linear-gradient(180deg, rgba(42, 8, 8, 0.92), rgba(37, 37, 37, 0.479));
+  border: 3px double rgba(255, 255, 255, 0.733);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 20px 70px rgba(185, 1, 1, 0.349);
+  text-align: center;
+  width: 70%;
+}
+
+.form-stage {
+  opacity: 0;
+  will-change: opacity;
+  margin-bottom: 1.5rem;
+}
+
+.form-stage.is-visible {
+  animation: reveal-stage 0.8s ease forwards;
+}
+
+.form-stage.is-disabled {
+  opacity: 0.65;
+}
+
+.form-stage.is-disabled .stage-overlay {
+  display: block;
+}
+
+.transfer-stage {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.45s ease, opacity 0.45s ease, margin-top 0.3s ease;
+  margin-top: 0;
+}
+
+.transfer-stage.is-visible {
+  max-height: 420px;
+  opacity: 1;
+  margin-top: 1.5rem;
+}
+
+.form-stage.is-visible .transfer-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.transfer-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 1.25rem;
+  margin-top: 1rem;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.transfer-card__title {
+  margin: 0 0 0.6rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.transfer-card dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.6rem;
+}
+
+.transfer-card dl div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.transfer-card dt {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 0.25em;
+}
+
+.transfer-card dd {
+  margin: 0;
+  font-weight: 600;
+  color: #fafafa;
+  word-break: break-all;
+}
+
+.transfer-card__note {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.facturacion-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  align-items: flex-start;
+}
+
+.stage-placeholder {
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.facturacion-status {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+}
+
+.facturacion-status.success {
+  color: #6ee7b7;
+}
+
+.facturacion-status.error {
+  color: #f87171;
+}

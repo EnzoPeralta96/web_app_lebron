@@ -1,0 +1,48 @@
+.facturacion-fieldset {
+  border: none;
+  padding: 0;
+  margin-bottom: 1.75rem;
+}
+
+.facturacion-fieldset legend {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+  display: block;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.form-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.form-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.form-grid input {
+  padding: 0.7rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(92, 2, 2, 0.068);
+  color: inherit;
+}
+
+.form-grid input:focus {
+  outline: none;
+  border-color: #eb0c0c;
+  box-shadow: 0 0 0 2px rgba(247, 41, 41, 0.2);
+}
+
+.field-error {
+  color: #fb7185;
+  font-size: 0.75rem;
+  margin-top: 0.35rem;
+}

@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { useCart } from "../context/CartContext.jsx";
 // Import absoluto desde la raíz del proyecto para evitar problemas de HMR/base
 import "../../assets/css/pages/carrito.css";
@@ -8,18 +8,17 @@ import proteina2 from "../../assets/img/proteina2 (1).png";
 import productos from "../data/productos.json";
 
 function Carrito() {
-  const { items, updateQty, removeItem, total, clear } = useCart();
-  const [cupon, setCupon] = useState("");
-
-  const descuento = useMemo(() => {
-    // Placeholder: 10% si el cupon es LEBRON10
-    if (cupon.trim().toUpperCase() === "LEBRON10") {
-      return total * 0.1;
-    }
-    return 0;
-  }, [cupon, total]);
-
-  const totalConDescuento = Math.max(0, total - descuento);
+  const {
+    items,
+    updateQty,
+    removeItem,
+    total,
+    clear,
+    couponCode,
+    couponDiscount,
+    totalWithDiscount,
+    applyCoupon,
+  } = useCart();
   const stockMap = useMemo(() => {
     const map = new Map();
     try {
@@ -132,33 +131,35 @@ function Carrito() {
                 id="cupon"
                 type="text"
                 placeholder="Ej: LEBRON10"
-                value={cupon}
-                onChange={(e) => setCupon(e.target.value)}
+                value={couponCode}
+                onChange={(e) => applyCoupon(e.target.value)}
               />
             </section>
           </form>
           <dl>
             <div className="cr-row">
               <dt>Total</dt>
-              <dd><strong>$ {totalConDescuento.toLocaleString("es-AR")}</strong></dd>
+              <dd><strong>$ {totalWithDiscount.toLocaleString("es-AR")}</strong></dd>
             </div>
-            {descuento > 0 && (
+            {couponDiscount > 0 && (
               <div className="cr-row cr-discount" aria-live="polite">
                 <dt>Descuento</dt>
-                <dd>- $ {descuento.toLocaleString("es-AR")}</dd>
+                <dd>- $ {couponDiscount.toLocaleString("es-AR")}</dd>
               </div>
             )}
           </dl>
           <footer className="cr-actions">
-            <Boton
-              className="cr-pay"
-              variant="primary"
-              altText="¡Potenciá tu rendimiento!"
-              onClick={() => alert("Flujo de pago pendiente de integración")}
-              ariaLabel="Ir a pagar"
-            >
-              Ir a pagar
-            </Boton>
+          <Boton
+            className="cr-pay"
+            variant="primary"
+            altText="¡Potenciá tu rendimiento!"
+            href="/facturacion"
+            ariaLabel="Ir a facturación"
+            disabled={!items.length}
+            aria-disabled={!items.length}
+          >
+            Ir a pagar
+          </Boton>
           </footer>
         </aside>
       </section>

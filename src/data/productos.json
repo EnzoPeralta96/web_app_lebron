@@ -6,11 +6,22 @@
     "marca": "Optimum Nutrition",
     "precio": 45000,
     "stock": 20,
-    "sabores": ["Chocolate", "Vainilla", "Cookies & Cream"],
-    "tamanos": ["1kg", "2kg"],
+    "sabores": [
+      "Chocolate",
+      "Vainilla",
+      "Cookies & Cream"
+    ],
+    "tamanos": [
+      "1kg",
+      "2kg"
+    ],
+    "preciosPorTamano": {
+      "1kg": 31500,
+      "2kg": 56200
+    },
     "imagen": "/img/productos/whey-gold.jpg",
     "destacado": true,
-    "descripcion": "Proteína de suero de alta calidad con 24g de proteína por porción."
+    "descripcion": "Proteína de suero de alta calidad con 24g de proteína por porción. Aporta proteínas de alta calidad para mejorar la recuperación muscular, proteger la masa magra y acompañar planes de aumento o definición. Recomendado para consumir después del entrenamiento o como colación rica en proteína."
   },
   {
     "id": 2,
@@ -19,11 +30,21 @@
     "marca": "GNC",
     "precio": 38000,
     "stock": 15,
-    "sabores": ["Chocolate", "Fresa"],
-    "tamanos": ["1kg", "2.27kg"],
+    "sabores": [
+      "Chocolate",
+      "Fresa"
+    ],
+    "tamanos": [
+      "1kg",
+      "2.27kg"
+    ],
+    "preciosPorTamano": {
+      "1kg": 26600,
+      "2.27kg": 47500
+    },
     "imagen": "/img/productos/pro-performance.jpg",
     "destacado": true,
-    "descripcion": "Fórmula concentrada de proteína para recuperación muscular."
+    "descripcion": "Fórmula concentrada de proteína para recuperación muscular. Aporta proteínas de alta calidad para mejorar la recuperación muscular, proteger la masa magra y acompañar planes de aumento o definición. Recomendado para consumir después del entrenamiento o como colación rica en proteína."
   },
   {
     "id": 3,
@@ -32,11 +53,22 @@
     "marca": "Optimum Nutrition",
     "precio": 52000,
     "stock": 12,
-    "sabores": ["Chocolate", "Banana", "Vainilla"],
-    "tamanos": ["3kg", "5kg"],
+    "sabores": [
+      "Chocolate",
+      "Banana",
+      "Vainilla"
+    ],
+    "tamanos": [
+      "3kg",
+      "5kg"
+    ],
+    "preciosPorTamano": {
+      "3kg": 36400,
+      "5kg": 70200
+    },
     "imagen": "/img/productos/serious-mass.jpg",
     "destacado": false,
-    "descripcion": "Ganador de peso con alto contenido calórico y 50g de proteína por porción."
+    "descripcion": "Ganador de peso con alto contenido calórico y 50g de proteína por porción. Aporta proteínas de alta calidad para mejorar la recuperación muscular, proteger la masa magra y acompañar planes de aumento o definición. Recomendado para consumir después del entrenamiento o como colación rica en proteína."
   },
   {
     "id": 4,
@@ -45,11 +77,22 @@
     "marca": "Dymatize",
     "precio": 61000,
     "stock": 10,
-    "sabores": ["Chocolate", "Galleta", "Frutilla"],
-    "tamanos": ["1.3kg", "2.3kg"],
+    "sabores": [
+      "Chocolate",
+      "Galleta",
+      "Frutilla"
+    ],
+    "tamanos": [
+      "1.3kg",
+      "2.3kg"
+    ],
+    "preciosPorTamano": {
+      "1.3kg": 42700,
+      "2.3kg": 82400
+    },
     "imagen": "/img/productos/iso100.jpg",
     "destacado": false,
-    "descripcion": "Proteína hidrolizada de absorción rápida, ideal post entrenamiento."
+    "descripcion": "Proteína hidrolizada de absorción rápida, ideal post entrenamiento. Aporta proteínas de alta calidad para mejorar la recuperación muscular, proteger la masa magra y acompañar planes de aumento o definición. Recomendado para consumir después del entrenamiento o como colación rica en proteína."
   },
   {
     "id": 5,
@@ -58,11 +101,21 @@
     "marca": "MuscleTech",
     "precio": 49000,
     "stock": 18,
-    "sabores": ["Chocolate", "Cookies & Cream"],
-    "tamanos": ["1kg", "2kg"],
+    "sabores": [
+      "Chocolate",
+      "Cookies & Cream"
+    ],
+    "tamanos": [
+      "1kg",
+      "2kg"
+    ],
+    "preciosPorTamano": {
+      "1kg": 34300,
+      "2kg": 61300
+    },
     "imagen": "/img/productos/nitrotech.jpg",
     "destacado": false,
-    "descripcion": "Mezcla avanzada con creatina y proteína de suero aislada."
+    "descripcion": "Mezcla avanzada con creatina y proteína de suero aislada. Aporta proteínas de alta calidad para mejorar la recuperación muscular, proteger la masa magra y acompañar planes de aumento o definición. Recomendado para consumir después del entrenamiento o como colación rica en proteína."
   },
   {
     "id": 6,
@@ -71,10 +124,17 @@
     "marca": "Universal Nutrition",
     "precio": 21000,
     "stock": 25,
-    "tamanos": ["300g", "500g"],
+    "tamanos": [
+      "300g",
+      "500g"
+    ],
+    "preciosPorTamano": {
+      "300g": 14700,
+      "500g": 26300
+    },
     "imagen": "/img/productos/creatina-universal.jpg",
     "destacado": false,
-    "descripcion": "Creatina pura micronizada que mejora fuerza y rendimiento."
+    "descripcion": "Creatina pura micronizada que mejora fuerza y rendimiento. Ayuda a incrementar la fuerza máxima, el rendimiento en series explosivas y el volumen muscular con uso constante. Se recomienda combinar con un buen plan de entrenamiento y una adecuada hidratación diaria."
   },
   {
     "id": 7,
@@ -83,10 +143,17 @@
     "marca": "Optimum Nutrition",
     "precio": 23000,
     "stock": 30,
-    "tamanos": ["300g", "1kg"],
+    "tamanos": [
+      "300g",
+      "1kg"
+    ],
+    "preciosPorTamano": {
+      "300g": 16100,
+      "1kg": 28700
+    },
     "imagen": "/img/productos/creatina-on.jpg",
     "destacado": false,
-    "descripcion": "Creatina de alta pureza para energía explosiva y volumen muscular."
+    "descripcion": "Creatina de alta pureza para energía explosiva y volumen muscular. Ayuda a incrementar la fuerza máxima, el rendimiento en series explosivas y el volumen muscular con uso constante. Se recomienda combinar con un buen plan de entrenamiento y una adecuada hidratación diaria."
   },
   {
     "id": 8,
@@ -95,10 +162,15 @@
     "marca": "MuscleTech",
     "precio": 27000,
     "stock": 20,
-    "tamanos": ["1kg"],
+    "tamanos": [
+      "1kg"
+    ],
+    "preciosPorTamano": {
+      "1kg": 27000
+    },
     "imagen": "/img/productos/celltech.jpg",
     "destacado": false,
-    "descripcion": "Fórmula con carbohidratos para mejor absorción y recuperación."
+    "descripcion": "Fórmula con carbohidratos para mejor absorción y recuperación. Ayuda a incrementar la fuerza máxima, el rendimiento en series explosivas y el volumen muscular con uso constante. Se recomienda combinar con un buen plan de entrenamiento y una adecuada hidratación diaria."
   },
   {
     "id": 9,
@@ -107,10 +179,15 @@
     "marca": "StarLabs",
     "precio": 19000,
     "stock": 22,
-    "tamanos": ["500g"],
+    "tamanos": [
+      "500g"
+    ],
+    "preciosPorTamano": {
+      "500g": 19000
+    },
     "imagen": "/img/productos/creatina-xtreme.jpg",
     "destacado": false,
-    "descripcion": "Creatina micronizada con rápida disolución y máxima potencia."
+    "descripcion": "Creatina micronizada con rápida disolución y máxima potencia. Ayuda a incrementar la fuerza máxima, el rendimiento en series explosivas y el volumen muscular con uso constante. Se recomienda combinar con un buen plan de entrenamiento y una adecuada hidratación diaria."
   },
   {
     "id": 10,
@@ -119,10 +196,15 @@
     "marca": "StarLabs",
     "precio": 24000,
     "stock": 14,
-    "tamanos": ["500g"],
+    "tamanos": [
+      "500g"
+    ],
+    "preciosPorTamano": {
+      "500g": 24000
+    },
     "imagen": "/img/productos/creatina-starlabs.jpg",
     "destacado": true,
-    "descripcion": "Creatina monohidratada con sello Creapure®, máxima pureza."
+    "descripcion": "Creatina monohidratada con sello Creapure®, máxima pureza. Ayuda a incrementar la fuerza máxima, el rendimiento en series explosivas y el volumen muscular con uso constante. Se recomienda combinar con un buen plan de entrenamiento y una adecuada hidratación diaria."
   },
   {
     "id": 11,
@@ -131,11 +213,22 @@
     "marca": "Cellucor",
     "precio": 35000,
     "stock": 16,
-    "sabores": ["Fruit Punch", "Blue Razz", "Watermelon"],
-    "tamanos": ["195g", "390g"],
+    "sabores": [
+      "Fruit Punch",
+      "Blue Razz",
+      "Watermelon"
+    ],
+    "tamanos": [
+      "195g",
+      "390g"
+    ],
+    "preciosPorTamano": {
+      "195g": 24500,
+      "390g": 43800
+    },
     "imagen": "/img/productos/c4.jpg",
     "destacado": false,
-    "descripcion": "Pre entreno con cafeína y beta-alanina para energía explosiva."
+    "descripcion": "Pre entreno con cafeína y beta-alanina para energía explosiva. Formulado para brindar energía, foco y resistencia antes del entrenamiento, gracias a su combinación de cafeína, aminoácidos y vasodilatadores suaves. Ideal para sesiones intensas de musculación o deportes de alta demanda."
   },
   {
     "id": 12,
@@ -144,11 +237,20 @@
     "marca": "GAT Sport",
     "precio": 39000,
     "stock": 18,
-    "sabores": ["Mango", "Piña Colada", "Limonada"],
-    "tamanos": ["300g"],
+    "sabores": [
+      "Mango",
+      "Piña Colada",
+      "Limonada"
+    ],
+    "tamanos": [
+      "300g"
+    ],
+    "preciosPorTamano": {
+      "300g": 39000
+    },
     "imagen": "/img/productos/nitraflex.jpg",
     "destacado": false,
-    "descripcion": "Aumenta fuerza, energía y enfoque durante entrenamientos intensos."
+    "descripcion": "Aumenta fuerza, energía y enfoque durante entrenamientos intensos. Formulado para brindar energía, foco y resistencia antes del entrenamiento, gracias a su combinación de cafeína, aminoácidos y vasodilatadores suaves. Ideal para sesiones intensas de musculación o deportes de alta demanda."
   },
   {
     "id": 13,
@@ -157,11 +259,19 @@
     "marca": "Redcon1",
     "precio": 37000,
     "stock": 15,
-    "sabores": ["Grape", "Peach Iced Tea"],
-    "tamanos": ["315g"],
+    "sabores": [
+      "Grape",
+      "Peach Iced Tea"
+    ],
+    "tamanos": [
+      "315g"
+    ],
+    "preciosPorTamano": {
+      "315g": 37000
+    },
     "imagen": "/img/productos/totalwar.jpg",
     "destacado": false,
-    "descripcion": "Fórmula extrema de energía y concentración con 320mg de cafeína."
+    "descripcion": "Fórmula extrema de energía y concentración con 320mg de cafeína. Formulado para brindar energía, foco y resistencia antes del entrenamiento, gracias a su combinación de cafeína, aminoácidos y vasodilatadores suaves. Ideal para sesiones intensas de musculación o deportes de alta demanda."
   },
   {
     "id": 14,
@@ -170,11 +280,19 @@
     "marca": "Insane Labz",
     "precio": 34000,
     "stock": 12,
-    "sabores": ["Manzana Verde", "Sandía"],
-    "tamanos": ["225g"],
+    "sabores": [
+      "Manzana Verde",
+      "Sandía"
+    ],
+    "tamanos": [
+      "225g"
+    ],
+    "preciosPorTamano": {
+      "225g": 34000
+    },
     "imagen": "/img/productos/psychotic.jpg",
     "destacado": false,
-    "descripcion": "Pre entreno ultra concentrado con estimulantes potentes."
+    "descripcion": "Pre entreno ultra concentrado con estimulantes potentes. Formulado para brindar energía, foco y resistencia antes del entrenamiento, gracias a su combinación de cafeína, aminoácidos y vasodilatadores suaves. Ideal para sesiones intensas de musculación o deportes de alta demanda."
   },
   {
     "id": 15,
@@ -183,11 +301,19 @@
     "marca": "ProSupps",
     "precio": 36000,
     "stock": 17,
-    "sabores": ["Blue Razz", "Cherry Bomb"],
-    "tamanos": ["230g"],
+    "sabores": [
+      "Blue Razz",
+      "Cherry Bomb"
+    ],
+    "tamanos": [
+      "230g"
+    ],
+    "preciosPorTamano": {
+      "230g": 36000
+    },
     "imagen": "/img/productos/hyde.jpg",
     "destacado": false,
-    "descripcion": "Pre entreno avanzado con beta-alanina, creatina y teanina."
+    "descripcion": "Pre entreno avanzado con beta-alanina, creatina y teanina. Formulado para brindar energía, foco y resistencia antes del entrenamiento, gracias a su combinación de cafeína, aminoácidos y vasodilatadores suaves. Ideal para sesiones intensas de musculación o deportes de alta demanda."
   },
   {
     "id": 16,
@@ -196,11 +322,19 @@
     "marca": "Optimum Nutrition",
     "precio": 22000,
     "stock": 20,
-    "sabores": ["Frutilla", "Naranja"],
-    "tamanos": ["300g"],
+    "sabores": [
+      "Frutilla",
+      "Naranja"
+    ],
+    "tamanos": [
+      "300g"
+    ],
+    "preciosPorTamano": {
+      "300g": 22000
+    },
     "imagen": "/img/productos/bcaa-on.jpg",
     "destacado": false,
-    "descripcion": "Aminoácidos esenciales con ratio 2:1:1 para recuperación y energía."
+    "descripcion": "Aminoácidos esenciales con ratio 2:1:1 para recuperación y energía. Aporta aminoácidos esenciales que colaboran con la síntesis proteica, reducen el catabolismo muscular y mejoran la recuperación entre sesiones de entrenamiento. Puede tomarse antes, durante o después de entrenar."
   },
   {
     "id": 17,
@@ -209,11 +343,20 @@
     "marca": "Xtend",
     "precio": 25000,
     "stock": 18,
-    "sabores": ["Lemon Lime", "Mango", "Grape"],
-    "tamanos": ["420g"],
+    "sabores": [
+      "Lemon Lime",
+      "Mango",
+      "Grape"
+    ],
+    "tamanos": [
+      "420g"
+    ],
+    "preciosPorTamano": {
+      "420g": 25000
+    },
     "imagen": "/img/productos/xtend.jpg",
     "destacado": false,
-    "descripcion": "BCAA con electrolitos, sin azúcar, ideal durante el entrenamiento."
+    "descripcion": "BCAA con electrolitos, sin azúcar, ideal durante el entrenamiento. Aporta aminoácidos esenciales que colaboran con la síntesis proteica, reducen el catabolismo muscular y mejoran la recuperación entre sesiones de entrenamiento. Puede tomarse antes, durante o después de entrenar."
   },
   {
     "id": 18,
@@ -222,11 +365,19 @@
     "marca": "Optimum Nutrition",
     "precio": 27000,
     "stock": 16,
-    "sabores": ["Fruit Fusion", "Green Apple"],
-    "tamanos": ["270g"],
+    "sabores": [
+      "Fruit Fusion",
+      "Green Apple"
+    ],
+    "tamanos": [
+      "270g"
+    ],
+    "preciosPorTamano": {
+      "270g": 27000
+    },
     "imagen": "/img/productos/aminoenergy.jpg",
     "destacado": false,
-    "descripcion": "Aminoácidos con cafeína natural para energía y recuperación."
+    "descripcion": "Aminoácidos con cafeína natural para energía y recuperación. Aporta aminoácidos esenciales que colaboran con la síntesis proteica, reducen el catabolismo muscular y mejoran la recuperación entre sesiones de entrenamiento. Puede tomarse antes, durante o después de entrenar."
   },
   {
     "id": 19,
@@ -235,11 +386,19 @@
     "marca": "Olimp",
     "precio": 24000,
     "stock": 14,
-    "sabores": ["Tropical", "Cereza"],
-    "tamanos": ["500g"],
+    "sabores": [
+      "Tropical",
+      "Cereza"
+    ],
+    "tamanos": [
+      "500g"
+    ],
+    "preciosPorTamano": {
+      "500g": 24000
+    },
     "imagen": "/img/productos/bcaa-xplode.jpg",
     "destacado": false,
-    "descripcion": "Mezcla avanzada con BCAA y glutamina para mejor rendimiento."
+    "descripcion": "Mezcla avanzada con BCAA y glutamina para mejor rendimiento. Aporta aminoácidos esenciales que colaboran con la síntesis proteica, reducen el catabolismo muscular y mejoran la recuperación entre sesiones de entrenamiento. Puede tomarse antes, durante o después de entrenar."
   },
   {
     "id": 20,
@@ -248,11 +407,19 @@
     "marca": "Dymatize",
     "precio": 26000,
     "stock": 10,
-    "sabores": ["Naranja", "Limonada"],
-    "tamanos": ["300g"],
+    "sabores": [
+      "Naranja",
+      "Limonada"
+    ],
+    "tamanos": [
+      "300g"
+    ],
+    "preciosPorTamano": {
+      "300g": 26000
+    },
     "imagen": "/img/productos/amino-dymatize.jpg",
     "destacado": false,
-    "descripcion": "Aminoácidos esenciales con perfil completo y rápida absorción."
+    "descripcion": "Aminoácidos esenciales con perfil completo y rápida absorción. Aporta aminoácidos esenciales que colaboran con la síntesis proteica, reducen el catabolismo muscular y mejoran la recuperación entre sesiones de entrenamiento. Puede tomarse antes, durante o después de entrenar."
   },
   {
     "id": 21,
@@ -261,10 +428,17 @@
     "marca": "Universal Nutrition",
     "precio": 33000,
     "stock": 12,
-    "tamanos": ["44 packs", "88 packs"],
+    "tamanos": [
+      "44 packs",
+      "88 packs"
+    ],
+    "preciosPorTamano": {
+      "44 packs": 23100,
+      "88 packs": 44600
+    },
     "imagen": "/img/productos/animalpak.jpg",
     "destacado": false,
-    "descripcion": "Complejo vitamínico y mineral completo para atletas de alto rendimiento."
+    "descripcion": "Complejo vitamínico y mineral completo para atletas de alto rendimiento. Contiene un perfil completo de vitaminas y minerales que apoyan el sistema inmunológico, el rendimiento diario y la salud general del deportista. Ideal para complementar una dieta equilibrada."
   },
   {
     "id": 22,
@@ -273,10 +447,15 @@
     "marca": "Universal Nutrition",
     "precio": 19000,
     "stock": 18,
-    "tamanos": ["100 tablets"],
+    "tamanos": [
+      "100 tablets"
+    ],
+    "preciosPorTamano": {
+      "100 tablets": 19000
+    },
     "imagen": "/img/productos/dailyformula.jpg",
     "destacado": false,
-    "descripcion": "Vitaminas esenciales y minerales para soporte diario."
+    "descripcion": "Vitaminas esenciales y minerales para soporte diario. Contiene un perfil completo de vitaminas y minerales que apoyan el sistema inmunológico, el rendimiento diario y la salud general del deportista. Ideal para complementar una dieta equilibrada."
   },
   {
     "id": 23,
@@ -285,10 +464,17 @@
     "marca": "Optimum Nutrition",
     "precio": 28000,
     "stock": 15,
-    "tamanos": ["90 tablets", "180 tablets"],
+    "tamanos": [
+      "90 tablets",
+      "180 tablets"
+    ],
+    "preciosPorTamano": {
+      "90 tablets": 19600,
+      "180 tablets": 37800
+    },
     "imagen": "/img/productos/optimen.jpg",
     "destacado": false,
-    "descripcion": "Fórmula avanzada con 75 ingredientes activos para hombres."
+    "descripcion": "Fórmula avanzada con 75 ingredientes activos para hombres. Contiene un perfil completo de vitaminas y minerales que apoyan el sistema inmunológico, el rendimiento diario y la salud general del deportista. Ideal para complementar una dieta equilibrada."
   },
   {
     "id": 24,
@@ -297,10 +483,17 @@
     "marca": "Optimum Nutrition",
     "precio": 29000,
     "stock": 20,
-    "tamanos": ["60 tablets", "120 tablets"],
+    "tamanos": [
+      "60 tablets",
+      "120 tablets"
+    ],
+    "preciosPorTamano": {
+      "60 tablets": 20300,
+      "120 tablets": 39200
+    },
     "imagen": "/img/productos/optiwomen.jpg",
     "destacado": false,
-    "descripcion": "Complejo vitamínico diseñado para mujeres activas."
+    "descripcion": "Complejo vitamínico diseñado para mujeres activas. Contiene un perfil completo de vitaminas y minerales que apoyan el sistema inmunológico, el rendimiento diario y la salud general del deportista. Ideal para complementar una dieta equilibrada."
   },
   {
     "id": 25,
@@ -309,10 +502,21 @@
     "marca": "Everlast",
     "precio": 12000,
     "stock": 25,
-    "tamanos": ["S", "M", "L", "XL"],
+    "tamanos": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "preciosPorTamano": {
+      "S": 8400,
+      "M": 10800,
+      "L": 13200,
+      "XL": 15600
+    },
     "imagen": "/img/productos/guantes.jpg",
     "destacado": false,
-    "descripcion": "Guantes acolchados para mejorar el agarre y proteger las manos."
+    "descripcion": "Guantes acolchados para mejorar el agarre y proteger las manos. Diseñado para acompañar tus entrenamientos diarios, mejorar la comodidad y ayudarte a entrenar de forma más segura y eficiente tanto en gimnasio como en casa."
   },
   {
     "id": 26,
@@ -321,10 +525,19 @@
     "marca": "RDX",
     "precio": 18000,
     "stock": 10,
-    "tamanos": ["M", "L", "XL"],
+    "tamanos": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "preciosPorTamano": {
+      "M": 12600,
+      "L": 18000,
+      "XL": 23400
+    },
     "imagen": "/img/productos/cinturon.jpg",
     "destacado": false,
-    "descripcion": "Cinturón de cuero reforzado para mayor soporte lumbar."
+    "descripcion": "Cinturón de cuero reforzado para mayor soporte lumbar. Diseñado para acompañar tus entrenamientos diarios, mejorar la comodidad y ayudarte a entrenar de forma más segura y eficiente tanto en gimnasio como en casa."
   },
   {
     "id": 27,
@@ -333,10 +546,15 @@
     "marca": "Optimum Nutrition",
     "precio": 8000,
     "stock": 40,
-    "tamanos": ["600ml"],
+    "tamanos": [
+      "600ml"
+    ],
+    "preciosPorTamano": {
+      "600ml": 8000
+    },
     "imagen": "/img/productos/shaker.jpg",
     "destacado": false,
-    "descripcion": "Vaso mezclador con rejilla antigrumos, ideal para proteínas y BCAA."
+    "descripcion": "Vaso mezclador con rejilla antigrumos, ideal para proteínas y BCAA. Diseñado para acompañar tus entrenamientos diarios, mejorar la comodidad y ayudarte a entrenar de forma más segura y eficiente tanto en gimnasio como en casa."
   },
   {
     "id": 28,
@@ -345,11 +563,20 @@
     "marca": "Quest",
     "precio": 4500,
     "stock": 50,
-    "sabores": ["Cookies & Cream", "Chocolate Chip", "Brownie"],
-    "tamanos": ["60g"],
+    "sabores": [
+      "Cookies & Cream",
+      "Chocolate Chip",
+      "Brownie"
+    ],
+    "tamanos": [
+      "60g"
+    ],
+    "preciosPorTamano": {
+      "60g": 4500
+    },
     "imagen": "/img/productos/proteinbar.jpg",
     "destacado": false,
-    "descripcion": "Barra proteica con bajo contenido de azúcar y alto en fibra."
+    "descripcion": "Barra proteica con bajo contenido de azúcar y alto en fibra. Perfecto para sumar proteínas y energía de calidad a tu día, ya sea en desayunos, meriendas o snacks saludables entre comidas."
   },
   {
     "id": 29,
@@ -358,10 +585,17 @@
     "marca": "Quaker",
     "precio": 3200,
     "stock": 35,
-    "tamanos": ["500g", "1kg"],
+    "tamanos": [
+      "500g",
+      "1kg"
+    ],
+    "preciosPorTamano": {
+      "500g": 2240,
+      "1kg": 4160
+    },
     "imagen": "/img/productos/avena.jpg",
     "destacado": true,
-    "descripcion": "Avena integral instantánea, fuente natural de energía y fibra."
+    "descripcion": "Avena integral instantánea, fuente natural de energía y fibra. Perfecto para sumar proteínas y energía de calidad a tu día, ya sea en desayunos, meriendas o snacks saludables entre comidas."
   },
   {
     "id": 30,
@@ -370,11 +604,22 @@
     "marca": "Star Nutrition",
     "precio": 50500,
     "stock": 15,
-    "sabores": ["Chocolate", "Vainilla", "Cookies & Cream"],
-    "tamanos": ["1kg", "2kg"],
+    "sabores": [
+      "Chocolate",
+      "Vainilla",
+      "Cookies & Cream"
+    ],
+    "tamanos": [
+      "1kg",
+      "2kg"
+    ],
+    "preciosPorTamano": {
+      "1kg": 35400,
+      "2kg": 68100
+    },
     "imagen": "/img/productos/avena.jpg",
     "destacado": true,
-    "descripcion": "Proteína de suero aislada con 27g de proteína por porción y baja en carbohidratos."
+    "descripcion": "Proteína de suero aislada con 27g de proteína por porción y baja en carbohidratos. Aporta proteínas de alta calidad para mejorar la recuperación muscular, proteger la masa magra y acompañar planes de aumento o definición. Recomendado para consumir después del entrenamiento o como colación rica en proteína."
   },
   {
     "id": 31,
@@ -383,10 +628,15 @@
     "marca": "zetex",
     "precio": 3200,
     "stock": 15,
-    "tamanos": ["60 capsulas"],
+    "tamanos": [
+      "60 capsulas"
+    ],
+    "preciosPorTamano": {
+      "60 capsulas": 3200
+    },
     "imagen": "/img/productos/avena.jpg",
     "destacado": true,
-    "descripcion": "Quemador de grasa avanzado para aumentar el metabolismo y energía."
+    "descripcion": "Quemador de grasa avanzado para aumentar el metabolismo y energía. Formulado para acompañar planes de definición y pérdida de grasa, siempre combinado con buena alimentación, hidratación y entrenamiento regular."
   },
   {
     "id": 32,
@@ -395,10 +645,17 @@
     "marca": "Manitoba",
     "precio": 8500,
     "stock": 20,
-    "tamanos": ["350g", "1kg"],
+    "tamanos": [
+      "350g",
+      "1kg"
+    ],
+    "preciosPorTamano": {
+      "350g": 5950,
+      "1kg": 11400
+    },
     "imagen": "/img/productos/mantequilla-mani.jpg",
     "destacado": false,
-    "descripcion": "Mantequilla de maní 100% natural, sin azúcar ni aditivos."
+    "descripcion": "Mantequilla de maní 100% natural, sin azúcar ni aditivos. Perfecto para sumar proteínas y energía de calidad a tu día, ya sea en desayunos, meriendas o snacks saludables entre comidas."
   },
   {
     "id": 33,
@@ -407,76 +664,82 @@
     "marca": "boris",
     "precio": 5600,
     "stock": 20,
-    "tamanos": ["500g", "1kg"],
+    "tamanos": [
+      "500g",
+      "1kg"
+    ],
+    "preciosPorTamano": {
+      "500g": 3920,
+      "1kg": 7020
+    },
     "imagen": "/img/productos/mantequilla-mani.jpg",
     "destacado": true,
-    "descripcion": "Mantequilla de maní 100% natural, sin azúcar ni aditivos."
+    "descripcion": "Mantequilla de maní 100% natural, sin azúcar ni aditivos. Perfecto para sumar proteínas y energía de calidad a tu día, ya sea en desayunos, meriendas o snacks saludables entre comidas."
   },
   {
-  "id": 34,
-  "nombre": "Proteína 3kg + Creatina + Shaker de regalo",
-  "categoria": "combos",
-  "marca": "",
-  "precio": 76000,
-  "stock": 10,
-  "imagen": "/img/productos/combo1.jpg",
-  "destacado": true,
-  "descripcion": "Incluye proteína de 3kg, creatina monohidratada 300g y shaker de 600ml de regalo."
-},
-{
-  "id": 35,
-  "nombre": "Ganador de peso 5kg + Creatina 500g + Guantes",
-  "categoria": "combos",
-  "marca": "",
-  "precio": 85000,
-  "stock": 8,
-  "imagen": "/img/productos/combo2.jpg",
-  "destacado": false,
-  "descripcion": "Incluye ganador de peso de 5kg, creatina 500g y guantes acolchados para entrenamiento."
-},
-{
-  "id": 36,
-  "nombre": "Proteína 2kg + Pre-entreno + Shaker",
-  "categoria": "combos",
-  "marca": "",
-  "precio": 69000,
-  "stock": 12,
-  "imagen": "/img/productos/combo3.jpg",
-  "destacado": false,
-  "descripcion": "Incluye proteína aislada de 2kg, pre-entreno C4 y shaker de 600ml."
-},
-{
-  "id": 37,
-  "nombre": "Creatina 500g + BCAA 500g + Multivitamínico",
-  "categoria": "combos",
-  "marca": "",
-  "precio": 54000,
-  "stock": 14,
-  "imagen": "/img/productos/combo4.jpg",
-  "destacado": true,
-  "descripcion": "Incluye creatina 500g, BCAA 500g y multivitamínico completo para rendimiento diario."
-},
-{
-  "id": 38,
-  "nombre": "Proteína 1kg + Amino Energy + Avena",
-  "categoria": "combos",
-  "marca": "",
-  "precio": 48000,
-  "stock": 16,
-  "imagen": "/img/productos/combo5.jpg",
-  "destacado": false,
-  "descripcion": "Incluye proteína de 1kg, Amino Energy y avena integral instantánea 1kg."
-},
-{
-  "id": 38,
-  "nombre": "Proteína 1kg + Amino Energy + Avena",
-  "categoria": "alimentos",
-  "marca": "",
-  "precio": 48000,
-  "stock": 16,
-  "imagen": "/img/productos/combo5.jpg",
-  "destacado": false,
-  "descripcion": "Incluye proteína de 1kg, Amino Energy y avena integral instantánea 1kg."
-}
+    "id": 34,
+    "nombre": "Proteína 3kg + Creatina + Shaker de regalo",
+    "categoria": "combos",
+    "marca": "",
+    "precio": 76000,
+    "stock": 10,
+    "imagen": "/img/productos/combo1.jpg",
+    "destacado": true,
+    "descripcion": "Incluye proteína de 3kg, creatina monohidratada 300g y shaker de 600ml de regalo. Es una opción práctica y económica para quienes buscan armar un stack completo, optimizar resultados y ahorrar frente a la compra de cada producto por separado."
+  },
+  {
+    "id": 35,
+    "nombre": "Ganador de peso 5kg + Creatina 500g + Guantes",
+    "categoria": "combos",
+    "marca": "",
+    "precio": 85000,
+    "stock": 8,
+    "imagen": "/img/productos/combo2.jpg",
+    "destacado": false,
+    "descripcion": "Incluye ganador de peso de 5kg, creatina 500g y guantes acolchados para entrenamiento. Es una opción práctica y económica para quienes buscan armar un stack completo, optimizar resultados y ahorrar frente a la compra de cada producto por separado."
+  },
+  {
+    "id": 36,
+    "nombre": "Proteína 2kg + Pre-entreno + Shaker",
+    "categoria": "combos",
+    "marca": "",
+    "precio": 69000,
+    "stock": 12,
+    "imagen": "/img/productos/combo3.jpg",
+    "destacado": false,
+    "descripcion": "Incluye proteína aislada de 2kg, pre-entreno C4 y shaker de 600ml. Es una opción práctica y económica para quienes buscan armar un stack completo, optimizar resultados y ahorrar frente a la compra de cada producto por separado."
+  },
+  {
+    "id": 37,
+    "nombre": "Creatina 500g + BCAA 500g + Multivitamínico",
+    "categoria": "combos",
+    "marca": "",
+    "precio": 54000,
+    "stock": 14,
+    "imagen": "/img/productos/combo4.jpg",
+    "destacado": true,
+    "descripcion": "Incluye creatina 500g, BCAA 500g y multivitamínico completo para rendimiento diario. Es una opción práctica y económica para quienes buscan armar un stack completo, optimizar resultados y ahorrar frente a la compra de cada producto por separado."
+  },
+  {
+    "id": 38,
+    "nombre": "Proteína 1kg + Amino Energy + Avena",
+    "categoria": "combos",
+    "marca": "",
+    "precio": 48000,
+    "stock": 16,
+    "imagen": "/img/productos/combo5.jpg",
+    "destacado": false,
+    "descripcion": "Incluye proteína de 1kg, Amino Energy y avena integral instantánea 1kg. Es una opción práctica y económica para quienes buscan armar un stack completo, optimizar resultados y ahorrar frente a la compra de cada producto por separado."
+  },
+  {
+    "id": 39,
+    "nombre": "Proteína 1kg + Amino Energy + Avena",
+    "categoria": "alimentos",
+    "marca": "",
+    "precio": 48000,
+    "stock": 16,
+    "imagen": "/img/productos/combo5.jpg",
+    "destacado": false,
+    "descripcion": "Incluye proteína de 1kg, Amino Energy y avena integral instantánea 1kg. Perfecto para sumar proteínas y energía de calidad a tu día, ya sea en desayunos, meriendas o snacks saludables entre comidas."
+  }
 ]
-

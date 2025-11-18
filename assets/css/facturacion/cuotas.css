@@ -1,0 +1,72 @@
+@import "./facturacion-base.css";
+
+.cuotas-grid {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(220px, 1fr);
+  gap: 1rem;
+  align-items: end;
+}
+
+.cuotas-grid label {
+  display: block;
+}
+
+.cuotas-grid input {
+  width: 100%;
+}
+
+.cuotas-info {
+  text-align: right;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.cuotas-input {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.75rem 1.05rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.015));
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.35), 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cuotas-input:focus {
+  outline: none;
+  border-color: #ff6600;
+  box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.4), 0 4px 25px rgba(255, 138, 0, 0.35);
+}
+
+.cuotas-input::-webkit-inner-spin-button,
+.cuotas-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.cuotas-input::-moz-number-spin-box {
+  -moz-appearance: none;
+}
+
+.cuotas-input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.cuotas-info p {
+  margin: 0.25rem 0;
+}
+
+@media (max-width: 768px) {
+  .cuotas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cuotas-info {
+    text-align: left;
+  }
+}

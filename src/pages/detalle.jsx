@@ -1,8 +1,9 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import products from "../data/productos.json";
 import ProductosDestacados from "../../componentes/atomicos/productosDestacados.jsx";
 import "../../assets/css/pages/detalle.css";
+import Boton from "../../componentes/atomicos/boton.jsx";
 
 export default function Detalle() {
   const { id } = useParams();
@@ -18,14 +19,50 @@ export default function Detalle() {
     );
   }
 
-  const { nombre, descripcion, precio, marca, tamanos, sabores, imagen } = producto;
-  const formattedPrice = typeof precio === "number" ? precio.toLocaleString("es-AR") : precio;
+  const {
+    nombre,
+    descripcion,
+    precio,
+    marca,
+    imagen,
+    preciosPorTamano = {},
+    stock,
+  } = producto;
+
+  const tamanos = useMemo(() => (Array.isArray(producto.tamanos) ? producto.tamanos : []), [producto.tamanos]);
+  const sabores = useMemo(() => (Array.isArray(producto.sabores) ? producto.sabores : []), [producto.sabores]);
+  const versionOptions = useMemo(() => (Array.isArray(producto.versiones) ? producto.versiones : []), [producto.versiones]);
+  const colorOptions = useMemo(() => (Array.isArray(producto.colores) ? producto.colores : []), [producto.colores]);
+  const materialOptions = useMemo(() => (Array.isArray(producto.materiales) ? producto.materiales : []), [producto.materiales]);
+
+  const [selectedSize, setSelectedSize] = useState("");
+  const [selectedFlavor, setSelectedFlavor] = useState("");
+  const [selectedVersion, setSelectedVersion] = useState("");
+  const [selectedColor, setSelectedColor] = useState("");
+  const [selectedMaterial, setSelectedMaterial] = useState("");
+
+  useEffect(() => {
+    setSelectedSize(tamanos.length ? tamanos[0] : "");
+    setSelectedFlavor(sabores.length ? sabores[0] : "");
+    setSelectedVersion(versionOptions.length ? versionOptions[0] : "");
+    setSelectedColor(colorOptions.length ? colorOptions[0] : "");
+    setSelectedMaterial(materialOptions.length ? materialOptions[0] : "");
+  }, [tamanos, sabores, versionOptions, colorOptions, materialOptions]);
+
+  const precioSeleccionado =
+    selectedSize && preciosPorTamano && preciosPorTamano[selectedSize]
+      ? preciosPorTamano[selectedSize]
+      : precio;
+  const formattedPrice =
+    typeof precioSeleccionado === "number"
+      ? precioSeleccionado.toLocaleString("es-AR")
+      : precioSeleccionado;
 
   return (
     <main className="detalle-page">
       <header className="detalle-header">
         <Link className="detalle-back" to="/categoria/combos">
-          ← Volver a combos
+          Volver a combos
         </Link>
         <h1>{nombre}</h1>
         <p className="detalle-subtitle">{descripcion}</p>
@@ -37,31 +74,75 @@ export default function Detalle() {
         </figure>
 
         <article className="detalle-info">
-          <div className="detalle-price">
-            <span className="detalle-price__label">Precio</span>
+          <section className="detalle-price">
             <strong className="detalle-price__value">$ {formattedPrice}</strong>
-          </div>
+          </section>
+
+          <section className="detalle-selection">
+            {tamanos.length ? (
+              <DropdownSelector
+                label="Tamaño"
+                options={tamanos}
+                value={selectedSize}
+                onSelect={setSelectedSize}
+              />
+            ) : null}
+
+            {sabores.length ? (
+              <DropdownSelector
+                label="Sabor"
+                options={sabores}
+                value={selectedFlavor}
+                onSelect={setSelectedFlavor}
+              />
+            ) : null}
+
+            {versionOptions.length ? (
+              <DropdownSelector
+                label="Versión"
+                options={versionOptions}
+                value={selectedVersion}
+                onSelect={setSelectedVersion}
+              />
+            ) : null}
+
+            {colorOptions.length ? (
+              <DropdownSelector
+                label="Color"
+                options={colorOptions}
+                value={selectedColor}
+                onSelect={setSelectedColor}
+              />
+            ) : null}
+
+            {materialOptions.length ? (
+              <DropdownSelector
+                label="Material"
+                options={materialOptions}
+                value={selectedMaterial}
+                onSelect={setSelectedMaterial}
+              />
+            ) : null}
+          </section>
+
           <ul className="detalle-meta">
             {marca && (
               <li>
                 <span>Marca:</span> {marca}
               </li>
             )}
-            {Array.isArray(tamanos) && tamanos.length > 0 && (
+            {typeof stock === "number" && (
               <li>
-                <span>Tamaños:</span> {tamanos.join(", ")}
-              </li>
-            )}
-            {Array.isArray(sabores) && sabores.length > 0 && (
-              <li>
-                <span>Sabores:</span> {sabores.join(", ")}
+                <span>Stock:</span> {stock}
               </li>
             )}
           </ul>
+
           <p className="detalle-notes">
-            Precio valido abonando en efectivo o transferencia. Consultá por cuotas y
+            Precio valido abonando en efectivo o transferencia. Consultar por cuotas y
             disponibilidad de stock.
           </p>
+            <Boton href="#categorias" altText="Vamos Lebron !">Comprar</Boton>
         </article>
       </section>
 
@@ -69,5 +150,70 @@ export default function Detalle() {
         <ProductosDestacados />
       </section>
     </main>
+  );
+}
+
+function DropdownSelector({ label, options = [], value, onSelect }) {
+  const [open, setOpen] = useState(false);
+  const wrapperRef = useRef(null);
+
+  useEffect(() => {
+    const handleClick = (event) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
+
+  useEffect(() => {
+    if (options.length && !options.includes(value)) {
+      onSelect(options[0]);
+    }
+  }, [options, value, onSelect]);
+
+  const handleSelect = (option) => {
+    onSelect(option);
+    setOpen(false);
+  };
+
+  return (
+    <fieldset className="detalle-dropdown" ref={wrapperRef}>
+      <legend className="detalle-dropdown__title">{label}</legend>
+      <button
+        type="button"
+        className="detalle-dropdown__button"
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        onClick={() => setOpen((prev) => !prev)}
+      >
+        <span className="detalle-dropdown__value">{value || "Seleccionar"}</span>
+        <span className="detalle-dropdown__icon" aria-hidden="true" />
+      </button>
+      {options.length > 0 && (
+        <section
+          className={`detalle-dropdown__panel ${open ? "is-open" : ""}`}
+          role="presentation"
+          aria-hidden={!open}
+        >
+          <ul className="detalle-dropdown__list" role="listbox">
+            {options.map((option) => (
+              <li key={option}>
+                <button
+                  type="button"
+                  className="detalle-dropdown__item"
+                  onClick={() => handleSelect(option)}
+                  role="option"
+                  aria-selected={option === value}
+                >
+                  {option}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </fieldset>
   );
 }

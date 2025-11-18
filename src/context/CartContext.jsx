@@ -75,15 +75,51 @@ export function CartProvider({ children }) {
 
   const clear = () => setItems([]);
 
+  const [couponCode, setCouponCode] = useState("");
+
+  const calculateCouponDiscount = (rawTotal, code) => {
+    if (!code) return 0;
+    if (code.trim().toUpperCase() === "LEBRON10") {
+      return rawTotal * 0.1;
+    }
+    return 0;
+  };
+
   const { count, total } = useMemo(() => {
     const count = items.reduce((acc, i) => acc + (i.qty || 1), 0);
     const total = items.reduce((acc, i) => acc + (i.precio || 0) * (i.qty || 1), 0);
     return { count, total };
   }, [items]);
 
+  const couponDiscount = useMemo(
+    () => calculateCouponDiscount(total, couponCode),
+    [total, couponCode]
+  );
+
+  const totalWithDiscount = useMemo(
+    () => Math.max(0, total - couponDiscount),
+    [total, couponDiscount]
+  );
+
+  const applyCoupon = (code) => {
+    setCouponCode(code);
+  };
+
   const value = useMemo(
-    () => ({ items, addItem, updateQty, removeItem, clear, count, total }),
-    [items, count, total]
+    () => ({
+      items,
+      addItem,
+      updateQty,
+      removeItem,
+      clear,
+      count,
+      total,
+      couponCode,
+      couponDiscount,
+      totalWithDiscount,
+      applyCoupon,
+    }),
+    [items, count, total, couponCode, couponDiscount, totalWithDiscount]
   );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

@@ -18,6 +18,7 @@ import Generica from "./pages/Generica.jsx";
 import Marcas from "./pages/Marcas.jsx";
 import Carrito from "./pages/Carrito.jsx";
 import Detalle from "./pages/detalle.jsx";
+import Facturacion from "./pages/facturacion.jsx";
 import { CartProvider } from "./context/CartContext.jsx";
 
 import c1 from "../assets/img/carrusel/1.png";
@@ -135,6 +136,7 @@ function App() {
           <Route path="/categoria/:nombre" element={<Generica />} />
           <Route path="/marcas" element={<Marcas />} />
           <Route path="/carrito" element={<Carrito />} />
+          <Route path="/facturacion" element={<Facturacion />} />
           <Route path="/producto/:id" element={<Detalle />} />
           <Route path="*" element={<Home />} />
         </Routes>

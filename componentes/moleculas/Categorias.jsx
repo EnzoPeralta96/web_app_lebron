@@ -22,7 +22,6 @@ export default function Categorias() {
     { nombre: "Pre-entrenos", imagen: preentreno, alt: "Pre-entrenos", slug: "preentrenos", descripcion: "Energizantes, bombas de oxido nitrico,focus" },
     { nombre: "Quemadores", imagen: quemadores, alt: "Quemadores", slug: "quemadores", descripcion: "L-carnitina, termogenicos, diureticos" },
     { nombre: "Accesorios", imagen: accesorios, alt: "Accesorios", slug: "accesorios", descripcion: "Shakers, cinturones, guantes, munhequeras" },
-    { nombre: "Combos", imagen: combosImg, alt: "Combos Lebron", slug: "combos", descripcion: "Paquetes con proteina, creatina y extras para tu entrenamiento" },
   ];
 
   // Mostrar solo categorías que existan en el JSON real
