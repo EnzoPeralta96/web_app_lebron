@@ -10,8 +10,11 @@ import Footer from "../componentes/moleculas/footer.jsx";
 import Carrusel from "../componentes/atomicos/carrusel.jsx";
 import Comprador from "../componentes/moleculas/Comprador.jsx";
 import ProductosDestacados from "../componentes/atomicos/productosDestacados.jsx";
+import Promocion from "../componentes/moleculas/promocion.jsx";
+import Promocion2 from "../componentes/moleculas/promocion2.jsx";
 
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useLayoutEffect } from "react";
 import "../assets/css/atomicos/fondos.css";
 
 import Generica from "./pages/Generica.jsx";
@@ -75,9 +78,12 @@ function App() {
         <Comprador />
         <Categorias />
         <Carrusel items={carruselItems} intervalo={5000} />
+        <Promocion />
         <FAQ />
         <ProductosDestacados />
+
         <Gancho />
+        <Promocion2 />
       </main>
     </>
   );
@@ -93,6 +99,14 @@ function App() {
     const location = useLocation();
 
     const pathname = stripTrailingSlash(location.pathname);
+
+    useLayoutEffect(() => {
+      if (typeof window === "undefined") {
+        return;
+      }
+
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    }, [location.pathname, location.search, location.hash]);
 
     // Resolver ruta efectiva independientemente del entorno
     const effectivePath =

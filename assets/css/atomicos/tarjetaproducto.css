@@ -59,7 +59,7 @@
 .tp3d-card {
   transform-style: preserve-3d;
   transform: translateZ(-8.75rem);
-  transition: transform .6s cubic-bezier(0.390, 0.575, 0.565, 1.000);
+  transition: transform 1s cubic-bezier(0.390, 0.575, 0.565, 1.000);
   cursor: pointer;
 }
 

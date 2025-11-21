@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import products from "../data/productos.json";
 import ProductosDestacados from "../../componentes/atomicos/productosDestacados.jsx";
 import "../../assets/css/pages/detalle.css";
 import Boton from "../../componentes/atomicos/boton.jsx";
+import { useCart } from "../context/CartContext.jsx";
 
 export default function Detalle() {
   const { id } = useParams();
@@ -40,6 +41,8 @@ export default function Detalle() {
   const [selectedVersion, setSelectedVersion] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
   const [selectedMaterial, setSelectedMaterial] = useState("");
+  const navigate = useNavigate();
+  const { addItem } = useCart();
 
   useEffect(() => {
     setSelectedSize(tamanos.length ? tamanos[0] : "");
@@ -57,6 +60,31 @@ export default function Detalle() {
     typeof precioSeleccionado === "number"
       ? precioSeleccionado.toLocaleString("es-AR")
       : precioSeleccionado;
+
+  const buildCartItem = () => {
+    const variantDetail = {
+      ...(selectedSize ? { tamaño: selectedSize } : {}),
+      ...(selectedFlavor ? { sabor: selectedFlavor } : {}),
+      ...(selectedVersion ? { versión: selectedVersion } : {}),
+      ...(selectedColor ? { color: selectedColor } : {}),
+      ...(selectedMaterial ? { material: selectedMaterial } : {}),
+    };
+
+    return {
+      ...producto,
+      precio: precioSeleccionado,
+      variantDetail,
+    };
+  };
+
+  const handleAddToCart = () => {
+    addItem(buildCartItem(), 1);
+  };
+
+  const handleComprar = () => {
+    handleAddToCart();
+    navigate("/facturacion");
+  };
 
   return (
     <main className="detalle-page">
@@ -142,7 +170,14 @@ export default function Detalle() {
             Precio valido abonando en efectivo o transferencia. Consultar por cuotas y
             disponibilidad de stock.
           </p>
-            <Boton href="#categorias" altText="Vamos Lebron !">Comprar</Boton>
+          <article className="detalle-actions">
+            <Boton variant="primary" onClick={handleAddToCart} altText="Agregar al carrito">
+              Agregar al carrito
+            </Boton>
+            <Boton onClick={handleComprar} altText="Ir a facturación">
+              Comprar
+            </Boton>
+          </article>
         </article>
       </section>
 
