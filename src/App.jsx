@@ -12,7 +12,7 @@ import Comprador from "../componentes/moleculas/Comprador.jsx";
 import ProductosDestacados from "../componentes/atomicos/productosDestacados.jsx";
 import Promocion from "../componentes/moleculas/promocion.jsx";
 import Promocion2 from "../componentes/moleculas/promocion2.jsx";
-
+import Mayorista from "../componentes/moleculas/mayorista.jsx";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useLayoutEffect } from "react";
 import "../assets/css/atomicos/fondos.css";
@@ -77,6 +77,7 @@ function App() {
       <main>
         <Comprador />
         <Categorias />
+        <Mayorista />
         <Carrusel items={carruselItems} intervalo={5000} />
         <Promocion />
         <FAQ />

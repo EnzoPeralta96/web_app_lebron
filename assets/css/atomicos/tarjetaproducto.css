@@ -215,6 +215,18 @@
   opacity: 1;
 }
 
+.tp3d-wrap.is-flipped .tp3d-card {
+  transform: translateZ(-10rem) rotateY(-90deg);
+}
+
+.tp3d-wrap.is-flipped .tp3d-front {
+  opacity: 0;
+}
+
+.tp3d-wrap.is-flipped .tp3d-side {
+  opacity: 1;
+}
+
 /* === BOTÓN AGREGAR === */
 .tp3d-add {
   align-self: center;
@@ -244,6 +256,11 @@
 
 .tp3d-wrap:not(:hover) .tp3d-add {
   opacity: 0;
+}
+
+.tp3d-wrap.is-flipped .tp3d-add {
+  transform: scale(1) skewY(0);
+  opacity: 1;
 }
 
 .tp3d-add:hover {

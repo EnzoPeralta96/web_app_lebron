@@ -90,16 +90,22 @@
   object-fit: cover;
 }
 
-@media (max-width: 640px) {
+
+
+@media (max-width: 1024px) {
   .promo-banner {
-    padding: 2rem;
+    width: min(94vw, 94%);
+    margin-inline: auto;
+    flex-direction: column-reverse;
   }
 
-  .promo-eyebrow {
-    letter-spacing: 0.4rem;
+  .promo-body,
+  .promo-media {
+    width: 100%;
+    max-width: 94vw;
   }
 
-  .promo-text {
-    font-size: 0.95rem;
+  .promo-media {
+    justify-content: center;
   }
 }

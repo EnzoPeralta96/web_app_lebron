@@ -5,7 +5,7 @@ import promoNavidad from "../../assets/img/promoNavidad.jpg";
 function Promocion() {
   return (
     <section className="promo-banner" aria-label="Promocion navidena">
-      <div className="promo-body container">
+      <article className="promo-body container">
         <header>
           <p className="promo-eyebrow">Edicion limitada</p>
           <h2 className="promo-title">Feliz Navidad</h2>
@@ -25,7 +25,7 @@ function Promocion() {
             </a>
           </article>
         </header>
-      </div>
+      </article>
       <figure className="promo-media">
         <img src={promoNavidad} alt="Promo de Navidad" loading="lazy" />
 

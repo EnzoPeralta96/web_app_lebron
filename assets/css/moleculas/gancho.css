@@ -27,25 +27,22 @@
   gap: clamp(14px, 2.8vw, 28px);
 }
 
-@media (min-width: 900px) {
-  .gancho-inner {
-    flex-direction: row;
-    align-items: stretch;
-  }
-}
 
 .gancho-media {
   margin: 0;
-  width: 80rem;
+  width: min(80rem, 100%);
+  max-width: 90vw;
 }
 
 .gancho-media img {
   display: block;
   width: 100%;
-  height: 90%;
+  height: auto;
   border-radius: 14px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, .35);
 }
+
+
 
 .gancho-content {
   display: flex;
@@ -95,5 +92,12 @@
   width: min(100%, 720px);
   margin-inline: auto;
 }
-
-/* no grid tweaks needed for 720px breakpoint after switching to flex */
+/*-----------RESPONSIVE--------*/
+@media (max-width: 900px) {
+  .gancho-media {
+    width: min(94vw, 32rem);
+  }
+  P{
+    font-weight: 500;
+  }
+}

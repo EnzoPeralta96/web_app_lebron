@@ -1,22 +1,38 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import products from "../../src/data/productos.json";
 import TarjetaProducto from "./tarjetaproductos.jsx";
 import "../../assets/css/atomicos/productosDestacados.css";
 
-const VISIBLE_CARDS = 4;
+const DESKTOP_CARDS = 4;
+const MOBILE_CARDS = 1;
 
 export default function ProductosDestacados() {
   const destacadoItems = useMemo(
     () => (products || []).filter((p) => Boolean(p.destacado)),
     [],
   );
+  const [itemsPerPage, setItemsPerPage] = useState(() => {
+    if (typeof window === "undefined") return DESKTOP_CARDS;
+    return window.innerWidth <= 768 ? MOBILE_CARDS : DESKTOP_CARDS;
+  });
+
+  useEffect(() => {
+    const handler = () => {
+      const target = window.innerWidth <= 768 ? MOBILE_CARDS : DESKTOP_CARDS;
+      setItemsPerPage(target);
+    };
+    window.addEventListener("resize", handler);
+    handler();
+    return () => window.removeEventListener("resize", handler);
+  }, []);
+
   const pages = useMemo(() => {
     const chunks = [];
-    for (let i = 0; i < destacadoItems.length; i += VISIBLE_CARDS) {
-      chunks.push(destacadoItems.slice(i, i + VISIBLE_CARDS));
+    for (let i = 0; i < destacadoItems.length; i += itemsPerPage) {
+      chunks.push(destacadoItems.slice(i, i + itemsPerPage));
     }
     return chunks;
-  }, [destacadoItems]);
+  }, [destacadoItems, itemsPerPage]);
   const pageCount = Math.max(1, pages.length);
   const [page, setPage] = useState(0);
 

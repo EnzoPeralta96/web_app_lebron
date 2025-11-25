@@ -74,12 +74,21 @@
   object-fit: cover;
 }
 
-@media (max-width: 800px) {
+
+@media (max-width: 1024px) {
   .promo2-banner {
+    width: min(94vw, 94%);
+    margin-inline: auto;
     flex-direction: column;
   }
 
-  .promo2-media img {
-    max-height: 280px;
+  .promo2-body,
+  .promo2-media {
+    width: 100%;
+    max-width: 94vw;
+  }
+
+  .promo2-media {
+    justify-content: center;
   }
 }
