@@ -29,6 +29,7 @@ export default function Tarjeta({
   const navigate = useNavigate();
   const isRouterLink = useMemo(() => typeof href === "string" && href.startsWith("/"), [href]);
   const isMobile = useIsMobile(768);
+  const cardId = useMemo(() => `${href}:${titulo}`, [href, titulo]);
 
   const outerClickHandler = useCallback((event) => {
     if (flipped && !event.defaultPrevented) {
@@ -49,11 +50,24 @@ export default function Tarjeta({
     setFlipped(false);
   }, [href]);
 
+  useEffect(() => {
+    if (!isMobile) return undefined;
+    const handleOtherFlip = (event) => {
+      if (!event?.detail) return;
+      if (event.detail !== cardId) {
+        setFlipped(false);
+      }
+    };
+    window.addEventListener("lb-card-flip", handleOtherFlip);
+    return () => window.removeEventListener("lb-card-flip", handleOtherFlip);
+  }, [cardId, isMobile]);
+
   const handleLinkClick = (event) => {
     if (!isMobile) return;
     event.preventDefault();
     if (!flipped) {
       setFlipped(true);
+      window.dispatchEvent(new CustomEvent("lb-card-flip", { detail: cardId }));
       return;
     }
 

@@ -127,6 +127,42 @@
   transform: scale(0.95) rotateZ(8deg);
 }
 
+@media (max-width: 768px) {
+  .tp3d-wrap {
+    width: min(11rem, 45vw);
+    height: 20rem;
+  }
+
+  .tp3d-wrap .tp3d-card,
+  .tp3d-wrap .tp3d-front,
+  .tp3d-wrap .tp3d-side {
+    width: 100%;
+    height: 18.5rem;
+  }
+
+  .tp3d-figure img {
+    max-width: 9rem;
+    max-height: 9rem;
+  }
+
+  .tp3d-front {
+    padding: 1.1rem 1rem 1.6rem;
+  }
+
+  .tp3d-title {
+    font-size: clamp(0.45rem, 2vw, 0.9rem);
+  }
+
+  .tp3d-price {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+  }
+
+  .tp3d-add {
+    font-size: 0.65rem;
+    padding: 0.35rem 1rem;
+  }
+}
+
 /* Mostrar precio, más cerca de la imagen */
 .tp3d-price {
   margin: 0.15rem 0 0;
@@ -164,6 +200,27 @@
   padding: 0.5rem;
   padding-bottom:2rem;
   gap: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .tp3d-side {
+    gap: 0.5rem;
+    padding: 0.45rem 0.8rem;
+    justify-content: flex-start;
+  }
+
+  .tp3d-list {
+    font-size: 0.85rem;
+    gap: 0.35rem;
+  }
+
+  .tp3d-list li::before {
+    left: -0.85rem;
+  }
+
+  .tp3d-side-title {
+    font-size: 0.95rem;
+  }
 }
 
 .tp3d-side-title {

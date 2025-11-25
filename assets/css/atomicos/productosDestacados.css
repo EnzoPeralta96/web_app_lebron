@@ -43,7 +43,7 @@
 
 .productos-destacados__track {
   display: flex;
-  transition: transform 2s ease;
+  transition: transform 1s ease;
   width: 100%;
 }
 
