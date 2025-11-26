@@ -33,17 +33,12 @@ import c6 from "../assets/img/carrusel/6.png";
 
 function App() {
   const carruselItems = [
-    {
-      img: c1,
-      titulo: "Todo cerca tuyo",
-      texto:
-        "Encontra en LeBron todo lo que necesitas para tu rendimiento: suplementos, asesoramiento y la energia que te acompana dia a dia.",
-    },
+  
     {
       img: c2,
       titulo: "Energia al maximo",
       texto:
-        "Preentrenos disenados para despertar tu foco, potencia y motivacion. Senti el impulso que te lleva a romper tus propios limites.",
+        "Preentrenos diseñados para despertar tu foco, potencia y motivacion. Senti el impulso que te lleva a romper tus propios limites.",
     },
     {
       img: c3,

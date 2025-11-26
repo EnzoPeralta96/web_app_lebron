@@ -27,11 +27,12 @@
   gap: clamp(14px, 2.8vw, 28px);
 }
 
-
 .gancho-media {
   margin: 0;
-  width: min(80rem, 100%);
-  max-width: 90vw;
+  width: min(25rem, 100%);
+  height: 22rem;
+  border-radius: 1.5rem;
+  overflow: hidden;
 }
 
 .gancho-media img {
@@ -41,8 +42,6 @@
   border-radius: 14px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, .35);
 }
-
-
 
 .gancho-content {
   display: flex;
@@ -62,23 +61,13 @@
   margin: 0;
   font-size: clamp(0.95rem, 1.6vw, 1.2rem);
   line-height: 1.55;
+  font-weight: 600;
 }
 
 .gancho-quote footer {
   margin-top: .35rem;
   color: #cbd5e1;
   font-size: clamp(.8rem, 1vw, .9rem);
-}
-
-/* Texto libre dentro de la sección (copys debajo de la cita) */
-.gancho-content>p {
-  margin: 0;
-  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
-  line-height: 1.65;
-  color: #e5e7eb;
-  background: rgba(0, 0, 0, .28);
-  padding: .85rem 1rem;
-  border-radius: 12px;
 }
 
 .gancho-actions {
@@ -92,12 +81,22 @@
   width: min(100%, 720px);
   margin-inline: auto;
 }
-/*-----------RESPONSIVE--------*/
-@media (max-width: 900px) {
-  .gancho-media {
-    width: min(94vw, 32rem);
+/*----------------- version escritorio-----------------*/
+
+@media (min-width: 900px) {
+  .gancho-inner {
+    flex-direction: row;
+    align-items: center;
   }
-  P{
-    font-weight: 500;
+
+  .gancho-media {
+    width: min(22rem, 40%);
+    max-width: 40%;
+    height: auto;
+    align-self: stretch;
+  }
+
+  .gancho-content {
+    flex: 1;
   }
 }

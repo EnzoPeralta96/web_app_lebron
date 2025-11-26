@@ -1,0 +1,89 @@
+:root {
+  --lb-cart-gradient:
+    radial-gradient(circle at 22% 18%, rgba(255, 255, 255, 0.12), transparent 58%),
+    linear-gradient(145deg, rgba(16, 4, 6, 0.95), rgba(104, 0, 0, 0.95));
+  --lb-cart-shadow:
+    0 6px 22px rgba(199, 0, 0, 0.719);
+  --lb-cart-border: 1px solid rgba(104, 0, 0, 0.95);
+}
+
+.lb-cart-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.65rem 1rem;
+  border-radius: 1.15rem;
+  border: var(--lb-cart-border);
+  background: var(--lb-cart-gradient);
+  box-shadow: var(--lb-cart-shadow);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  font-family:
+    "Orbitron",
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    sans-serif;
+  text-decoration: none;
+  transition: transform 0.45s ease, border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.lb-cart-btn:hover,
+.lb-cart-btn:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgb(151, 1, 1);
+}
+
+.lb-cart-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(1.4rem, 4vw, 1.8rem);
+  height: clamp(1.4rem, 4vw, 1.8rem);
+  color: inherit;
+}
+
+.lb-cart-label {
+  display: block;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+}
+
+.lb-cart-count {
+  position: absolute;
+  top: -0.45rem;
+  right: -0.45rem;
+  min-width: 1.3rem;
+  height: 1.3rem;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: #ef4444;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+}
+
+.lb-cart-btn--icon {
+  width: clamp(3.1rem, 16vw, 3.6rem);
+  height: clamp(3.1rem, 16vw, 3.6rem);
+  padding: 0;
+  justify-content: center;
+}
+
+.lb-cart-btn--icon .lb-cart-count {
+  top: -0.3rem;
+  right: -0.3rem;
+}
+
+.lb-cart-btn--icon .lb-cart-label {
+  display: none;
+}

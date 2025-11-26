@@ -2,6 +2,7 @@
 import "../../assets/css/moleculas/navMobile.css";
 import "../../componentes/atomicos/buscador.jsx";
 import "../../assets/css/atomicos/buscador.css";
+import BotonCarrito from "../atomicos/botoncarrito.jsx";
 
 const PRIMARY_LINKS = [
   { href: "#comprador", label: "Suplementos", hint: "Shop" },
@@ -114,11 +115,19 @@ function NavMobile() {
         className="fan-nav__toggle"
         aria-expanded={open}
         aria-controls={paneId}
-      aria-label={open ? "Cerrar menu movil" : "Abrir menu movil"}
-      onClick={() => setOpen((value) => !value)}
-    >
-      <span className="fan-nav__toggle-lines" aria-hidden="true" />
-    </button>
+        aria-label={open ? "Cerrar menu movil" : "Abrir menu movil"}
+        onClick={() => setOpen((value) => !value)}
+      >
+        <span className="fan-nav__toggle-lines" aria-hidden="true" />
+      </button>
+
+      <div className="fan-nav__cart-wrapper">
+        <BotonCarrito
+          className="fan-nav__cart-btn"
+          iconOnly
+          ariaLabel="Ir al carrito de compras"
+        />
+      </div>
 
       <section
         ref={paneRef}
@@ -188,3 +197,5 @@ function NavMobile() {
 }
 
 export default NavMobile;
+
+

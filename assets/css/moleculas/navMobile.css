@@ -45,6 +45,8 @@ body.lb-mobile-lock {
   display: grid;
   place-items: center;
   position: fixed;
+  top: clamp(1rem, 4vw, 1.8rem);
+  right: clamp(0.9rem, 5vw, 2.1rem);
   overflow: hidden;
   transition:
     transform 1s cubic-bezier(0.22, 1, 0.36, 1),
@@ -52,6 +54,23 @@ body.lb-mobile-lock {
     box-shadow 0.35s ease,
     background 0.45s ease;
   margin-bottom: 0.2rem;
+}
+ 
+
+.fan-nav__cart-wrapper {
+  position: fixed;
+  top: calc(
+    clamp(1rem, 4vw, 1.8rem) +
+      clamp(3.1rem, 16vw, 3.6rem) +
+      0.35rem
+  );
+  right: clamp(0.9rem, 5vw, 2.1rem);
+  z-index: 165;
+}
+
+.fan-nav__cart-wrapper .lb-cart-btn--icon {
+  width: clamp(3.1rem, 16vw, 3.6rem);
+  height: clamp(3.1rem, 16vw, 3.6rem);
 }
 
 .fan-nav__toggle::after {
