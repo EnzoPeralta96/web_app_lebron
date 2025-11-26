@@ -7,7 +7,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../../src/context/CartContext.jsx";
 
-export default function TarjetaProducto({ producto = {}, categoria }) {
+export default function TarjetaProducto({ producto = {}, categoria, variant = "category" }) {
   const { nombre, precio, marca, tamanos, sabores, imagen, descripcion } = producto || {};
   const price = typeof precio === "number" ? precio.toLocaleString("es-AR") : precio;
 
@@ -126,9 +126,11 @@ export default function TarjetaProducto({ producto = {}, categoria }) {
     </section>
   );
 
+  const wrapClasses = ["tp3d-wrap", variant ? `tp3d-wrap--${variant}` : ""].filter(Boolean).join(" ");
+
   if (!isMobile) {
     return (
-      <article className="tp3d-wrap" aria-label={`${nombre} ${categoria || "producto"}`}>
+      <article className={wrapClasses} aria-label={`${nombre} ${categoria || "producto"}`}>
         <Link to={productUrl} className="tp3d-link" aria-label={`Ver ${nombre}`} tabIndex={-1}>
           {cardContent}
         </Link>
@@ -138,7 +140,7 @@ export default function TarjetaProducto({ producto = {}, categoria }) {
 
   return (
     <article
-      className={`tp3d-wrap${isFlipped ? " is-flipped" : ""}`}
+      className={`${wrapClasses}${isFlipped ? " is-flipped" : ""}`}
       aria-label={`${nombre} ${categoria || "producto"}`}
       tabIndex={0}
       role="button"

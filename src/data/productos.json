@@ -46,6 +46,7 @@
     "destacado": true,
     "descripcion": "Fórmula concentrada de proteína para recuperación muscular. Aporta proteínas de alta calidad para mejorar la recuperación muscular, proteger la masa magra y acompañar planes de aumento o definición. Recomendado para consumir después del entrenamiento o como colación rica en proteína."
   },
+  
   {
     "id": 3,
     "nombre": "Serious Mass Gainer",
@@ -741,5 +742,29 @@
     "imagen": "/img/productos/combo5.jpg",
     "destacado": false,
     "descripcion": "Incluye proteína de 1kg, Amino Energy y avena integral instantánea 1kg. Perfecto para sumar proteínas y energía de calidad a tu día, ya sea en desayunos, meriendas o snacks saludables entre comidas."
+  },
+  {
+    "id": 40,
+    "nombre": "Serious Mass Gainer",
+    "categoria": "proteinas",
+    "marca": "Optimum Nutrition",
+    "precio": 52000,
+    "stock": 12,
+    "sabores": [
+      "Chocolate",
+      "Banana",
+      "Vainilla"
+    ],
+    "tamanos": [
+      "3kg",
+      "5kg"
+    ],
+    "preciosPorTamano": {
+      "3kg": 36400,
+      "5kg": 70200
+    },
+    "imagen": "/img/productos/serious-mass.jpg",
+    "destacado": false,
+    "descripcion": "Ganador de peso con alto contenido calórico y 50g de proteína por porción. Aporta proteínas de alta calidad para mejorar la recuperación muscular, proteger la masa magra y acompañar planes de aumento o definición. Recomendado para consumir después del entrenamiento o como colación rica en proteína."
   }
 ]

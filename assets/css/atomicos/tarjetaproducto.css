@@ -1,27 +1,30 @@
-/* === ESCRITORIO: Mantener esta parte sin cambios === */
-/* === GRID Y ENCABEZADO === */
+﻿/* === ESCRITORIO: Encabezado y grilla general === */
+/* Contenedor principal para centrar el listado de tarjetas */
 .gen-wrap {
   width: min(100%, 1200px);
   margin-inline: auto;
 }
 
+/* Encabezado del bloque centrado */
 .gen-header {
   text-align: center;
   margin: 0 0 1rem;
-
 }
 
+/* Titulo principal con tipografia Orbitron */
 .gen-title {
   margin: 0;
   font-size: clamp(1.6rem, 3.2vw, 2.2rem);
   font-family: "Orbitron", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 }
 
+/* Subtitulo de apoyo */
 .gen-sub {
   margin: .2rem 0 0;
   color: #cbd5e1;
 }
 
+/* Grilla flexible que reparte espacio entre las tarjetas */
 .gen-grid {
   display: flex;
   flex-wrap: wrap;
@@ -30,10 +33,10 @@
   margin: 0;
   padding: 0;
   list-style: none;
-
 }
 
-/* === TARJETA 3D === */
+/* === ESCRITORIO: Tarjeta 3D base (generica categorias) === */
+/* Envoltorio centrado que limita ancho y alto de la tarjeta 3D */
 .tp3d-wrap {
   display: flex;
   width: min(15rem, 100%);
@@ -42,6 +45,7 @@
   margin: 0 auto;
 }
 
+/* Enlace overlay que habilita la navegacion en desktop */
 .tp3d-link {
   display: block;
   width: 100%;
@@ -50,6 +54,7 @@
   text-decoration: none;
 }
 
+/* Dimensiones compartidas para las caras del efecto 3D */
 .tp3d-wrap .tp3d-card,
 .tp3d-wrap .tp3d-front,
 .tp3d-wrap .tp3d-side {
@@ -57,6 +62,7 @@
   height: 22.5rem;
 }
 
+/* Contenedor 3D que lleva la rotacion */
 .tp3d-card {
   transform-style: preserve-3d;
   transform: translateZ(-8.75rem);
@@ -64,6 +70,7 @@
   cursor: pointer;
 }
 
+/* Caras sobrepuestas que utilizan posicion absoluta */
 .tp3d-front,
 .tp3d-side {
   position: absolute;
@@ -72,7 +79,7 @@
   transition: all 350ms cubic-bezier(0.390, 0.575, 0.565, 1.000);
 }
 
-/* === FRENTE (ajustado) === */
+/* Lado frontal con degradado, bordes redondeados y espacio interno */
 .tp3d-front {
   background-image: linear-gradient(180deg, rgba(95, 0, 0, 0.349) 0%, rgba(255, 255, 255, 0) 100%);
   border: 0.0625rem solid rgba(255, 0, 0, 0.349);
@@ -85,9 +92,11 @@
   align-items: center;
   gap: 0.6rem;
   overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
-/* Título más cercano a la imagen */
+/* Titulo con tipografia Orbitron para el producto */
 .tp3d-title {
   margin: 0;
   font-size: clamp(0.5rem, 2.5vw, 1.1rem);
@@ -97,43 +106,54 @@
   font-weight: 700;
 }
 
-/* Imagen centrada y más próxima al título */
+/* Figura centrada que agrupa la imagen */
 .tp3d-figure {
-  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
+  max-height: 10rem;
   overflow: hidden;
+  animation: tp3d-figure-float 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite alternate;
 }
 
+/* Imagen adaptable dentro de la figura */
 .tp3d-img img {
   display: block;
   max-width: 12rem;
-  max-height: 12rem;
+  max-height: 10rem;
   width: auto;
   height: auto;
-  transform: rotateZ(4deg);
   transition: transform 300ms cubic-bezier(0.390, 0.575, 0.565, 1.000);
-  animation: tp3d-float 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite alternate;
 }
 
-@keyframes tp3d-float {
+/* Variante del ciclo para el slider destacado */
+.tp3d-wrap--featured .tp3d-figure {
+  animation: tp3d-figure-float-featured 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite alternate;
+}
+
+/* Animaciones de flotacion de la imagen */
+@keyframes tp3d-figure-float {
   0% {
-    transform: translateY(0) rotateZ(6deg);
+    transform: translateY(0);
   }
 
   100% {
-    transform: translateY(-0.4rem) rotateZ(6deg);
+    transform: translateY(-0.4rem);
   }
 }
 
-/* Hover imagen */
-.tp3d-wrap:hover .tp3d-img img {
-  transform: scale(0.95) rotateZ(8deg);
+@keyframes tp3d-figure-float-featured {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-0.45rem);
+  }
 }
 
-/* Mostrar precio, más cerca de la imagen */
+/* Precio con sombra debil y subrayado degradado */
 .tp3d-price {
   margin: 0.15rem 0 0;
   font-size: clamp(1.4rem, 2vw, 1.9rem);
@@ -149,15 +169,13 @@
   position: absolute;
   left: 50%;
   bottom: -0.35rem;
-  transform: translateX(-50%);
   width: 55%;
   height: 0.12rem;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.65), transparent);
   filter: blur(0.08rem);
 }
 
-
-/* === REVERSO === */
+/* Reverso con degradado oscuro y espacios para la lista */
 .tp3d-side {
   background-image: linear-gradient(0deg, rgba(99, 66, 91, 0.582) 0%, rgb(131, 0, 0) 100%);
   border: 0.0625rem solid rgba(255, 255, 255, .08);
@@ -170,16 +188,21 @@
   padding: 0.5rem;
   padding-bottom: 2rem;
   gap: 1.2rem;
+  color: #fefefe;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
+/* Titulo del reverso con tipografia Orbitron */
 .tp3d-side-title {
   font-size: 1rem;
   font-family: "Orbitron", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   font-weight: 700;
   text-align: left;
+  color: inherit;
 }
 
-/* Lista del reverso */
+/* Lista de atributos del producto */
 .tp3d-list {
   margin: 0;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -190,8 +213,10 @@
   gap: 0.6rem;
   font-size: 1rem;
   font-weight: 300;
+  color: inherit;
 }
 
+/* Posicionamiento de cada elemento para el bullet personalizado */
 .tp3d-list li {
   position: relative;
 }
@@ -203,12 +228,14 @@
   opacity: .55;
 }
 
+/* Resalta el texto fuerte dentro de la lista */
 .tp3d-list strong {
   font-weight: 700;
   margin-right: .25rem;
 }
 
-/* === EFECTO GIRO === */
+/* === ESCRITORIO: Efecto giro === */
+/* El giro se activa al pasar el mouse sobre la tarjeta */
 .tp3d-wrap:hover .tp3d-card {
   transform: translateZ(-10rem) rotateY(-90deg);
 }
@@ -233,7 +260,8 @@
   opacity: 1;
 }
 
-/* === BOTÓN AGREGAR === */
+/* === ESCRITORIO: Boton agregar === */
+/* Boton redondeado que aparece en el reverso */
 .tp3d-add {
   align-self: center;
   margin-top: auto;
@@ -256,6 +284,7 @@
   transform-origin: right bottom;
 }
 
+/* El boton se revela cuando el hover esta activo */
 .tp3d-wrap:hover .tp3d-add {
   transform: scale(1) skewY(0);
 }
@@ -264,11 +293,13 @@
   opacity: 0;
 }
 
+/* Y tambien aparece cuando el giro se activa por click */
 .tp3d-wrap.is-flipped .tp3d-add {
   transform: scale(1) skewY(0);
   opacity: 1;
 }
 
+/* Interaccion adicional al pasar el cursor sobre el boton */
 .tp3d-add:hover {
   background-position: left;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.65);
@@ -276,6 +307,7 @@
 }
 
 /* === ACCESIBILIDAD === */
+/* Utilidad para ocultar texto visualmente */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -288,13 +320,11 @@
   border: 0;
 }
 
-/* === AQUÍ COMIENZA LA VERSIÓN RESPONSIVE Y SU RESPECTIVO CÓDIGO === */
+/* === VERSION RESPONSIVE (max-width: 768px) === */
 @media (max-width: 768px) {
-  .tp3d-wrap {
-    width: min(11rem, 45vw);
-    height: 20rem;
-  }
 
+  /* === RESPONSIVE: GENERALES === */
+  /* Ajustes comunes para las caras 3D en dispositivos pequenos */
   .tp3d-wrap .tp3d-card,
   .tp3d-wrap .tp3d-front,
   .tp3d-wrap .tp3d-side {
@@ -302,33 +332,47 @@
     height: 18.5rem;
   }
 
+  /* Ajusta la profundidad del contenedor 3D en mobile */
   .tp3d-card {
     transform: translateZ(-9rem);
   }
 
+  /* Frente con menor padding y transform */
   .tp3d-front {
     transform: rotateY(0deg) translateZ(9.25rem);
     padding: 1.1rem 1rem 1.55rem;
   }
 
+  .tp3d-figure {
+    max-height: 9rem;
+    
+  }
+
+  /* La imagen se reduce para ajustarse al nuevo espacio */
   .tp3d-figure img {
     max-width: 9rem;
     max-height: 9rem;
+    border-radius: 0.26rem;
   }
 
+  /* Titular mas pequeno */
   .tp3d-title {
     font-size: clamp(0.45rem, 2vw, 0.9rem);
   }
 
+  /* Precio mas compacto */
   .tp3d-price {
     font-size: clamp(1.1rem, 2vw, 1.5rem);
   }
 
+  /* Boton mas pequeno para mobile */
   .tp3d-add {
-    font-size: 0.65rem;
-    padding: 0.35rem 1rem;
+    font-size: 0.75rem;
+    padding: 0.35rem;
+    margin-bottom: 0.5rem;
   }
 
+  /* El reverso se acomoda al menor espacio */
   .tp3d-side {
     transform: rotateY(90deg) translateZ(9.25rem);
     padding: 0.65rem 0.8rem;
@@ -336,17 +380,97 @@
     justify-content: flex-start;
   }
 
+  /* Titulo del reverso se reduce */
   .tp3d-side-title {
     font-size: 0.95rem;
   }
 
+  /* Lista con espacio reducido */
   .tp3d-list {
     padding-left: 1rem;
     gap: 0.35rem;
     font-size: 0.9rem;
   }
 
+  /* Ajuste del bullet personalizado */
   .tp3d-list li::before {
     left: -0.8rem;
   }
+
+  /* === RESPONSIVE: GENERICA CATEGORIAS === */
+  /* Mantiene el envoltorio al peor caso (18.5rem) para que no queden espacios al voltear */
+  .tp3d-wrap {
+    width: min(11rem, 45vw);
+    height: 18.5rem;
+  }
+
+  /* Las caras flippeadas se ajustan a la misma altura que el wrap */
+  .tp3d-wrap.is-flipped .tp3d-card,
+  .tp3d-wrap.is-flipped .tp3d-front,
+  .tp3d-wrap.is-flipped .tp3d-side {
+    height: 18.5rem;
+  }
+
+  .tp3d-wrap.is-flipped .tp3d-side {
+    padding-bottom: 0;
+  }
+
+  /* === RESPONSIVE: GENERICA MARCAS === */
+  /* Variante compacta para la seccion de marcas */
+  .tp3d-wrap--brand {
+    width: min(8.5rem, 38vw);
+  }
+
+  /* Lista de caras mas baja para la variante de marcas */
+  .tp3d-wrap--brand .tp3d-card,
+  .tp3d-wrap--brand .tp3d-front,
+  .tp3d-wrap--brand .tp3d-side {
+    height: 18.25rem;
+  }
+
+  /* Profundidad reducida para la variante compacta */
+  .tp3d-wrap--brand .tp3d-card {
+    transform: translateZ(-7.5rem);
+  }
+
+  /* Frente mas compacto para la variante compacta */
+  .tp3d-wrap--brand .tp3d-front {
+    padding: 1rem 0.8rem 1.25rem;
+  }
+
+  /* Reverso de la variante compacta con traslacion menor */
+  .tp3d-wrap--brand .tp3d-side {
+    transform: rotateY(90deg) translateZ(8rem);
+    padding: 0.2rem;
+    justify-content: space-evenly;
+  }
+
+  .tp3d-wrap--brand .tp3d-side .tp3d-side-title {
+    font-size: 0.9rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+
+  }
+
+  /* === RESPONSIVE: SLIDER DE PRODUCTOS DESTACADOS === */
+  /* El slider destacado mantiene ancho pero reduce altura para que el enlace no sobresalga */
+  .tp3d-wrap--featured {
+    width: min(14.5rem, 92vw);
+    height: 19.5rem;
+  }
+
+  /* Alinea las caras para que coincidan exactamente con el alto del wrap */
+  .tp3d-wrap--featured .tp3d-card,
+  .tp3d-wrap--featured .tp3d-front,
+  .tp3d-wrap--featured .tp3d-side {
+    height: 19.5rem;
+  }
+   .tp3d-wrap--featured  .tp3d-add {
+    font-size: 1rem;
+    
+  }
+  .tp3d-wrap--featured  .tp3d-price {
+    font-size: 1.7rem;
+  } 
 }

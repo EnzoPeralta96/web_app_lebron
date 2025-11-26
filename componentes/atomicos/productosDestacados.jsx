@@ -60,10 +60,14 @@ export default function ProductosDestacados() {
               <div className="productos-destacados__page" key={`page-${pageIndex}`}>
                 {chunk.map((producto) => (
                   <article key={producto.id} className="productos-destacados__item" role="listitem">
-                    <TarjetaProducto producto={producto} categoria={producto.categoria} />
+                    <TarjetaProducto
+                      producto={producto}
+                      categoria={producto.categoria}
+                      variant="featured"
+                    />
                   </article>
                 ))}
-              </div>
+            </div>
             ))}
           </div>
         </div>

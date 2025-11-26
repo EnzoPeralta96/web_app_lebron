@@ -17,7 +17,6 @@
   border-radius: 1.15rem;
   border: var(--lb-cart-border);
   background: var(--lb-cart-gradient);
-  box-shadow: var(--lb-cart-shadow);
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 0.18em;
