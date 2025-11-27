@@ -155,3 +155,13 @@
 .facturacion-status.error {
   color: #f87171;
 }
+@media (max-width: 768px) {
+  .facturacion-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .facturacion-form {
+    width: 100%;
+  }
+}

@@ -19,8 +19,9 @@ body.lb-mobile-lock {
   top: clamp(1rem, 4vw, 1.8rem);
   right: clamp(0.9rem, 5vw, 2.1rem);
   z-index: 160;
-  display: grid;
-  justify-items: end;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   gap: 0.6rem;
   pointer-events: none;
   color: var(--lb-metal-white);
@@ -42,8 +43,9 @@ body.lb-mobile-lock {
   box-shadow:
     0 6px 22px rgba(5, 2, 4, 0.6),
     0 0 26px rgba(225, 24, 24, 0.28);
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: fixed;
   top: clamp(1rem, 4vw, 1.8rem);
   right: clamp(0.9rem, 5vw, 2.1rem);
@@ -141,6 +143,7 @@ body.lb-mobile-lock {
 }
 
 .fan-nav__pane {
+  margin-top: 3rem;
   position: fixed;
   box-sizing: border-box;
   width: clamp(17rem, 85vw, 21rem);
@@ -150,8 +153,8 @@ body.lb-mobile-lock {
   left: 50%;
   border-radius: clamp(1.6rem, 8vw, 2.4rem);
   padding: clamp(1.15rem, 4vw, 1.85rem) clamp(0.9rem, 3.6vw, 1.45rem);
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  display: flex;
+  flex-direction: column;
   gap: clamp(1rem, 4vw, 1.6rem);
 
   /* Fondo con degrad� rojo Lebron */
@@ -209,7 +212,8 @@ body.lb-mobile-lock {
 }
 
 .fan-nav__header {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 0.35rem;
 }
 
@@ -229,19 +233,21 @@ body.lb-mobile-lock {
 .fan-nav__nav {
   overflow-y: auto;
   padding-right: 0.15rem;
-  display: grid;
-  align-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .fan-nav__links {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: clamp(0.65rem, 4vw, 1rem);
   width: 100%;
   box-sizing: border-box;
 }
 
 .fan-nav__item {
-  /* stagger mucho m�s lento entre �tems */
+  /* stagger mucho mas lento entre items */
   --delay: calc(var(--item-index, 0) * 140ms);
   opacity: 0;
   transform: translate3d(2.2rem, 0.8rem, 0) rotate(-6deg);

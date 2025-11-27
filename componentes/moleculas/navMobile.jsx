@@ -5,9 +5,11 @@ import "../../assets/css/atomicos/buscador.css";
 import BotonCarrito from "../atomicos/botoncarrito.jsx";
 
 const PRIMARY_LINKS = [
-  { href: "#comprador", label: "Suplementos", hint: "Shop" },
-  { href: "/categoria/combos", label: "Combos", hint: "Combos" },
-  { href: "#gancho", label: "¿porque estoy aqui?", hint: "" },
+  { href: "/", label: "Inicio" },
+  { href: "/#categorias", label: "Categorias" },
+  { href: "/categoria/combos", label: "Combos" },
+  { href: "/#gancho", label: "Porque estoy aqui?" },
+  { href: "/#mayorista", label: "Mayorista" },
 ];
 
 const QUICK_ACTIONS = [

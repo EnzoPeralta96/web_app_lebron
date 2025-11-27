@@ -101,7 +101,20 @@ function App() {
         return;
       }
 
-      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      const scrollToHash = () => {
+        if (location.hash) {
+          const targetId = location.hash.replace(/^#/, "");
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+            return;
+          }
+        }
+
+        window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      };
+
+      scrollToHash();
     }, [location.pathname, location.search, location.hash]);
 
     // Resolver ruta efectiva independientemente del entorno

@@ -4,7 +4,7 @@ import mayorista from "../../assets/img/fondoMayorista.jpg";
 
 function Mayorista() {
     return (
-        <section className="mayorista">
+        <section id="mayorista" className="mayorista">
             <h2>¿Querés generar ingresos extras?</h2>
             <p>
                 Sumate a nuestro programa de ventas mayoristas y obtené beneficios exclusivos por ser parte de

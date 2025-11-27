@@ -92,3 +92,13 @@
 .summary-note-social .lb-social a {
   border-color: rgba(255, 255, 255, 0.55);
 }
+
+@media (max-width: 728px) {
+  
+.facturacion-summary {
+  
+  align-items: center;
+  width: 90%;
+}
+
+}
