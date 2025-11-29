@@ -13,6 +13,7 @@ import ProductosDestacados from "../componentes/atomicos/productosDestacados.jsx
 import Promocion from "../componentes/moleculas/promocion.jsx";
 import Promocion2 from "../componentes/moleculas/promocion2.jsx";
 import Mayorista from "../componentes/moleculas/mayorista.jsx";
+import GranPromo from "../componentes/moleculas/GranPromo.jsx";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useLayoutEffect } from "react";
 import "../assets/css/atomicos/fondos.css";
@@ -33,7 +34,7 @@ import c6 from "../assets/img/carrusel/6.png";
 
 function App() {
   const carruselItems = [
-  
+
     {
       img: c2,
       titulo: "Energia al maximo",
@@ -68,6 +69,7 @@ function App() {
 
   const Home = () => (
     <>
+      <GranPromo />
       <Header />
       <main>
         <Comprador />
@@ -77,7 +79,6 @@ function App() {
         <Promocion />
         <FAQ />
         <ProductosDestacados />
-
         <Gancho />
         <Promocion2 />
       </main>

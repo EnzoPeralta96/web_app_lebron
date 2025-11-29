@@ -46,7 +46,7 @@ export default function ProductosDestacados() {
       <div className="productos-destacados__header">
         <div>
           <p className="productos-destacados__eyebrow">Selección Lebron</p>
-          <h2>Productos destacados</h2>
+          <h2>Productos destacados 10% OFF</h2>
         </div>
       </div>
 

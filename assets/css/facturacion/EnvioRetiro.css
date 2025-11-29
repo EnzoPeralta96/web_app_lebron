@@ -2,12 +2,12 @@
 
 .stage-overlay {
   margin-top: 1rem;
-  border: 1px dashed rgba(255, 255, 255, 0.3);
+  border: 1px dashed rgba(99, 102, 241, 0.5);
   padding: 0.85rem 1rem;
   border-radius: 12px;
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.75);
-  background: rgba(255, 255, 255, 0.02);
+  color: rgba(224, 226, 255, 0.8);
+  background: rgba(5, 6, 30, 0.6);
   display: none;
 }
 
@@ -71,8 +71,10 @@
 }
 
 .zone-chip {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(199, 199, 199, 0.03);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.25), transparent 55%),
+    rgba(5, 6, 30, 0.6);
   border-radius: 14px;
   padding: 1rem;
   text-align: left;
@@ -80,29 +82,31 @@
   flex-direction: column;
   gap: 0.3rem;
   cursor: pointer;
-  transition: background 0.2s ease, border 0.2s ease;
+  transition: background 0.2s ease, border 0.2s ease, box-shadow 0.2s ease;
 }
 
 .zone-chip strong {
   display: block;
   font-size: 1rem;
+  color: #e0f2fe;
 }
 
 .zone-chip small {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(224, 226, 255, 0.7);
   font-size: 0.8rem;
 }
 
 .zone-chip .zone-cost {
   margin-top: 0.3rem;
   font-weight: 700;
+  color: #38bdf8;
 }
 
 .zone-chip.is-active {
-  border-color: #f91616;
-  background: rgba(249, 22, 22, 0.12);
+  border-color: rgba(79, 70, 229, 0.7);
+  background: rgba(59, 130, 246, 0.25);
   color: #fff;
-  box-shadow: 0 10px 30px rgba(249, 22, 22, 0.2);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.25);
 }
 
 @keyframes reveal-stage {

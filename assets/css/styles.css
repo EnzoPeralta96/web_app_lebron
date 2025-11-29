@@ -1,17 +1,24 @@
 /* Eliminado: Montserrat */
 :root{
-    /* Línea divisoria del nav */
-    --divider-soft: rgba(212, 0, 0, 0.6);
-    --divider-strong: rgb(114, 3, 3);
-    --divider-glow1: rgba(220, 38, 38, .6);
-    --divider-glow2: rgba(239, 68, 68, .35);
+    /* Líneas y destellos */
+    --divider-soft: rgba(129, 140, 248, 0.45);
+    --divider-strong: #312e81;
+    --divider-glow1: rgba(99, 102, 241, 0.85);
+    --divider-glow2: rgba(129, 140, 248, 0.25);
 
-    /* Fondo global (ajustable) */
-    --bg-base: #312e2e;              /* color base */
-    --bg-accent: #dc143c;            /* acento crimson */
-    --bg-accent-soft: rgba(220,20,60,.18);
-    --bg-light: rgba(255,255,255,.06);
-    --bg-stripe: rgba(255,255,255,.03);
+    /* Fondo global */
+    --bg-base: #02020a;
+    --bg-accent: #0f172a;
+    --bg-accent-soft: rgba(59, 130, 246, 0.15);
+    --bg-light: rgba(59, 130, 246, 0.08);
+    --bg-stripe: rgba(59, 130, 246, 0.05);
+
+    /* Paleta principal */
+    --primary: #6366f1;
+    --primary-dark: #312e81;
+    --primary-soft: rgba(99, 102, 241, 0.25);
+    --secondary: #7c3aed;
+    --accent: #38bdf8;
 }
 
 /* Reset mínimo para evitar overflow por padding/border */

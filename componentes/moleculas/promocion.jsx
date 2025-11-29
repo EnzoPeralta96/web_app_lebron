@@ -1,6 +1,6 @@
 import "../../assets/css/atomicos/boton.css";
 import "../../assets/css/moleculas/promocion.css";
-import promoNavidad from "../../assets/img/promoNavidad.jpg";
+import promoNavidad from "../../assets/img/banner6.jpg";
 
 function Promocion() {
   return (
@@ -8,20 +8,18 @@ function Promocion() {
       <article className="promo-body container">
         <header>
           <p className="promo-eyebrow">Edicion limitada</p>
-          <h2 className="promo-title">Feliz Navidad</h2>
+          <h2 className="promo-title">Edición Black Friday: Combo Planetaria</h2>
           <p className="promo-text">
-            Buenos deseos y energia LeBron para cerrar el ano. Aprovecha
-            promociones con packs especiales y envios express para que todo
-            llegue a tiempo.
+           Proteína + creatina: la dupla clave para entrenar fuerte, recuperar rápido y progresar semana a semana. <strong>Black Friday 60% OFF.</strong>
           </p>
 
           <article className="botones">
             <p className="precio-promocion precio-promocion1">
               $65.000
             </p>
-            <a className="lb-btn lb-primary lb-57 promo-cta" href="#categorias">
+            <a className="lb-btn lb-black-friday lb-57 promo-cta" href="#categorias">
               <span>Comprar ahora</span>
-              <span>Feliz Navidad</span>
+              <span>Black Friday</span>
             </a>
           </article>
         </header>

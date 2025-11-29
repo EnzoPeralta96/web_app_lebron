@@ -1,7 +1,7 @@
 import "../../assets/css/moleculas/gancho.css";
 import Boton from "../atomicos/boton.jsx";
 import Buscador from "../atomicos/buscador.jsx";
-import hero from "../../assets/img/platon.png";
+import hero from "../../assets/img/miyamoto.png";
 
 function Gancho() {
   return (
@@ -18,22 +18,23 @@ function Gancho() {
         <article className="gancho-content">
           <blockquote className="gancho-quote">
             <p>
-              “El hombre que no tiene el valor de ejercitar su cuerpo y alcanzar su plenitud física jamás sabrá de lo que es capaz su alma.”
+              “La victoria pertenece a quien no negocia con su disciplina.”
             </p>
-            <footer>— Platón</footer>
+            <footer>— Musashi Miyamoto</footer>
           </blockquote>
           <blockquote className="gancho-quote">
             <p>
-              En Suplementos Lebron, creemos que alcanzar la plenitud del cuerpo es también un camino hacia la grandeza del alma.
-              Esta filosofía es el fuego que nos impulsa: acompañar a quienes buscan superarse, con productos que nutren la fuerza, la mente y la constancia.
-              Porque cada entrenamiento, cada elección y cada meta, se construyen mejor cuando no estás solo.
-              Nosotros estamos con vos, en cada paso de tu evolución.
+              En Suplementos Lebron, creemos que la disciplina no es un destino: es un camino. Como enseñaba <strong>Miyamoto</strong>, el progreso real se forja en silencio, repetición y constancia. Por eso creamos combos y suplementos pensados para acompañarte en cada etapa: más rendimiento, mejor recuperación y una mente enfocada en avanzar. Porque cada entrenamiento, cada elección y cada meta, pesan menos cuando tenés un equipo detrás. <strong>Estamos con vos, para que hoy entrenes más fuerte y mañana seas mejor que ayer.</strong>
             </p>
           </blockquote>
 
           <nav className="gancho-actions" aria-label="Acciones principales">
-            <Boton href="#categorias" altText="Vamos">Comprar</Boton>
-            <Boton href="/categoria/combos" altText="Ver">Ir a combos</Boton>
+            <Boton variant="black-friday" href="#categorias" altText="Vamos">
+              Comprar
+            </Boton>
+            <Boton variant="black-friday" href="/categoria/combos" altText="Ver">
+              Ir a combos
+            </Boton>
           </nav>
           
         </article>

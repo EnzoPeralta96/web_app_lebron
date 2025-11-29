@@ -19,11 +19,12 @@ function useIsMobile(breakpoint = 768) {
 
 export default function Tarjeta({
   titulo = "Nombre del producto",
-  subtitulo = "Categoria",
+  subtitulo = "",
   descripcion = "Descripcion breve del producto o detalle informativo.",
   imagen = "https://unsplash.it/800/800",
   href = "#",
   onClick,
+  descuento = "",
 }) {
   const [flipped, setFlipped] = useState(false);
   const navigate = useNavigate();
@@ -109,7 +110,7 @@ export default function Tarjeta({
   return (
     <article
       className={`lb-card ${flipped ? "is-flipped" : ""}`}
-      aria-label={`${titulo} ${subtitulo}`}
+      aria-label={`${titulo}${subtitulo ? ` ${subtitulo}` : ""}`}
     >
       <Anchor
         className="lb-card-link"
@@ -122,7 +123,9 @@ export default function Tarjeta({
             <span className="lb-card-media" aria-hidden={true} />
             <figcaption className="lb-card-caption">
               <p className="lb-card-title">{titulo}</p>
-              <span className="lb-card-sub">{subtitulo}</span>
+              {descuento && (
+                <span className="lb-card-sub lb-card-sub--promo">{descuento}</span>
+              )}
             </figcaption>
           </figure>
 

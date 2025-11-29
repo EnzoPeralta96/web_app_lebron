@@ -1,10 +1,10 @@
 :root {
   --lb-cart-gradient:
-    radial-gradient(circle at 22% 18%, rgba(255, 255, 255, 0.12), transparent 58%),
-    linear-gradient(145deg, rgba(16, 4, 6, 0.95), rgba(104, 0, 0, 0.95));
+    radial-gradient(circle at 22% 18%, rgba(255, 255, 255, 0.15), transparent 58%),
+    linear-gradient(145deg, rgba(79, 70, 229, 0.95), rgba(15, 23, 42, 0.95));
   --lb-cart-shadow:
-    0 6px 22px rgba(199, 0, 0, 0.719);
-  --lb-cart-border: 1px solid rgba(104, 0, 0, 0.95);
+    0 6px 22px rgba(59, 130, 246, 0.45);
+  --lb-cart-border: 1px solid rgba(59, 130, 246, 0.7);
 }
 
 .lb-cart-btn {
@@ -31,12 +31,16 @@
   text-decoration: none;
   transition: transform 0.45s ease, border-color 0.35s ease,
     box-shadow 0.35s ease;
+  box-shadow: var(--lb-cart-shadow);
 }
 
 .lb-cart-btn:hover,
 .lb-cart-btn:focus-visible {
   transform: translateY(-2px);
-  border-color: rgb(151, 1, 1);
+  border-color: rgba(99, 102, 241, 0.95);
+  box-shadow:
+    0 0 18px rgba(59, 130, 246, 0.65),
+    inset 0 0 12px rgba(255, 255, 255, 0.2);
 }
 
 .lb-cart-icon {

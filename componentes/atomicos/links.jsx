@@ -38,21 +38,21 @@ const IconPuzzle = () => (
 function Links({
   open = false,
   items = [
-    { href: "#categorias",           label: "Suplementos", icon: <IconDumbbell />, gradA: "#b80000ff", gradB: "#000000ff" },
-    { href: "/categoria/alimentos", label: "Alimentos",  icon: <IconApple />,    gradA: "#e20000ff", gradB: "#770707ff" },
-    { href: "/categoria/accesorios",label: "Accesorios", icon: <IconBag />,      gradA: "#da5700ff", gradB: "#5c0050ff" },
-    { href: "/marcas",              label: "Marcas",      icon: <IconTag />,      gradA: "#f30000ff", gradB: "#4c00ffff" },
-    { href: "/categoria/combos",     label: "Combos",      icon: <IconPuzzle />,   gradA: "#f59e0b", gradB: "#ff6a00ff" },
+    { href: "#categorias",           label: "Suplementos", icon: <IconDumbbell />, gradA: "#38bdf8", gradB: "#1d4ed8"  },
+    { href: "/categoria/alimentos", label: "Alimentos",  icon: <IconApple />,    gradA: "#7c3aed", gradB: "#4c1d95" },
+    { href: "/categoria/accesorios",label: "Accesorios", icon: <IconBag />,      gradA: "#0ea5e9", gradB: "#2563eb"  },
+    { href: "/marcas",              label: "Marcas",      icon: <IconTag />,      gradA: "#a855f7", gradB: "#6d28d9" },
+    { href: "/categoria/combos",     label: "Combos",      icon: <IconPuzzle />,   gradA: "#60a5fa", gradB: "#2563eb" },
   ],
   onItemClick,
   activeIndex = -1,
 }) {
     const palette = [
-        ["#910000ff", "#dc2626"],
-        ["#22c55e", "#16a34a"],
-        ["#60a5fa", "#3b82f6"],
-        ["#a78bfa", "#8b5cf6"],
-        ["#f59e0b", "#f97316"],
+        ["#38bdf8", "#1d4ed8"],
+        ["#a855f7", "#7c3aed"],
+        ["#0ea5e9", "#2563eb"],
+        ["#6366f1", "#4f46e5"],
+        ["#c084fc", "#7c3aed"],
     ];
 
   const finalItems = items.map((it, idx) => ({
@@ -106,7 +106,6 @@ function Links({
 
 export default Links;
 export { Links };
-
 
 
 

@@ -38,11 +38,17 @@
 .nav::after {
   content: "";
   position: absolute;
-  width: 20%;
+  width: 18%;
   height: 3px;
   left: -10%;
   bottom: 0;
-  background: linear-gradient(90deg, transparent, #9c0000, #ffffff, transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #4c1d95,
+    #c4b5fd,
+    transparent
+  );
   animation: beam-scan 10s linear infinite;
   pointer-events: none;
 }
@@ -96,7 +102,7 @@ body.has-fixed-nav {
   align-items: center;
   gap: 1rem;
   padding: 0.65rem 1rem;
-  background: rgba(10, 10, 10, 0.44);
+  background: rgba(3, 7, 25, 0.85);
 }
 
 .logo {
@@ -150,8 +156,8 @@ body.has-fixed-nav {
 
 /* Nivel inferior */
 .nav-bottom {
-  background: rgba(10, 10, 10, 0.44);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(3, 7, 25, 0.7);
+  border-top: 1px solid rgba(147, 197, 253, 0.35);
   padding: 0.4rem 0;
 }
 

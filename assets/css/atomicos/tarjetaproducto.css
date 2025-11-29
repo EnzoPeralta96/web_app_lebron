@@ -81,8 +81,14 @@
 
 /* Lado frontal con degradado, bordes redondeados y espacio interno */
 .tp3d-front {
-  background-image: linear-gradient(180deg, rgba(95, 0, 0, 0.349) 0%, rgba(255, 255, 255, 0) 100%);
-  border: 0.0625rem solid rgba(255, 0, 0, 0.349);
+  background-image: linear-gradient(
+      180deg,
+      rgba(14, 165, 233, 0.23) 0%,
+      rgba(5, 6, 30, 0.9) 60%,
+      rgba(2, 2, 10, 0.95) 100%
+    ),
+    radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.25), transparent 55%);
+  border: 0.0625rem solid rgba(59, 130, 246, 0.55);
   transform: rotateY(0deg) translateZ(10rem);
   border-radius: 1.5rem 0.5rem 0 0;
   padding: 1.5rem 1.25rem 2rem;
@@ -94,6 +100,9 @@
   overflow: hidden;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  box-shadow:
+    0 0 20px rgba(59, 130, 246, 0.35),
+    inset 0 0 1px rgba(59, 130, 246, 0.4);
 }
 
 /* Titulo con tipografia Orbitron para el producto */
@@ -158,10 +167,21 @@
   margin: 0.15rem 0 0;
   font-size: clamp(1.4rem, 2vw, 1.9rem);
   font-weight: 700;
-  color: #fff3ea;
   letter-spacing: 0.01em;
-  text-shadow: 0 0 12px rgba(255, 255, 255, 0.45);
   position: relative;
+}
+
+.tp3d-price--old {
+  color: rgba(226, 232, 240, 0.7);
+  text-decoration: line-through;
+  letter-spacing: 0.2em;
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  margin-bottom: 0;
+}
+
+.tp3d-price--new {
+  color: #e0f2fe;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.45);
 }
 
 .tp3d-price::after {
@@ -171,14 +191,15 @@
   bottom: -0.35rem;
   width: 55%;
   height: 0.12rem;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.65), transparent);
+  background: #fff !important;
   filter: blur(0.08rem);
+  transform: translateX(-50%);
 }
 
 /* Reverso con degradado oscuro y espacios para la lista */
 .tp3d-side {
-  background-image: linear-gradient(0deg, rgba(99, 66, 91, 0.582) 0%, rgb(131, 0, 0) 100%);
-  border: 0.0625rem solid rgba(255, 255, 255, .08);
+  background-image: linear-gradient(0deg, rgba(10, 10, 32, 0.9) 0%, rgba(5, 6, 30, 0.8) 100%);
+  border: 0.0625rem solid rgba(99, 102, 241, 0.4);
   transform: rotateY(90deg) translateZ(10rem);
   border-radius: 0 0 0.5rem 1.5rem;
   opacity: 0.08;
@@ -274,7 +295,7 @@
   letter-spacing: -.01rem;
   padding: 0.45rem 1.3rem;
   border-radius: 2.5rem 2.5rem 1rem 2.5rem;
-  background-image: linear-gradient(130deg, rgba(255, 0, 0, 0.72) 0%, rgba(220, 38, 38, 0.9) 80%);
+  background-image: linear-gradient(130deg, rgba(59, 130, 246, 0.9) 0%, rgba(37, 99, 235, 0.9) 70%);
   background-size: 200% 100%;
   background-position: center;
   cursor: pointer;

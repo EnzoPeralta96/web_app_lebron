@@ -9,7 +9,6 @@
   --card-accent-2: color-mix(in srgb, var(--card-accent) 70%, #000 30%);
   --card-overlay: rgba(41, 29, 29, 0.4);
   --text-depth: 6rem;
-  /* 60px, profundidad del texto 3D */
   /* Gradiente del dorso (personalizable) */
   --card-back-a: color-mix(in srgb, var(--card-accent) 25%, #000 75%);
   --card-back-b: color-mix(in srgb, var(--card-accent-2) 60%, #000 40%);
@@ -106,17 +105,35 @@
 }
 
 .lb-card-title {
-  font-size: clamp(1.1rem, 2.4vw, 1.4rem);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
   font-weight: 700;
+}
+
+.lb-card-front .lb-card-title {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lb-card-sub--promo {
+  display: block;
+  font-size: clamp(1.2rem, 1.4vw, 1.2rem);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #fcd34d;
+  text-shadow: 0 0 12spx rgba(252, 212, 78, 0.8);
 }
 
 .lb-card-title::after {
   content: "";
-  width: 6rem;
+  width: 5rem;
   height: .125rem;
-  background: var(--card-accent);
+  background: white;
   display: block;
-  margin: .5rem auto 0;
+  margin: .25rem auto 0;
   border-radius: 999rem;
 }
 
@@ -136,14 +153,14 @@
   inset: 0;
   border-radius: var(--card-r);
   background:
-    radial-gradient(100% 120% at 80% 10%, rgba(255, 0, 0, 0.616), transparent 60%),
-    radial-gradient(120% 100% at 0% 100%, rgba(0,0,0,.35), transparent 60%),
-    linear-gradient(var(--card-back-angle), var(--card-back-a), var(--card-back-b));
+    radial-gradient(140% 160% at 80% 10%, rgba(18, 24, 74, 0.55), transparent 68%),
+    radial-gradient(120% 100% at 0% 100%, rgba(2, 6, 23, 0.7), transparent 72%),
+    linear-gradient(var(--card-back-angle), #04030a, #060919);
   transform: rotateY(180deg);
   display: grid;
   place-items: center;
   padding: 1rem;
-  color: #fff;
+  color: #f8fafc;
 }
 
 .lb-card-back::before {

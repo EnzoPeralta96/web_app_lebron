@@ -12,17 +12,17 @@ function Header() {
             <span className="dot"></span> Suplementos de alto rendimiento
           </p>
           <h1 className="title title-hero">
-            <span>Potenciá</span>
-            <span>tu rendimiento</span>
+            <span>El Black Friday</span>
+            <span>LLEGO </span>
           </h1>
           <p className="subtitle">
             Energia, fuerza y recuperacion para quienes entrenan en serio.
           </p>
           <section className="cta-row" aria-label="Llamadas a la accion">
-            <Boton variant="primary" href="#categorias" altText="Ir a comprar">
+            <Boton variant="black-friday" href="#categorias" altText="Ir a comprar">
               Comprar ahora
             </Boton>
-            <Boton variant="primary" href="/categoria/combos" altText="Explorar combos">
+            <Boton variant="black-friday" href="/categoria/combos" altText="Explorar combos">
               Ver combos
             </Boton>
           </section>

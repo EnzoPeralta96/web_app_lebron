@@ -10,7 +10,7 @@
   /* Limita el contenedor para que entren exactamente 3 tarjetas por fila en desktop */
   max-width: calc(var(--card-w) * 3 + var(--categories-gap) * 2);
   margin-inline: auto;
-  
+
 }
 
 .categories-grid {
@@ -62,37 +62,41 @@
 }
 
 /* Título y subtítulo */
-#categorias .categories-wrap > h2 {
-  margin: 1 0 .35rem;
+#categorias .categories-wrap>h2 {
+  margin: 1rem auto 0.35rem;
   font-weight: 700;
-  font-size: clamp(3rem, 3vw, 3rem);
-  letter-spacing: .2px;
+  font-size: clamp(2.8rem, 3vw, 3.2rem);
+  letter-spacing: 0.1em;
   color: #e8eaee;
-  text-shadow: 0 1px 0 rgba(0,0,0,.35);
+  text-shadow:
+    0 0 1rem rgba(59, 130, 246, 0.7),
+    0 0 0.4rem rgba(14, 165, 233, 0.35),
+    0 0 0.2rem rgba(59, 130, 246, 0.85);
   position: relative;
-  /* Aumenta la altura visual del titulo sin cambiar el ancho */
   line-height: 1.12;
-  transform: scaleY(1.2);
+  transform: scaleY(1.15);
   transform-origin: center;
-  text-align: center; /* centrar el título */
+  text-align: center;
 }
 
-/* pequeña barra decorativa debajo del título, centrada */
-#categorias .categories-wrap > h2::after {
+#categorias .categories-wrap>h2::after {
   content: "";
   display: block;
   height: 3px;
   width: clamp(48px, 10vw, 96px);
-  margin: .25rem auto 0; /* centrar la barra */
+  margin: .25rem auto 0;
   border-radius: 3px;
-  
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6));
+  box-shadow: 0 0 0.6rem rgba(255, 255, 255, 0.5);
 }
 
-#categorias .categories-wrap > .lead {
+
+#categorias .categories-wrap>.lead {
   margin: 0 0 1rem;
   color: #cbd5e1;
   font-size: clamp(.95rem, 1.6vw, 1.1rem);
-  text-align: center; /* centrar el subtítulo */
+  text-align: center;
+  /* centrar el subtítulo */
   max-width: min(68ch, 720px);
   margin-left: auto;
   margin-right: auto;
@@ -103,9 +107,18 @@
 #categorias.section::after {
   content: "";
   position: absolute;
-  left: 0; right: 0;
+  left: 0;
+  right: 0;
   height: clamp(12px, 2.5vw, 24px);
   pointer-events: none;
 }
-#categorias.section::before { top: -1px; background: linear-gradient(to bottom, var(--divider-glow1), rgba(0,0,0,0) 70%); }
-#categorias.section::after  { bottom: -1px; background: linear-gradient(to top,    var(--divider-glow2), rgba(0,0,0,0) 70%); }
+
+#categorias.section::before {
+  top: -1px;
+  background: linear-gradient(to bottom, var(--divider-glow1), rgba(0, 0, 0, 0) 70%);
+}
+
+#categorias.section::after {
+  bottom: -1px;
+  background: linear-gradient(to top, var(--divider-glow2), rgba(0, 0, 0, 0) 70%);
+}

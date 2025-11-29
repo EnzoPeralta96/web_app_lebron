@@ -9,7 +9,16 @@ import { useCart } from "../../src/context/CartContext.jsx";
 
 export default function TarjetaProducto({ producto = {}, categoria, variant = "category" }) {
   const { nombre, precio, marca, tamanos, sabores, imagen, descripcion } = producto || {};
-  const price = typeof precio === "number" ? precio.toLocaleString("es-AR") : precio;
+  const numericPrice =
+    typeof precio === "number"
+      ? precio
+      : Number(precio?.toString().replace(/[^\d.-]/g, ""));
+  const formattedPrice = Number.isFinite(numericPrice)
+    ? numericPrice.toLocaleString("es-AR")
+    : precio;
+  const discountedPrice = Number.isFinite(numericPrice)
+    ? (numericPrice * 0.9).toLocaleString("es-AR", { minimumFractionDigits: 0 })
+    : null;
 
   const cart = useCart();
   const navigate = useNavigate();
@@ -91,7 +100,12 @@ export default function TarjetaProducto({ producto = {}, categoria, variant = "c
           </span>
           {descripcion && <figcaption className="sr-only">{descripcion}</figcaption>}
         </figure>
-        {price && <p className="tp3d-price">$ {price}</p>}
+        {formattedPrice && (
+          <p className="tp3d-price tp3d-price--old">$ {formattedPrice}</p>
+        )}
+        {discountedPrice && (
+          <p className="tp3d-price tp3d-price--new">$ {discountedPrice}</p>
+        )}
       </header>
 
       <aside className="tp3d-side" aria-label="Detalles del producto">

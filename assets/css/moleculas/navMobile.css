@@ -1,12 +1,13 @@
 /* Celestial ribbon menu � optimizado para m�viles 360x640 */
 
 :root {
-  /* Paleta Lebron */
-  --lb-black: #050507;
-  --lb-red-neon: #ee0000;
-  --lb-gray: #9aa0a6;
-  --lb-metal-white: #f5f7fa;
-  --lb-accent: #911800;
+  /* Paleta bluefriday */
+  --lb-black: #03030b;
+  --lb-deep: #060918;
+  --lb-gray: #c7d2fe;
+  --lb-metal-white: #f8fafc;
+  --lb-accent: #7c3aed;
+  --lb-accent-strong: #38bdf8;
 }
 
 body.lb-mobile-lock {
@@ -36,13 +37,13 @@ body.lb-mobile-lock {
   width: clamp(3.1rem, 16vw, 3.6rem);
   aspect-ratio: 1;
   border-radius: 1.15rem;
-  border: 1px solid rgba(255, 51, 51, 0.25);
+  border: 1px solid rgba(59, 130, 246, 0.45);
   background:
-    radial-gradient(circle at 22% 18%, rgba(255, 255, 255, 0.12), transparent 58%),
-    linear-gradient(145deg, rgba(16, 4, 6, 0.92), rgba(104, 0, 0, 0.92));
+    radial-gradient(circle at 22% 18%, rgba(59, 130, 246, 0.12), transparent 58%),
+    linear-gradient(145deg, rgba(5, 4, 20, 0.9), rgba(56, 189, 248, 0.85));
   box-shadow:
-    0 6px 22px rgba(5, 2, 4, 0.6),
-    0 0 26px rgba(225, 24, 24, 0.28);
+    0 6px 22px rgba(2, 4, 18, 0.7),
+    0 0 26px rgba(56, 189, 248, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,20 +80,20 @@ body.lb-mobile-lock {
   content: "";
   position: absolute;
   inset: -55%;
-  background: radial-gradient(circle, rgba(225, 24, 24, 0.28), transparent 68%);
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.32), transparent 68%);
   opacity: 0;
   transition: opacity 0.35s ease;
 }
 
 .fan-nav.is-open .fan-nav__toggle {
   transform: scale(1.08);
-  border-color: rgba(255, 51, 51, 0.45);
+  border-color: rgba(99, 102, 241, 0.7);
   background:
-    radial-gradient(circle at 22% 20%, rgba(255, 151, 112, 0.32), transparent 62%),
-    linear-gradient(150deg, rgba(225, 24, 24, 0.92), rgba(86, 0, 0, 0.95));
+    radial-gradient(circle at 22% 20%, rgba(99, 102, 241, 0.28), transparent 62%),
+    linear-gradient(150deg, rgba(37, 99, 235, 0.92), rgba(5, 4, 20, 0.98));
   box-shadow:
-    0 14px 32px rgba(5, 2, 4, 0.6),
-    0 0 32px rgba(225, 24, 24, 0.38);
+    0 14px 32px rgba(2, 5, 20, 0.75),
+    0 0 32px rgba(59, 130, 246, 0.38);
 }
 
 .fan-nav.is-open .fan-nav__toggle::after {
@@ -133,13 +134,13 @@ body.lb-mobile-lock {
 .fan-nav.is-open .fan-nav__toggle-lines::before {
   transform: translateY(0.45rem) rotate(45deg);
   opacity: 1;
-  background: linear-gradient(90deg, rgba(255, 229, 229, 0.2), rgba(255, 255, 255, 0.92), rgba(255, 229, 229, 0.2));
+  background: linear-gradient(90deg, rgba(195, 197, 255, 0.2), rgba(255, 255, 255, 0.92), rgba(195, 197, 255, 0.2));
 }
 
 .fan-nav.is-open .fan-nav__toggle-lines::after {
   transform: translateY(-0.45rem) rotate(-45deg);
   opacity: 1;
-  background: linear-gradient(90deg, rgba(255, 229, 229, 0.2), rgba(255, 255, 255, 0.92), rgba(255, 229, 229, 0.2));
+  background: linear-gradient(90deg, rgba(195, 197, 255, 0.2), rgba(255, 255, 255, 0.92), rgba(195, 197, 255, 0.2));
 }
 
 .fan-nav__pane {
@@ -159,14 +160,14 @@ body.lb-mobile-lock {
 
   /* Fondo con degrad� rojo Lebron */
   background:
-    radial-gradient(140% 160% at 88% -10%, rgba(255, 112, 112, 0.32), transparent 62%),
-    radial-gradient(120% 140% at -12% 42%, rgba(120, 0, 0, 0.32), transparent 64%),
-    linear-gradient(165deg, rgba(5, 3, 6, 0.98) 0%, rgba(16, 2, 3, 0.98) 52%, rgba(92, 0, 0, 0.92) 100%);
-  border: 1px solid rgba(255, 120, 120, 0.45);
+    radial-gradient(140% 160% at 88% -10%, rgba(59, 130, 246, 0.32), transparent 62%),
+    radial-gradient(120% 140% at -12% 42%, rgba(79, 70, 229, 0.28), transparent 64%),
+    linear-gradient(165deg, rgba(5, 4, 20, 0.96) 0%, rgba(7, 11, 46, 0.95) 52%, rgba(59, 130, 246, 0.7) 100%);
+  border: 1px solid rgba(99, 102, 241, 0.45);
   box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.06),
-    0 24px 60px rgba(7, 8, 20, 0.55),
-    0 0 52px rgba(225, 24, 24, 0.32);
+    0 0 0 1px rgba(248, 250, 255, 0.06),
+    0 24px 60px rgba(5, 8, 30, 0.55),
+    0 0 52px rgba(59, 130, 246, 0.32);
 
   transform: translate(-50%, -50%);
   opacity: 0;
@@ -186,8 +187,8 @@ body.lb-mobile-lock {
   position: absolute;
   inset: -30% -20% 45% -25%;
   background:
-    radial-gradient(circle at 28% 35%, rgba(255, 92, 92, 0.42), transparent 68%),
-    radial-gradient(circle at 78% 12%, rgba(185, 32, 48, 0.28), transparent 60%);
+    radial-gradient(circle at 28% 35%, rgba(59, 130, 246, 0.36), transparent 68%),
+    radial-gradient(circle at 78% 12%, rgba(147, 51, 255, 0.28), transparent 60%);
   filter: blur(0.9px);
   opacity: 0.6;
   mix-blend-mode: screen;
@@ -276,12 +277,12 @@ body.lb-mobile-lock {
   width: 100%;
   box-sizing: border-box;
   background:
-    linear-gradient(118deg, rgba(28, 2, 4, 0.96) 0%, rgba(104, 4, 12, 0.94) 48%, rgba(176, 18, 24, 0.9) 100%);
-  border: 1px solid rgba(190, 28, 32, 0.45);
+    linear-gradient(118deg, rgba(5, 4, 20, 0.96) 0%, rgba(11, 21, 54, 0.95) 48%, rgba(56, 189, 248, 0.85) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.35);
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.04),
     0 14px 24px rgba(6, 0, 2, 0.45),
-    0 0 22px rgba(190, 28, 32, 0.2);
+    0 0 22px rgba(56, 189, 248, 0.25);
   transition:
     transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
     border-color 0.35s ease,
@@ -293,7 +294,7 @@ body.lb-mobile-lock {
   content: "";
   position: absolute;
   inset: -120% 45% 35% -30%;
-  background: radial-gradient(circle, rgba(255, 150, 150, 0.36), transparent 70%);
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.32), transparent 70%);
   transform: rotate(12deg);
   opacity: 0;
   transition: opacity 0.4s ease;
@@ -303,11 +304,11 @@ body.lb-mobile-lock {
 .fan-nav__link:hover,
 .fan-nav__link:focus-visible {
   transform: translateY(-4px);
-  border-color: rgba(225, 24, 24, 0.42);
+  border-color: rgba(99, 102, 241, 0.6);
   box-shadow:
     inset 0 0 0 1px rgba(245, 247, 250, 0.08),
     0 18px 36px rgba(7, 2, 4, 0.62),
-    0 0 32px rgba(225, 24, 24, 0.24);
+    0 0 32px rgba(56, 189, 248, 0.25);
 }
 
 .fan-nav__link:hover::after,
@@ -327,7 +328,7 @@ body.lb-mobile-lock {
   font-size: 0.74rem;
   letter-spacing: 0.38em;
   text-transform: uppercase;
-  color: rgba(255, 230, 230, 0.82);
+  color: rgba(199, 210, 255, 0.85);
   margin-top: 0.25rem;
 }
 
@@ -352,8 +353,8 @@ body.lb-mobile-lock {
   border-radius: 999px;
   text-decoration: none;
   box-sizing: border-box;
-  background: linear-gradient(135deg, rgba(34, 4, 6, 0.94), rgba(109, 6, 12, 0.92));
-  border: 1px solid rgba(255, 140, 140, 0.38);
+  background: linear-gradient(135deg, rgba(5, 4, 20, 0.95), rgba(59, 130, 246, 0.92));
+  border: 1px solid rgba(99, 102, 241, 0.45);
   color: var(--lb-metal-white);
   font-size: 0.82rem;
   letter-spacing: 0.16em;
@@ -371,7 +372,7 @@ body.lb-mobile-lock {
 .fan-nav__chip:hover,
 .fan-nav__chip:focus-visible {
   transform: translateY(-3px);
-  border-color: rgba(255, 156, 156, 0.62);
+  border-color: rgba(56, 189, 248, 0.65);
   color: #fff;
 }
 
@@ -406,7 +407,7 @@ body.lb-mobile-lock {
 .fan-nav__scrim {
   position: fixed;
   inset: 0;
-  background: rgba(8, 0, 0, 0.62);
+  background: rgba(3, 7, 25, 0.8);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   opacity: 0;

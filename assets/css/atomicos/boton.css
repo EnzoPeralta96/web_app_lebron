@@ -1,60 +1,121 @@
+/* ---- ESTILOS COMPARTIDOS ---- */
 .lb-btn {
   display: inline-flex;
+  /* alineacion horizontal para iconos y texto */
   align-items: center;
+  /* centra contenido verticalmente */
   justify-content: center;
+  /* centra contenido horizontalmente */
   gap: 0.5rem;
+  /* espacio entre icono y texto */
   padding: 0.9rem 1.4rem;
+  /* relleno equilibrado */
   border-radius: 0.7rem;
+  /* bordes redondeados */
   font-family: "Orbitron", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  /* stack de fuentes */
   font-weight: 600;
-  line-height: 1; /* asegura centrado vertical consistente */
+  /* peso medioalto para legibilidad */
+  line-height: 1;
+  /* centro vertical consistente */
   cursor: pointer;
+  /* indicador de clic */
   text-decoration: none;
+  /* elimina subrayado */
   user-select: none;
+  /* evita seleccion de texto */
   transition:
     transform 0.2s ease,
+    /* animacion de escalado */
     filter 0.2s ease,
+    /* suaviza brillo */
     box-shadow 0.2s ease,
+    /* suaviza sombra */
     background-color 0.2s ease,
+    /* suaviza cambio de fondo */
     border-color 0.2s ease,
+    /* suaviza cambio de borde */
     color 0.2s ease;
+  /* suaviza cambio de color */
 }
 
 .lb-btn:focus-visible {
-  /* mantener un indicador visible al enfocar via teclado */
   outline: none;
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary, #e11919) 30%, rgba(255,255,255,0.14));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary, #e11919) 30%, rgba(255, 255, 255, 0.14));
+  /* indicador visible al enfocar via teclado */
 }
 
-/* ---- VARIANTES ---- */
+/* ---- PRIMARY ---- */
 .lb-primary {
   background: rgba(134, 0, 0, 0.432);
+  /* fondo rojo oscuro translucido */
   color: #fff;
+  /* texto blanco para contraste */
   border: 1px solid color-mix(in srgb, var(--primary, #e11919) 70%, #000 30%);
+  /* borde integrado al tono primario */
   box-shadow: 0 4px 12px color-mix(in srgb, var(--primary, #e11919) 55%, transparent);
+  /* sombra tenue debajo del boton */
 }
 
 .lb-primary:hover {
   filter: brightness(105%);
+  /* aclara ligeramente el boton */
   transform: scale(1.05);
+  /* agranda para dar feedback */
   box-shadow: 0 6px 18px color-mix(in srgb, var(--primary, #e11919) 60%, transparent);
+  /* sombra mas intensa */
 }
 
 .lb-primary:active {
   transform: scale(1.02);
+  /* reduce el escalado al hacer clic */
   filter: brightness(102%);
+  /* mantiene brillo controlado */
 }
 
+/* ---- GHOST ---- */
 .lb-ghost {
   background: transparent;
+  /* sin relleno para efecto fantasma */
   color: #fff;
+  /* texto blanco sobre fondo oscuro */
   border: 2px solid var(--primary, #ad0000);
+  /* borde grueso para visibilidad */
 }
 
 .lb-ghost:hover {
   background-color: color-mix(in srgb, var(--primary, #9819e1) 22%, transparent);
+  /* ligero relleno al pasar el cursor */
   transform: translateY(-2px);
+  /* elevacion sutil */
   box-shadow: 0 6px 18px color-mix(in srgb, var(--primary, #19b2e1) 40%, transparent);
+  /* sombra difusa */
+}
+
+/* ---- BLACK FRIDAY ---- */
+.lb-black-friday {
+  background: linear-gradient(145deg, #030712, #0c1b4a 65%);
+  /* fondo oscuro con matices azules */
+  color: #dbeafe;
+  /* texto claro para contraste */
+  border: 2px solid #7c3aed;
+  /* borde violeta intenso */
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.75);
+  /* sombra profunda para dramatismo */
+}
+
+.lb-black-friday:hover {
+  filter: brightness(115%);
+  /* highlight al pasar */
+  transform: scale(1.04);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.85);
+  color: #e0e7ff;
+}
+
+.lb-black-friday:active {
+  transform: scale(1.03);
+  /* ligero retroceso */
+  filter: brightness(108%);
 }
 
 /* ---- EFECTO 57 ---- */
@@ -69,7 +130,6 @@
   z-index: 2;
   transition: color 600ms cubic-bezier(.48, 0, .12, 1), opacity 500ms ease;
   opacity: 1;
-  
 }
 
 .lb-57 span:last-child {
@@ -93,21 +153,28 @@
 .lb-57::after {
   content: "";
   position: absolute;
-  inset: 0;              /* cubrir completamente el botón */
-  border-radius: inherit;/* respetar bordes redondeados */
+  inset: 0;
+  /* cubrir completamente el boton */
+  border-radius: inherit;
+  /* respetar bordes redondeados */
   transform-origin: center;
-  transform: scaleY(0);  /* se despliega de forma vertical */
+  transform: scaleY(0);
+  /* se despliega de forma vertical */
   transition: transform 600ms cubic-bezier(.48, 0, .12, 1);
   z-index: 1;
 }
 
 .lb-57.lb-primary::after {
   background: #ca0000;
-
 }
 
 .lb-57.lb-ghost::after {
   background: color-mix(in srgb, var(--primary, #e11919) 90%, #000 10%);
+}
+
+.lb-57.lb-black-friday::after {
+  background: linear-gradient(135deg, #7c3aed, #0ea5e9);
+  /* destello violeta/azul */
 }
 
 .lb-57:hover::after,
@@ -122,8 +189,8 @@
 
 .lb-57:hover span:last-child,
 .lb-57:focus-visible span:last-child {
-  /* centra exactamente el texto al activar */
   transform: translate(-50%, -50%);
+  /* centra el texto al activar */
   opacity: 1;
   transition: all 900ms cubic-bezier(.48, 0, .12, 1);
 }
